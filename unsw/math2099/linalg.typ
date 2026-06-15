@@ -1,3 +1,5 @@
+#import "@preview/cetz:0.5.2"
+
 #import "templates.typ": *
 
 = Linear Algebra
@@ -159,3 +161,189 @@ Furthermore
 
   The scalars $x_i$ are called the *coordinates* of the vector $v$ with respect to the basis $B$.
 ]
+
+== Linear Maps
+#def("Linear Map")[
+  Let $V$ and $W$ be two vector spaces over the same field $FF$. A function $T : V -> W$ is called a *linear map*, a *linear tranformation* or described as *linear* if the following two conditions are satisfied:
+
+  - Addition is respected
+    $
+      T(u + v) = T(u) + T(v) "for all" u, v in V
+    $
+  - Scalar multiplication is repected
+    $
+      T(lambda v) = lambda T(v) "for all" lambda in FF and v in V
+    $
+]
+
+#def("Linearity Test Theorem")[
+  A function $T : V -> W$ is a linear map if and only if for all $lambda, mu in FF$ and $u, v in V$
+  $
+    T(lambda u + mu v) = lambda T(u) + mu T(v)
+  $
+
+  If $T(0) != 0$, or there is a vector $v$ with $T(-v) != -T(v)$ then $T$ is not linear.
+]
+
+=== Matrices of Linear Tranformations
+Linear tranformations are very close and have an important relationship to matrix multiplication. e.g.
+
+$
+  T vec(x_1, x_2, x_3) = vec(7x_1 + x_2, x_2 + 4x_3) \
+  = mat(7, 1, 0; 0, 1, 4) vec(x_1, x_2, x_3)
+$
+
+We say that $A = mat(7, 1, 0; 0, 1, 4)$ is the matrix of $T$ with respect to standard bases.
+
+Essentially $ T(x) = A x. $
+
+#def("Matrix of a Linear Map")[
+  Let $T : V -> W$ be a linear tranformation, where the domain $V$ and the codomain $W$ are finite-dimensional vector space over field $FF$.
+
+  Then A is the matrix of $T$ with respect to ordered bases $B$ for $V$ and $C$ for $W$ if
+  $
+    [T(v)]_C = A[v]_B
+  $
+  for all vectors $v in V$.
+
+  Here $[v]_B$ denotes the coordinate vector of $v$ with respect to the basis $B$, and $[T(v)]_C$ denotes the coordinate vector of $T(v)$ with respect to the basis $C$.
+]
+
+A transformation matrix $A in M_(q,p)$ is a linear map from a $p$ dimensional vector space to a $q$ dimensional has a $q times p$ matrix.
+
+Alternative method of finding the matrix of a linear transformation:
+- Calculate the $T(v)$ for all $v$ in the basis vector.
+- Combine each transformed vector columnwise to find the transformation matrix.
+
+=== Commutative Diagrams and Matricies of Linear Transformations
+#def("Lemma 1")[
+  If $P$ is the matrix for $T_1 : U -> V$ with respect to bases $B$ and $C'$ and $Q$ is the matrix for $T_2 : V -> W$ with respect to bases $C'$ and $C$. Then $Q P$ is the matrix for $T_2 compose T_1$ with repect to bases $B$ and $C$.
+]
+
+#def("Lemma 2")[
+  Let $T : V -> W$ be a linear transformation where $dim(V) = dim(W)$.
+  Suppose $M$ is the matrix of $T$ with repect to bases $B$ in $V$ and $C$ in $W$.
+
+  Then $T$ is a bijection if and only if $M$ is invertible, and in that case $M^(-1)$ is the matrix of $T^(-1) : W -> V$ with repect to the bases $C$ in $W$ and $B$ in $V$.
+]
+
+#align(center, cetz.canvas({
+  import cetz.draw: *
+
+  content(name: "tl", (-4, 2), $V "w.r.t" cal(S)_V$)
+  content(name: "tr", (4, 2), $W "w.r.t" cal(S)_W$)
+  content(name: "bl", (-4, -2), $V "w.r.t" B$)
+  content(name: "br", (4, -2), $W "w.r.t" C$)
+
+  line(name: "t", "tl.east", "tr.west", mark: (end: ">>"))
+  content((rel: (0, .3), to: "t.50%"), $T$)
+  content((rel: (0, -.3), to: "t.50%"), $A$)
+
+  line(name: "l", "bl.north", "tl.south", mark: (end: ">>"))
+  content((rel: (-.4, 0), to: "l.50%"), $id_V$)
+  content((rel: (.4, 0), to: "l.50%"), $P$)
+
+  line(name: "r", "br.north", "tr.south", mark: (end: ">>"))
+  content((rel: (-.4, 0), to: "r.50%"), $id_W$)
+  content((rel: (.4, 0), to: "r.50%"), $Q$)
+
+  line(name: "b", "bl.east", "br.west", mark: (end: ">>"))
+  content((rel: (0, .3), to: "b.50%"), $T$)
+  content((rel: (0, -.3), to: "b.50%"), $M$)
+
+  line(name: "k", (-5, 3.4), (5, 3.4), mark: (end: ">>"))
+  content((rel: (0, .3), to: "k.50%"), [Linear map])
+  content((rel: (0, -.3), to: "k.50%"), [Matrix])
+}))
+
+We call this a *commutative* diagram because you get the same result whichever path we take from one corner to another.
+
+e.g.
+$
+  id_W compose T & = T compose id_V \
+               T & = Q^(-1) compose T compose P \
+$
+
+by the two lemmas, this means that
+$
+  Q M & = A P \
+    M & = Q^(-1) A P
+$
+
+/ w.r.t: with respect to the basis
+
+=== Kernal and Image
+
+#def("Kernal and Image of a Linear Transformation")[
+  Let $T : V -> W$ be a linear map.
+
+  The *kernal* (or *nullspace*) of $T$, written $ker(T)$, is the set of all zeros of $T$, that is,
+  $
+    ker(T) = {v in V : T(v) = 0}.
+  $
+
+  The *image* of $T$ is the set of all function values of $T$, that is,
+  $
+    im(T) = {w in W : w = T(v) "for some" v in V}.
+  $
+]
+
+#def("Kernal and Image of a Matrix")[
+  The *kernal* of a $p times q$ matrix $A$ is the subset of $RR^q$ defined by
+  $
+    ker(A) - {x in RR^q : A x = 0}.
+  $
+
+  The *image* (or *nullspace*) of a $p times q$ matrix $A$ is the subset of $RR^p$ defined by
+  $
+    im(A) = {b in RR^p : b = A x "for some" x in RR^q}.
+  $
+]
+
+#def("Rank and Nullity")[
+  The *rank* of a linear map $T$ is the dimension of $im(T)$ and the *rank* of a matrix $A$ is the dimension of $im(A)$, denoted by $"rank"(T)$ and $"rank"(A)$.
+
+  The *nullity* of a linear map $T$ is the dimension of $ker(T)$ and the *nullity* of a matrix $A$ is the dimension of $ker(A)$, denoted by $"nullity"(T)$ and $"nullity"(A)$.
+]
+
+#def("Rank-Nullity Theorem")[
+  If $A$ is an $p times q$ matrix, then $"rank"(A) + "nullity"(A) = q$.
+
+  If $T : V -> W$ is a linear map between finite dimensional vector spaces
+  $
+    "rank"(T) + "nullity"(T) = dim(V).
+  $
+]
+
+=== Some Linear Transformations on $RR^2$ and $RR^3$
+
+#table(
+  columns: (1fr,) * 2,
+  stroke: none,
+  align: (left, center),
+  table.header[*Transformation*][*Matrix*],
+
+  table.cell(colspan: 2)[*$RR^2$*],
+
+  [Rotation by $theta$], $mat(cos theta, -sin theta; sin theta, cos theta)$,
+  [Reflection across $x$-axis], $mat(1, 0; 0, -1)$,
+  [Reflection across $y$-axis], $mat(-1, 0; 0, 1)$,
+  [Reflection across $y = x$], $mat(0, 1; 1, 0)$,
+  [Scaling by $k$], $mat(k, 0; 0, k)$,
+  [Horizontal shear by $k$], $mat(1, k; 0, 1)$,
+  [Vertical shear by $k$], $mat(1, 0; k, 1)$,
+  [Projection onto $x$-axis], $mat(1, 0; 0, 0)$,
+  [Projection onto $y$-axis], $mat(0, 0; 0, 1)$,
+
+  table.cell(colspan: 2)[*$RR^3$*],
+
+  [Rotation about $z$-axis],
+  $mat(cos theta, -sin theta, 0; sin theta, cos theta, 0; 0, 0, 1)$,
+  [Rotation about $x$-axis],
+  $mat(1, 0, 0; 0, cos theta, -sin theta; 0, sin theta, cos theta)$,
+  [Rotation about $y$-axis],
+  $mat(cos theta, 0, sin theta; 0, 1, 0; -sin theta, 0, cos theta)$,
+  [Reflection across $x y$-plane], $mat(1, 0, 0; 0, 1, 0; 0, 0, -1)$,
+  [Scaling by $k$], $mat(k, 0, 0; 0, k, 0; 0, 0, k)$,
+  [Projection onto $x y$-plane], $mat(1, 0, 0; 0, 1, 0; 0, 0, 0)$,
+)
