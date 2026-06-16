@@ -338,3 +338,101 @@ $
 == Special Random Variables
 
 === Binomial Distribution
+#def("Binomial Distribution")[
+  Assume
+  - The outcome of a random experiment can be classified as either a success or a failure.
+  - We observe a success with probability $pi$.
+  - $n$ independent repetitions of this experiment are performed.
+
+  Define $X =$ number of success observed over the $n$ repetitions.
+  We say that $X$ is a binomial random variable with parameters $n$ and $pi$.
+  $
+    X ~ "Bin"(n, pi)
+  $
+
+  $S_X = {0, 1, 2, ..., n}$ and the binomial probability mass function is given by
+  $
+    p(x) = vec(n, x) pi^x (1 - pi)^(n-x) quad "for" x in S_X
+  $
+  where $vec(n, x)$ is the number of different groups of $x$ objects that can be chosen from a set of $n$ objects.
+]
+
+#def("Bernoulli Distribution")[
+  The Bernoulli distribution is a binomial distribution with $n = 1$.
+  $
+    X ~ "Bern"(pi)
+  $
+  $
+    p(x) = cases(1 - pi & "if" x = 0, pi & "if" x= 1, 0 & "otherwise")
+  $
+]
+
+If $X_1 = "Bin"(n_1, pi)$, $X_2 = "Bin"(n_2, pi)$ and $X_1$ and $X_2$ are independent, then
+$
+  X_1 + X_2 ~ "Bin"(n_1 + n_2, pi).
+$
+
+#def("Mean and Variance of Binomial Distribution")[
+  If $X ~ "Bin"(n, pi)$,
+  $
+    mu = EE(X) = n pi & "and" & sigma^2 = VV"ar"(X) = n pi (1 - pi)
+  $
+]
+
+=== Poisson Distribution
+#def("Poisson Distribution")[
+  Assume you are interested in the number of occurrences of some random phenomenon in a fixed period of time.
+
+  Define $X =$ number of occurrences. We say that $X$ is a Poisson random variable with parameter $lambda$.
+  $
+    X ~ cal(P)(lambda)
+  $
+  if
+  $
+    p(x) = e^(-lambda) lambda^x / x! quad "for" x in S_X = NN.
+  $
+]
+
+Poisson distribution models a Binomial distribution where $n -> infinity$.
+
+Let $X ~ "Bin"(n, pi)$,
+$
+           PP(X = x) & = n! / (x! (n - x)!) (lambda/n)^x (1 - lambda/n)^(n-x) \
+                     & = n!/(n^x (n-x)!(1-lambda/n)^x) lambda^x/x! (1-lambda/n)^n \
+  "As" n -> infinity & = n!/(n^x (n-x)!(1-lambda/n)^x) -> 1
+                       "and" (1 - lambda /n)^n -> e^(-lambda)
+$
+Thus,
+$
+  PP(X = x) = e^(-lambda) lambda^x/x! quad "for" x in NN.
+$
+
+*$lambda$* is the *intensity* of the phenomenon.
+
+#def("Mean and Variance of Poisson Distribution")[
+  If $X ~ cal(P)(lambda)$,
+  $
+    EE(X) = lambda & and & VV"ar"(X) = lambda
+  $
+]
+
+=== Uniform Distribution
+#def("Uniform Distribution")[
+  A random variable is said to be *uniformly distributed* over an interval $[alpha, beta]$, i.e
+  $
+    X ~ U_[alpha, beta]
+  $
+  if its pdf(probability density function) is given by
+  $
+    f(x) = cases(1/(beta - alpha) & "if" x in [alpha, beta], 0 & "otherwise") quad ( -> S_X = [alpha, beta])
+  $
+
+  By integration
+  $
+    F(x) = cases(0 & "if" x < alpha, (x - alpha)/(beta - alpha) & "if" alpha <= x <= beta, 1 & "if" x > beta)
+  $
+]
+
+=== Exponential Distribution
+
+=== Normal Distribution
