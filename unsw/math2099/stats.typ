@@ -412,7 +412,7 @@ $
 #def("Mean and Variance of Poisson Distribution")[
   If $X ~ cal(P)(lambda)$,
   $
-    EE(X) = lambda & and & VV"ar"(X) = lambda
+    EE(X) = lambda quad VV"ar"(X) = lambda
   $
 ]
 
@@ -433,6 +433,114 @@ $
   $
 ]
 
+#def("Mean and Variance of Uniform Distribution")[
+  $
+    EE(X) = (alpha+beta)/2 quad VV"ar"(X) = (beta - alpha)^2 / 12
+  $
+]
+
 === Exponential Distribution
+A poisson distributed random variable counts the number of occurrences of a given phenomenon over a unit period of time.
+
+If $N ~ cal(P)(lambda)$ denotes the number of occurrences over a unit period of time, then the number of occurences of the phenomenon by a time $x$ is $N_x ~ cal(P)(lambda x)$.
+
+Denote $X$ the amount fo time before the first occurrence.
+
+This time will exceed $x (x >= 0)$ if and only if there have been no occurrences of the phenomenon by time $x$, that is, $N_x = 0$.
+
+As $N_X ~ cal(P)(lambda x)$, if follows $PP(X > x) = PP(N_x = 0) = e^(-lambda x) (lambda x)^0 / 0! = e^(-lambda x)$
+
+$X$ is called the Exponential distrubution.
+
+#def("Exponential Distribution")[
+  A random variable is said to be an *Exponential random variable* with parameter $mu > 0$, i.e.
+  $
+    X ~ "Exp"(mu),
+  $
+  if its probability distribution function is given by
+  $
+    f(x) = cases(1/mu e^(-x/mu) & "if" x >= 0, 0 & "otherwise") quad (-> S_X = RR^+).
+  $
+
+  By integration:
+  $
+    F(x) = cases(0 & "if" x < 0, 1 - e^(-x/mu) & "if" x >= 0).
+  $
+
+  It is useful for representing random amounts of time, like the amount of time required to complete a task, waiting time at a counter, the amount of time until you receive a phone call, etc.
+
+  Note: the parameter $mu = 1/lambda$ ($lambda$ = parameter of equivalent poisson distribution).
+]
+
+#def("Mean and Variance of the Exponential Distribution")[
+  If $X ~ "Exp"(mu)$,
+  $
+    EE(X) = mu quad VV"ar"(X) = mu^2.
+  $
+]
 
 === Normal Distribution
+#def("Normal Distribution")[
+  A random variable is *normally distributed* with parameters $mu$ and $sigma > 0$,
+  $
+    X ~ N(mu, sigma),
+  $
+  if its probability density function is given by
+  $
+    f(x) = 1/(sqrt(2 pi)sigma)e^(-(x-mu)^2/(2 sigma^2)) quad (-> S_X = RR)
+  $
+  No closed form exists for
+  $
+    F(x) = 1/(sqrt(2 pi)sigma) integral_(-infinity)^x e^(-(y-mu)^2/(2 sigma^2)) dif y
+  $
+  so numerical integration is required.
+]
+
+#def("Mean and Variance of the Normal Distribution")[
+  If $X ~ cal(N)(mu, sigma)$,
+  $
+    EE(X) = mu quad VV"ar"(X) = mu^2
+  $
+]
+
+#def("Standard Normal Distribution")[
+  is the normal distribution with $mu = 0$ and $sigma = 1$. Thus
+  $
+    f(x) = 1/sqrt(2 pi) e^(-x^2/2)
+  $
+
+  Notation:
+  $
+    f(x) dot(=) phi(x) quad F(x) dot(=) Phi(x) \
+    Z ~ N(0, 1)
+  $
+]
+
+==== Normal Distribution Standardisation
+If $X ~ N(mu, sigma)$, then
+$
+  Z = (X - mu)/sigma ~ N(0, 1)
+$
+
+*68-95-99 rule*:
+$
+  integral_(-1)^1 phi(x) dif x = PP(-1 < Z < 1) approx 0.6827 \
+  integral_(-2)^2 phi(x) dif x = PP(-2 < Z < 2) approx 0.9545 \
+  integral_(-3)^3 phi(x) dif x = PP(-3 < Z < 3) approx 0.9973 \
+$
+
+$68%$ of the data is within one standard deviation of the mean.
+$95%$ of the data is within two standard deviations of the mean.
+$99%$ of the data is within three standard deviations of the mean.
+
+==== Normal Distribution Quantiles
+#def("Quantils")[
+  Given $PP(Z > z_alpha) = 1-alpha$ for $Z ~ N(0, 1)$, the value $z_alpha$ is called the *quantile* of level $alpha$.
+]
+
+==== Normal Distribution Properties
+If $X_1 ~ cal(N)(mu_1, sigma_1)$, $X_2 ~ cal(N)(mu_2, sigma_2)$ and $X_1$ is independent to $X_2$, then for any $a, b in RR$,
+$
+  a X_1 + b X_2 ~ N(a mu_1 + b mu_2, sqrt(a^2 sigma_1^2 + b^2 sigma_2^2))
+$
+
