@@ -437,3 +437,78 @@ STMIB v1, {a1-a4}
 - Big endian: least significant byte is stored at the highest memory address.
 
 ARM is little-endian by default.
+
+= Lecture 3
+== Conditional Flags / Execution
+Conditions flags in CPSR:
+- N (negative)
+- Z (zero)
+- C (carry)
+- V (overflow)
+
+Condition flags can be updated by:
+- 'S' option of data processing instructions: `ADDS`, `MOVS`
+- Flag setting instructions: `CMP`, `CMN`, `TST`, `TEQ`
+- Shift operations (only C flag)
+- Other special instructions
+
+== Flag Setting Instructions
+
+=== `CMP` Compare
+Compares 1st and 2nd operand by performing a subtraction, while setting the flags.
+
+=== `CMN` Compare Negative
+Same as `CMP` but performs addition instead.
+
+=== `TST` Test bits
+Logical `AND` between operands. Only N and Z flags.
+
+=== `TEQ` Test Equivalence
+Logical XOR between operands. Only N, Z and C flags.
+
+== Flags for Conditional Execution
+ARM instruction can execute normally or have a condition specified by a two letter suffix for conditional execution.
+
+Instruction becomes a no-op if the conditions are not met.
+
+e.g.
+```asm
+      MOV r1, #10
+loop                     ; do
+      SUBS r1, r1, #1    ;    i = i - 1
+      BNE loop           ;  while (i != 0)
+```
+
+#table(
+  columns: (1fr,) * 4,
+  stroke: none,
+  table.header()[Field Mnemonic][ConditionalCode][Flag Status][Meaning],
+  [EQ], [0000], [Z set], [Equal],
+  [NE], [0001], [Z clear], [Not Equal],
+  [HS/CS], [0010], [C set], [Unsigned $>=$],
+  [CC/LO], [0011], [C clear], [Unsigned $<$],
+  [MI], [0100], [N set], [Negative],
+  [PL], [0101], [N clear], [Positive or Zero],
+  [VS], [0110], [V set], [Overflow],
+  [VC], [0111], [V clear], [No Overflow],
+  [HI], [1000], [C set and Z clear], [Unsigned $>$],
+  [LS], [1001], [C clear and Z set], [Unsigned $<=$],
+  [GE], [1010], [N = V], [Signed $>=$],
+  [LT], [1011], [N $!=$ V], [Signed $<$],
+  [GT], [1100], [Z clear, N = V], [Signed $>$],
+  [LE], [1101], [Z set, N $!=$ V], [Signed $<=$],
+  [AL], [1110], [Always], [Default],
+)
+
+== Branch Instructions
+/ `B`: Regular branch
+/ `BL`: Branch and link, branch to a new location, then return to the original location. The link register `LR` or `R14` used to hold the return address. Used to implement subroutines and function calls.
+
+ARM address bus is 32-bit wide. How to specify 32-bit branch target address?
+=> Use PC-relative addressing.
+
+Branch address = (current PC + (offset \* 2^2))
+
+However: cannot branch more than 32MB away from PC.
+
+BL instruction modifies 3-stage pipeline by adding extra LINKRET and ADJUST stages after executing the branch link instruction.
