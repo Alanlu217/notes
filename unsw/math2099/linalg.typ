@@ -347,3 +347,5 @@ $
   [Scaling by $k$], $mat(k, 0, 0; 0, k, 0; 0, 0, k)$,
   [Projection onto $x y$-plane], $mat(1, 0, 0; 0, 1, 0; 0, 0, 0)$,
 )
+
+== Orthogonality and Least Squares
