@@ -150,7 +150,6 @@ The *Bernoulli random variable* is the simplest possible discrete random variabl
 === Expectation and variance
 #def("Expectation")[
   The *expectation* or the *mean* of a random variable $X$, denoted $EE(X)$ or $mu$ is:
-
   #table(
     columns: (1fr,) * 2,
     stroke: none,
@@ -158,19 +157,14 @@ The *Bernoulli random variable* is the simplest possible discrete random variabl
     $
       mu = EE(X) = sum_(x in S_X) x p(x)
     $,
-
     $
       mu = EE(X) = integral_(S_X) x f(x) dif x
     $,
   )
-
   The *expectation* has the same unit as $X$.
 ]
-
 $EE(X)$ is a weighted average of all the possible values of $X$, with each value being weighted by the probability that $X$ assumes it.
-
 $EE(X)$ has the same units as $X$.
-
 *Expectation of a function of a random variable*
 #table(
   columns: (1fr,) * 2,
@@ -183,11 +177,9 @@ $EE(X)$ has the same units as $X$.
     EE(g(X)) = integral_(S_X) g(x) f(x) dif x
   $,
 )
-
 #def("Variance")[
   The *variance* of a random variable $X$, usually denoted by $VV"ar"(X) or sigma^2$ is defined by
   $ VV"ar"(X) = EE((X - mu)^2) $
-
   #table(
     columns: (1fr,) * 2,
     stroke: none,
@@ -199,14 +191,23 @@ $EE(X)$ has the same units as $X$.
       sigma^2 = VV"ar"(X) = integral_(S_X) (x - mu)^2 f(x) dif x
     $,
   )
-
   *variance* has the unit of $X^2$
 ]
-
 Alternative formula:
 $
   sigma^2 = VV"ar"(X) = EE(X^2) - (EE(X))^2 = EE(X^2) - mu^2
 $
+
+*Linear function of a random variable*
+
+For a linear function $g(X) = a X + b$ where $a, b in RR$:
+$
+  EE(a X + b) = a EE(X) + b = a mu + b
+$
+$
+  VV"ar"(a X + b) = a^2 VV"ar"(X) = a^2 sigma^2
+$
+Note that shifting by $b$ does not affect variance — only scaling by $a$ does, and it does so *quadratically*.
 
 #def("Standard Deviation")[
   The *standard deviation* or $X$, $sigma = sqrt(sigma^2) = sqrt(VV"ar"(X))$
@@ -544,3 +545,101 @@ $
   a X_1 + b X_2 ~ N(a mu_1 + b mu_2, sqrt(a^2 sigma_1^2 + b^2 sigma_2^2))
 $
 
+== Sampling Distributions + Central Limit Theorem
+
+#def("Statistical Inference")[
+  - We have a *population* of interest
+  - We have observations on a subset only, the *sample*
+  - We want to learn about the population from the sample.
+  - Focused on making inferences about a particular *parameter*
+
+  Main parameters of interest:
+  - *mean*
+  - *proportion* of individuals in population that belong to a class of interest
+  - *difference in means of two sub-populations*
+  - *different in two sub-population proportions*
+]
+
+=== Random Sampling
+In order to make inferences about a population from a sample, we need a *random sample*
+- To ensure that a sample is representative of the population from which it is obtained
+- to provide a framework for the application of probability theory to problems of sampling.
+
+If the sample is not random, statistical methods may not work properly and may lead to incorrect decisions.
+
+#def("")[
+  The set of observations $X_1, X_2, ..., X_N$ constitutes a *random sample* if
+  + The $X_i$'s are independent random variables
+  + every $X_i$ has the same probability distribution
+
+  This is often abbreviated to *i.i.d* for 'independent and identically distributed'.
+]
+
+=== Estimators and sampling distributions
+#def("Estimator / Estimate")[
+  Let $theta$ be the unknown parameter of interest.
+
+  An *estimator* of $theta$ is a function of the sample
+  $
+    hat(Theta) = h(X_1, X_2, ..., X_n)
+  $
+
+  After the sample has been selected, $hat(Theta)$ takes on a particular value $hat(theta) = h(x_1, x_2, x_n)$, called the *estimate* of $theta$.
+]
+
+=== Sampling Distribution of an estimator
+
+An estimator is a function of random variables that take different observations across different samples.
+
+
+So $hat(Theta)$ is a random vairable that takes different values across different samples. An estimator has a *sampling distribution*, which depends on the distribution of $X$ in the population, and the sample size.
+
+The *sampling distribution* tells us how well $hat(Theta)$ estimates $theta$.
+
+=== Central Limit Theorem
+#def("Central Limit Theorem")[
+  If $X_1, X_2, ..., X_n$ is a random sample taken from a population with mean $mu$ and finite variance $sigma^2$, and if $bar(X)$ is the sample mean, then the limiting distribution of
+  $
+    (bar(X) - mu) / (sigma/sqrt(n))
+  $
+  as $n -> infinity$, is the *standard normal distribution*
+]
+
+This tells us that when $n$ is large, the distribution of $(bar(X) - mu) / (sigma/sqrt(n))$ is approximately normal.
+$
+  (bar(X) - mu) / (sigma/sqrt(n)) & limits(~)^a cal(N)(0, 1) \
+                           bar(X) & limits(~)^a cal(N)(mu, sigma/sqrt(n))
+$
+
+=== Properties of Estimators
+
+#def("Unbiased")[
+  An estimator $hat(Theta)$ of $theta$ is *unbiased* iff its mean is equal to $theta$, whatever the value of $theta$
+  $
+    EE(hat(Theta)) = theta
+  $
+
+  $EE(hat(Theta)) - theta$ is the *bias* of the estimator $->$ systematic error
+]
+
+#def("Efficiency")[
+  $
+    VV"ar"(hat(Theta_1)) & = VV"ar"(X_1) & = sigma^2 \
+    VV"ar"(hat(Theta_2)) & = VV"ar"((X_1 + X_n)/2) & = (1/2)^2 (sigma^2 + sigma^2) = sigma^2/2 \
+  $
+
+  Variance of $hat(Theta_2)$ is half as big as variance of $hat(Theta_1)$ so $hat(Theta_2)$ is more *efficient*.
+]
+
+#def("Consistency")[
+  A big enough sample should give an estimator that gets arbitrarily close to the true parameter. The probability that the estimator is close to $theta$ should increase to $1$ as the sample size increases.
+
+  An estimator with this property *consistent*.
+
+  In other words, as $n -> infinity$, $sigma^2 -> 0$.
+]
+
+=== Standard Error of a Point Estimate
+#def("Standard Error")[
+  The *standard error* of an estimator $hat(Theta)$ is its standard deviation $"sd"(hat(Theta))$.
+]
