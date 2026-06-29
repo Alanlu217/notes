@@ -512,3 +512,84 @@ Branch address = (current PC + (offset \* 2^2))
 However: cannot branch more than 32MB away from PC.
 
 BL instruction modifies 3-stage pipeline by adding extra LINKRET and ADJUST stages after executing the branch link instruction.
+
+= Lecture 4 (Functions, subroutines and procedural call standard)
+
+Functions and subroutines need to
++ save and restore information between function / subroutine calls.
++ pass information (arguments and return values) to and from subroutines
+
+This is achieved via *stacks*.
+Need to follow specific rules when writing subroutines, e.g. how to handle register conflicts.
+
+*ARM Architecture Procedure Call Standard* (AAPCS) specifies these rules so that subroutines developed by different programmers can talk to each other.
+
+== Stack
+- Is a special area in memory (RAM) with
+  - variable length
+  - fixed starting address
+- has a list in first out (LIFO) data structure with
+  - PUSH
+  - POP
+- Operations typically happen at word level (32 bits).
+- *Stack Pointer* (SP / R13) holds address of either top-most empty entry or top most last filled entry in the stack
+- Each processor mode has its own stack pointer
+- Data is PUSHED onto the stack when using *STR* or *STM* with stack pointer as the base register.
+- Data is POPPED from the stack when using LDR and LDM instructions with stack pointer as the base register.
+- Stack pointer is updated on each action
+
+== Stack types
+- Descending / Ascending: whether the stack grows downwards or upwards (address decreases as stack grows or address increases as stack grows).
+- Full / Empty: whether the stack pointer points to the last filled element or next empty space on the stack.
+
+Default is Full Descending.
+
+Can use suffixes as alternatives in load / store multiple:
+- Full Descending (FD)
+- Full Ascending (FA)
+- Empty Descending (ED)
+- Empty Ascending (EA)
+
+#table(
+  columns: (1fr,) * 3,
+  stroke: none,
+  table.header()[Stack Type][Push][Pop],
+  [Full Descending], [STMFD (STMDB)], [LDMFD (LDMIA)],
+  [Full Ascending], [STMFA (STMIB)], [LDMFA (LDMDA)],
+  [Empty Descending], [STMED (STMDA)], [LDMED (LDMIB)],
+  [Empty Ascending], [STMEA (STMIA)], [LDMEA (LDMDB)],
+)
+
+== Function call procedure
+- Two parties: Caller, Callee
+- Functions have return values, subroutines do not.
+- Caller has to set up arguments
+- Callee sets up return value
+- Function call:
+  - Acheived using `BL` (Branch and link).
+  - `BL` saves current program counter in link register
+  - Returning is achieved by `MOV PC, LR`
+
+=== Nested function calls:
+- Requires saving previous `LR` to the stack so we can return up the calling chain.
+
+=== Register conflicts
+Only 15 registers sharable between caller and calle.
+
+Caller needs registers to pass arguments, Callee needs registeres to return values.
+
+Callee should not corrupt any registers that caller might use after the function call.
+
+To help resolve these conflicts, register groups are defined with usage rules:
+- Scatch / argument: A1-A4
+- Local variables: V1-V8
+
+== Setting up function calls:
+
++ Create stack frame
+  - Backup registers that conflict with caller
+  - Save `LR` if current function calls another function
+  - Pass arguments if A1-A4 insufficient
++ Perform operations (function body)
++ Remove stack frame and return to caller
+
