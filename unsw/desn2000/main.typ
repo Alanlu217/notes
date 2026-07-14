@@ -593,3 +593,51 @@ To help resolve these conflicts, register groups are defined with usage rules:
 + Perform operations (function body)
 + Remove stack frame and return to caller
 
+= Lecture 5
+== IO
+Needs a way to
+- *connect* many device types to the processor and memory
+- *control* these devices, respond to them, and transfer data
+- *present* these devices to user programs
+
+Two models of accessing devices from CPU
++ dedicated I/O instructions
++ memory mapped I/O (used by ARM)
+
+== Memory mapped I/O
+- IO devices have registers for status / control, and data
+- These registers have interfaces similar to memory and can be connected to the memory bus
+- Reading / writing *special* memory locations produces the desired changes in the I/O device controller
+- Typically, devices map to only a few bytes in memory
+
+== Processor & IO speed mismatch
+- A 500 MHz microprocessor can execute 500 million load / store instructions per sec
+- IO device might be 0.01kB/s
+
+Thus, the device may not be ready to send data as fast as the processor loads it.
+
+Two methods to fix: polling and interrupts
+
+=== Polling
+- Path to device has two registers
+  - status register
+  - data register
+
++ First read status reg
++ If ready read data reg, otherwise go to 1.
++ reset status reg (by IO device)
+
+However polling is expensive, CPU has to keep checking if the data is ready.
+
+=== Interrupts
+Instead of CPU checking if device is ready, device notifies CPU when it is ready.
+
+== Fast GPIO
+- LPC2478 has lots of IO's (all mem mapped)
+- Simplest type: 5 Fast General Purpose IO ports (GPIO) each with 32 pins
+- Each port has five control registers.
+  - DIR
+  - PIN
+  - SET
+  - CLR
+  - MASK
