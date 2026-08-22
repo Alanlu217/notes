@@ -620,4 +620,129 @@ custA.sort((Customer o1, Customer o2) -> o1.getRewardsPoints() - o2.getRewardsPo
   - Decorator: maintains a reference to a Component object, and forwards requests to this component object
   - Decorator1/2: implement additional functionality to be performed before and/or after forwarding a request
 
-= Singleton Pattern amd Asynchronous Design
+= Creational Singleton Pattern
+- provide various object creation mechanisms, which increase flexibility and reuse of existing code
+- ensures a class has only one instance, while providing a global access point to this isntance
+- implementation:
+  - make the default constructor private, to prevent other objects from using the new operator with the singleton class
+  - create a static creation method that acts as a constructor. under the hood this method calls the private constructor to create an object and saves it in a static field. all following calls to this method return the cached object.
+  - if your code has access to the singleton class, then it's able to call the singleton's static method
+
+
+= Synchronous vs Asynchronous
+- in *synchronous* programming, operations are carried out in order
+- the exection of an operation is dependent upon the completion of the preceding operation
+- in *asynchronous* programming, operations are carried out independently
+- the execution of an operation is not dependent upon the completion of the preceding operation
+
+= Software Architecture
+- defines the fundamental structure of a software system
+- influences how effectively the software can adapt to changes, scale, perform, and maintain its reliability
+- software architecture diagrams represent relationships between components
+- four dimensions:
+  + architectural characteristics
+  + architectural decisions
+  + logical components
+  + architectural style
+
+== Architectural Characteristics
+- define fundamental qualities software architecture must support
+- common:
+  - scalability (support growth)
+  - reliability (consistent operation)
+  - availability (system uptime)
+  - testability (ease of testing components)
+  - security
+- architectural characteristics: how the system performs under various constraints
+- logical components: what the software does (domain behaviour)
+
+== Architectural Decisions
+- long term structural decisions influencing software behaviour
+- they set constraints guiding future development
+
+== Logical Components
+- functional building blocks representing business features
+
+== Architectural styles
+- overall system shape and structural patterns
+- commons styles:
+  - layered (clear seperation of concerns)
+  - microservices (highly scalable and agile)
+  - event-driven (responsive and scalable)
+
+
+== Characteristic types
+=== Process characteristics
+- represent the intersection between architecture and the software development process
+- reflects how the system is built, tested, deployed and evolved
+- guide decisions related to engineering practices, automation, and team workflows
+
+=== Structural Characteristics
+- concerned with the internal structure and composition of the system
+- influence how components are coupled, interact, and evolve independently
+- impact design qualities like modularity, cohesion, and adaptability
+
+=== Operational Characteristics
+- represent ho architectural decisions shape and support system bahaviour at runtime
+- define what the operations team can monitor, control, or adapt while the system is running
+- directly influence system reliability, performance, and fault tolerance
+
+=== Cross Cutting Characterisitcs
+- span multiple parts of the system and affect other characteristics
+- often enforced through design, tooling, and governance
+
+=== Composite Characteristics
+- formed from multiple simpler traits
+- these high-level characteristics reflect complex system qualities that require multiple dimensions to evaluate
+- e.g.
+  - reliability = availability + consistency + data integrity
+  - resilience = robustness + fault tolerance + recoverability
+- must break down into measurable parts
+
+== Sources of Characteristics
+- from the problem domain
+  - driven by product goals, system features, and expected usage patterns
+- from the environment
+  - company culture, budget, capabilities
+- holistic domain knowledge
+  - regulatory standards, industry best practices, user trust factors
+- ignoring a source can lead to critical failure later
+- architects must triangulate across all three to identify the most important characteristics
+
+= Architectural Decision Records (ADRs)
+- main sections:
+  - title: numbered and concise
+    - identify and summarize the decision
+    - number sequentially, short, descriptive, unambiguous
+  - status
+    - types: proposed, accepted, superseded, RFC (open for feedback)
+  - context: forces and constraints
+    - explain what situation led to this decision
+    - include: the problem or force requiring a decision, alternatives under consideration
+  - decision: what was chosen and why
+    - descrive what was chosen
+    - use clear assertive language
+    - justify with rationale
+  - consequences: trade-offs and impacts
+    - descrive outcomes and trade-offs
+  - compliance
+    - define how decision enforcement is measured
+    - types: manual review, automated tests
+  - notes
+    - capture metadata
+    - typical fields: author, approval date, approver, last modified, superseded reference
+- benefits
+  - serves as memory log for decisions
+  - helps new team members understand context
+  - improves consistency and governance
+  - supports continuous evolution and learning
+
+= Bahavioual Modelling
+- captures how the system behaves in response to events or interactions over time
+- software design and architecture do not tell us how components behave or interact over time
+- different notations
+  - sequence diagrams
+    - is an interaction diagram showing how objects interact in a time-sequenced manner
+    - clarify interactions among objects and improve
+  - activity diagrams
+  - state charts
