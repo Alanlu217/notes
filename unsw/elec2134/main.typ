@@ -1,0 +1,221 @@
+#{
+  v(2cm)
+  align(center, text(24pt, weight: "bold")[ELEC2134: Circuits and Signals])
+  v(2cm)
+  outline(depth: 2)
+  pagebreak()
+}
+
+#set page(columns: 2, margin: 1cm)
+
+= Topic 1: Transform Methods
+== Common Waveforms
+- a *waveform* describes the shape of a signal as it change sover time, meaning its amplitude varies with time.
+- a *unit step signal* stays at 0 before a certain time and suddenly becomes 1 after that time.
+- a *signal* is a function that varies with time. When plotted against time, it forms a waveform.
+- a *ramp signal* increases linearly with time starting from zero.
+- a *square waveform* is widely used in electronic circuits for clock and timing controlk signals. It has very steep vertical transitions and a flat top and flat bottom.
+- a *rectangular waveform* resembles a square wave, but the duration of its high level, called the pulse width, is shorter than half of the period.
+- a *triangular waveform* is a non-sinusoidal waveform that oscillates between a positive and negative peak value with a linear rise and fall.
+- a *sawtooth waveform* is a periodic waveform whose shape resembles the teeth of a saw blade.
+
+== Periodic Waveforms
+- a *sine wave* or *sinusoid* is a *periodic* waveform witha  smooth continuous rise and fall.
+- the period (T) is the time taken for the waveform to complete one full cycle and repeat itself. We define $ "frequency"(f) = 1/T "Hertz" ("Hz") $
+
+- any function or waveform that satisfies $ x(t) = x(t + T) $ is a *periodic function* where $T$ is the period.
+
+== Sinusoid Waveform Equation
+$
+  x(t) = A sin(2 pi f t)
+$
+where $t$ is the instantaneous amplictude, $A$ is the peak amplitude and $f$ is the frequency in Hertz.
+
+OR
+$
+  x(t) = A sin(omega t)
+$
+where $omega$ is the angular frequency.
+
+== Harmonic Components
+- if $omega_0 = 2 pi f_0 = 2 pi /T$ is the fundamental angular frequency. Then the nth harmonic is defined by
+$
+  omega_n = n omega_0 "or" f_n = n f_0 quad "where" n = 1, 2, 3, 4, ...
+$
+
+== Fourier Series
+- a Fourier series is a technique for breaking down a periodic signal into a sum of sinusoidal components with different frequencies and amplitudes.
+
+=== Fourier Series: (A)
+- any period waveform with a period of $T$ can be represented by an infininate series of harmonically related sinusoids. This representation is known as the trigonometric Fourier series. $ x(t) = A_0 + sum_(n=1)^infinity A_n cos(n omega_0 t) + B_n sin(n omega_0 t) $
+
+- the *Fourier coefficients*: $A_0, A_n, B_n$ are calculated directly from the signal $x(t)$ using the equations:
+$
+  A_0 = 1/T integral_(-T/2)^(T/2) x(t) dif t
+$
+$
+  w_0 = 2 pi f_0 = (2 pi)/T
+$
+$
+  A_n = 2/T integral_(-T/2)^(T/2) x(t)cos(n omega_0 t) dif t
+$
+$
+  B_n = 2/T integral_(-T/2)^(T/2) x(t)sin(n omega_0 t) dif t
+$
+
+==== Even / Odd function is Fourier Series
+- a function is *even* if $x(t) = -x(t)$ meaning that $ A_n = 4/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t $, $B_n = 0$
+- a function is *odd* if $x(t) = -x(-t)$ meaning that $ B_n = 4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t $, $A_n = 0$
+
+=== Fourier Series: (B) Alternate Trig Form
+- $
+    x(t) = K_0 + sum_(n=1)^infinity K_n cos(n omega_0 t + Phi_n)
+  $
+  $
+    K_n = sqrt(A_n^2 + B_n^2)
+  $
+  $
+    Phi_n = -tan^(-1)(B_n/A_n)
+  $
+
+=== Fourier Series: (C) Exponential Fourier Series
+- $
+    x(t) &= sum_(n=-infinity)^infinity C_n e^(j n omega_0 t) \
+    C_n &= 1/T integral_0^T x(t e^(-j n omega_0 t)) dif t quad "where" omega_0 = (2 pi)/T
+  $
+
+=== Half-wave symmetry
+- a periodic function has half-wave symmetry if
+  $ x(t) = -x(t - T/2) $ then
+  $ A_n = cases(4/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t quad &"for n odd", 0 quad &"for n even") $ and
+  $
+    B_n = cases(4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t quad &"for n odd", 0 quad &"for n even")
+  $
+
+== Filters
+- ideal low pass filter: $ | H(j omega) | = cases(1 quad & 0<=omega<omega_c, 0 & omega > omega_c) $
+  - passband $0 <= omega < omega_c$
+  - stopband $omega_c < omega <= infinity$
+- ideal high pass filter $ | H(j omega) | = cases(0 quad & 0<=omega<omega_c, 1 & omega > omega_c) $
+- ideal band pass filter $ | H(j omega) | = cases(1 quad & omega_L <= omega <= omega_H, 0 & "otherwise") $
+- ideal band stop filter $ | H(j omega) | = cases(0 quad & omega_L <= omega <= omega_H, 1 & "otherwise") $
+
+== Useful Formulae
+=== 1. Integrals (for integer $n eq.not 0$)
+$ integral sin(a x) dif x = -1/a cos(a x) $
+$ integral cos(a x) dif x = 1/a sin(a x) $
+$ integral_0^T sin(n omega_0 t) dif t = 0 $
+$ integral_0^T cos(n omega_0 t) dif t = 0 $
+
+=== 2. Integration by Parts (Key Formula)
+$ integral u dif v = u v - integral v dif u $
+$ integral x e^(a x) dif x = e^(a x)/a^2 (a x - 1) $
+$ integral x^2 e^(a x) dif x = e^(a x)/a^3 (a^2 x^2 - 2 a x + 2) $
+
+=== 3. Integration by Parts (a): $integral t cos(n omega_0 t) dif t$
+Let $u = t => dif u = dif t$; #h(0.5em) $dif v = cos(n omega_0 t) dif t => v = 1/(n omega_0) sin(n omega_0 t)$
+$
+  integral t cos(n omega_0 t) dif t = t/(n omega_0) sin(n omega_0 t) - 1/(n omega_0)^2 cos(n omega_0 t) + G
+$
+
+=== 4. Integration by Parts (b): $integral t sin(n omega_0 t) dif t$
+Let $u = t => dif u = dif t$; #h(0.5em) $dif v = sin(n omega_0 t) dif t => v = -1/(n omega_0) cos(n omega_0 t)$
+$
+  integral t sin(n omega_0 t) dif t = -t/(n omega_0) cos(n omega_0 t) + 1/(n omega_0)^2 sin(n omega_0 t) + G
+$
+
+=== 5. Definite Integration by Parts (for $0 <= t <= T$ and integer $n$)
+$ integral_0^T t sin(n omega_0 t) dif t = T/(n omega_0) $
+$ integral_0^T t cos(n omega_0 t) dif t = 0 $
+
+=== 6. Definite Integrals
+$
+  integral_0^T x^2 cos(n x) dif x = [x^2/n sin(n x) + (2 x)/n^2 cos(n x) - 2/n^3 sin(n x)]_0^T
+$
+$
+  integral_0^T x^2 sin(n x) dif x = [(-x^2)/n cos(n x) + (2 x)/n^2 sin(n x) + 2/n^3 cos(n x)]_0^T
+$
+
+=== 7. Definite Integrals
+$ integral_0^T x cos(n x) dif x = [x/n sin(n x) + 1/n^2 cos(n x)]_0^T $
+$ integral_0^T x sin(n x) dif x = [(-x)/n cos(n x) + 1/n^2 sin(n x)]_0^T $
+
+=== 8. Definite Integrals
+$
+  integral_0^T cos(m omega_0 t) sin(n omega_0 t) dif t = 0 quad "for all " m "and " n
+$
+$
+  integral_0^T sin(m omega_0 t) sin(n omega_0 t) dif t = cases(0 & "for all " m eq.not n, T/2 & "for " m = n)
+$
+$
+  integral_0^T cos(m omega_0 t) cos(n omega_0 t) dif t = cases(0 & "for all " m eq.not n, T/2 & "for " m = n)
+$
+
+=== Trigonometric Identities
+#text(style: "italic")[All formulae should be verified by you.]
+
+==== Angle sum / difference identities
+$
+  sin(alpha plus.minus beta) = sin alpha cos beta plus.minus cos alpha sin beta
+$
+$
+  cos(alpha plus.minus beta) = cos alpha cos beta minus.plus sin alpha sin beta
+$
+$ cos(alpha plus.minus 90 degree) = minus.plus sin alpha $
+$ sin(alpha plus.minus 90 degree) = plus.minus cos alpha $
+
+==== Product-to-sum identities
+$ cos alpha cos beta = 1/2 cos(alpha + beta) + 1/2 cos(alpha - beta) $
+$ sin alpha sin beta = 1/2 cos(alpha - beta) - 1/2 cos(alpha + beta) $
+$ sin alpha cos beta = 1/2 sin(alpha + beta) + 1/2 sin(alpha - beta) $
+
+==== Double angle / power-reduction identities
+$ sin 2 alpha = 2 sin alpha cos alpha $
+$
+  cos 2 alpha = 2 cos^2 alpha - 1 = 1 - 2 sin^2 alpha = cos^2 alpha - sin^2 alpha
+$
+$ sin^2 alpha = 1/2 (1 - cos 2 alpha) $
+$ cos^2 alpha = 1/2 (1 + cos 2 alpha) $
+
+==== Complex exponential (Euler) forms
+$ sin alpha = (e^(j alpha) - e^(-j alpha))/(2 j) $
+$ cos alpha = (e^(j alpha) + e^(-j alpha))/2 $
+$ e^(plus.minus j alpha) = cos alpha plus.minus j sin alpha $
+$ A cos alpha + B sin alpha = sqrt(A^2 + B^2) cos(alpha + tan^(-1)(B/A)) $
+
+=== Useful Formulae for Fourier Series
+
+==== General trigonometric Fourier series
+$
+  x(t) = A_0 + sum_(n=1)^infinity A_n cos(n omega_0 t) + B_n sin(n omega_0 t)
+$
+$ A_0 = 1/T integral_(-T/2)^(T/2) x(t) dif t $
+$ A_n = 2/T integral_(-T/2)^(T/2) x(t) cos(n omega_0 t) dif t $
+$ B_n = 2/T integral_(-T/2)^(T/2) x(t) sin(n omega_0 t) dif t $
+
+==== Odd function: $x(t) = -x(-t)$
+$ A_n = 0 quad "for all " n $
+$ B_n = 4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t $
+
+==== Even function: $x(t) = x(-t)$
+$ B_n = 0 quad "for all " n $
+$ A_n = 4/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t $
+
+==== Half-wave symmetry: $x(t) = -x(t - T/2)$
+$ A_n = 0 quad "for even " n; quad B_n = 0 quad "for even " n $
+$ A_n = 4/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t quad "for odd " n $
+$ B_n = 4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t quad "for odd " n $
+
+==== Amplitude-phase (compact) form
+$ x(t) = K_0 + sum_(n=1)^infinity K_n cos(n omega_0 t + phi_n) $
+$ K_n angle phi_n = A_n - j B_n $
+$ K_n = sqrt(A_n^2 + B_n^2); quad phi_n = -tan^(-1)(B_n/A_n) $
+
+==== Complex exponential form
+$ x(t) = sum_(n=-infinity)^infinity C_n e^(j n omega_0 t) $
+$ C_n = 1/T integral_0^T x(t) e^(-j n omega_0 t) dif t $
+$ C_n = 1/2 (A_n - j B_n) $
+
+==== $C_n$ for symmetric functions
+Even symmetry: $ C_n = 2/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t $
+Odd symmetry: $ C_n = (-2 j)/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t $
