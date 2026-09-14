@@ -50,6 +50,70 @@ all:
             print(f"typst c {src} {out}")
             subprocess.run(["typst", "c", str(src), str(out)], check=True)
 
+# Generate a browsable index.html for every directory under out/, with
+# links to subfolders and an "Up" link back to the parent.
+index:
+    #!/usr/bin/env python3
+    import pathlib
+
+    OUT = pathlib.Path("out")
+
+    def render(dir: pathlib.Path) -> str:
+        rel = dir.relative_to(OUT)
+        title = "Notes" if rel == pathlib.Path(".") else f"Notes / {'/'.join(rel.parts)}"
+
+        subdirs = sorted(p for p in dir.iterdir() if p.is_dir())
+        pdfs = sorted(p for p in dir.iterdir() if p.is_file() and p.suffix == ".pdf")
+
+        lines = [
+            "<!doctype html>",
+            "<html>",
+            "<head>",
+            '  <meta charset="utf-8">',
+            f"  <title>{title}</title>",
+            "  <style>",
+            "    body {",
+            "      max-width: 900px;",
+            "      margin: 2rem auto;",
+            "      padding: 0 1rem;",
+            "      font-family: system-ui, sans-serif;",
+            "      line-height: 1.5;",
+            "    }",
+            "    h1 { margin-bottom: 1rem; font-size: 1.4rem; }",
+            "    ul { list-style: none; padding-left: 0; }",
+            "    li { margin: 0.25rem 0; }",
+            "    a { text-decoration: none; }",
+            "    a:hover { text-decoration: underline; }",
+            '    .folder::before { content: "📁 "; }',
+            '    .file::before { content: "📄 "; }',
+            '    .up { color: #666; margin-bottom: 1rem; display: inline-block; }',
+            "  </style>",
+            "</head>",
+            "<body>",
+            f"  <h1>{title}</h1>",
+        ]
+
+        if rel != pathlib.Path("."):
+            lines.append('  <a class="up" href="../index.html">&larr; Up</a>')
+
+        lines.append("  <ul>")
+        for sub in subdirs:
+            lines.append(f'    <li><a class="folder" href="{sub.name}/index.html">{sub.name}/</a></li>')
+        for pdf in pdfs:
+            lines.append(f'    <li><a class="file" href="{pdf.name}">{pdf.name}</a></li>')
+        lines.append("  </ul>")
+        lines.append("</body>")
+        lines.append("</html>")
+        return "\n".join(lines) + "\n"
+
+    dirs = [OUT] + [p for p in OUT.rglob("*") if p.is_dir()]
+    for d in dirs:
+        (d / "index.html").write_text(render(d))
+    print(f"generated {len(dirs)} index.html file(s)")
+
+# Build PDFs and generate the browsable index
+site: all index
+
 # Scaffold a new note: just init <note-name>
 init name:
     #!/usr/bin/env python3

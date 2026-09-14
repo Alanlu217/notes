@@ -29,54 +29,8 @@ jobs:
       - name: Install Typst
         uses: typst-community/setup-typst@v4
 
-      - name: Build PDFs
-        run: just all
-
-      - name: Generate index.html
-        run: |
-          cat > out/index.html <<'EOF'
-          <!doctype html>
-          <html>
-          <head>
-            <meta charset="utf-8">
-            <title>Notes</title>
-            <style>
-              body {
-                max-width: 900px;
-                margin: 2rem auto;
-                padding: 0 1rem;
-                font-family: system-ui, sans-serif;
-                line-height: 1.5;
-              }
-
-              h1 {
-                margin-bottom: 1rem;
-              }
-
-              ul {
-                padding-left: 1.5rem;
-              }
-
-              li {
-                margin: 0.25rem 0;
-              }
-            </style>
-          </head>
-          <body>
-            <h1>Notes</h1>
-            <ul>
-          EOF
-
-          find out -type f -name '*.pdf' | sort | while read pdf; do
-            rel="${pdf#out/}"
-            echo "<li><a href=\"$rel\">$rel</a></li>" >> out/index.html
-          done
-
-          cat >> out/index.html <<'EOF'
-            </ul>
-          </body>
-          </html>
-          EOF
+      - name: Build site
+        run: just site
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
