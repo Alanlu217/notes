@@ -41,10 +41,12 @@
   + electrons leave the sphere through the conducting wire
   + negatively charged rod is removed
   + left with positively charged sphere
+
+= Lecture 2: Coulomb's Law
 - Coulomb's Law
-  - force of attraction / repulsion of charges depends on the net charge of the two objects and their separation
+- force of attraction / repulsion of charges depends on the net charge of the two objects and their separation
   $
     F = 1/(4 pi epsilon_0) (q_1 q_2)/r^2 = k (q_1 q_2)/r^2
   $
-  - the permittivity constant $epsilon_0 =8.85 times 10^(-12) thick C^2\/N m^2$ and the electrostatic constant $k = 9 times 10^9 thick N m^2\/C^2$
-  - the force is always directed along the line between the two charges
+- the permittivity constant $epsilon_0 =8.85 times 10^(-12) thick C^2\/N m^2$ and the electrostatic constant $k = 9 times 10^9 thick N m^2\/C^2$
+- the force is always directed along the line between the two charges
