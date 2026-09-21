@@ -219,3 +219,35 @@ $ C_n = 1/2 (A_n - j B_n) $
 ==== $C_n$ for symmetric functions
 Even symmetry: $ C_n = 2/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t $
 Odd symmetry: $ C_n = (-2 j)/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t $
+
+
+= Topic 2: Transform Methods
+== Time Domain vs Frequency Domain
+- in the time domain, we see the speech waveform, but we don't know what frequencies it contains
+- the fourier transform converts this waveform into the frequency domain, where we clearly see the pitch and formants (three peaks) that define the vowel
+
+== Periodic and Aperiodic Signals
+- a *periodic signal* repeats the same pattern again and again:
+  $
+    x(t) = x(t + n T), n = plus.minus 1, plus.minus 2, ...
+  $
+- an *aperiodic signal* has no repeating pattern and we assume its period is infinate
+  - most signals of practical importance are aperiodic
+- recall that a peiodic waveform possesses a Fourer series
+  - as we increase the period $T$, the fundamental frequency $omega_0$ becomes smaller since $omega_0 = (2 pi)/T$
+- as $T$ is increases indefinitely, the individual spectral components merge into a continuous spectrum and the fundamental frequency becomes vanishingly small
+- consequently the frequency $n omega_0$ of each harmonic component becomes the continuous frequency variable $omega$
+  - the line spacing $omega_0$ becomes the infinitesimal $d omega$ and the operation of summation becomes the operation of integration
+- consider the exponential Fourier Series
+  $
+               x(t) & = sum_(n=-infinity)^infinity bold(C_n) e^(j n omega_0 t) \
+          bold(C_n) & = 1/T integral_(-T/2)^(T/2) x(t) e^(-j n omega_0 t) dif t \
+    "where" omega_0 & = (2 pi)/T
+  $
+  $
+    x(t) = sum_(n=-infinity)^infinity {1/T integral_(-T/2)^(T/2) x(t) e^(-j n omega_0 t) dif t}e^(j n omega_0 t) \
+    f(t) = sum_(n=-infinity)^infinity {1/(2 pi) integral_(-T/2)^(T/2) x(t) e^(-j n omega_0 t) dif t} e^(j n omega_0 t) omega_0 \
+    #text(red)[${T -> infinity; n omega_0 -> omega; omega_0 -> d omega; sum -> integral}$] \
+    x(t) = 1/(2 pi) integral_(-infinity)^infinity {integral_(-infinity)^infinity x(t) e^(- j omega t) dif t} e^(j omega t) dif omega
+  $
+- the integral within brackets is called the Fourier Transform of $x(t)$ and is denoted by $X)omega$
