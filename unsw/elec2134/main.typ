@@ -83,7 +83,7 @@ $
 === Fourier Series: (C) Exponential Fourier Series
 - $
     x(t) &= sum_(n=-infinity)^infinity C_n e^(j n omega_0 t) \
-    C_n &= 1/T integral_0^T x(t e^(-j n omega_0 t)) dif t quad "where" omega_0 = (2 pi)/T
+    C_n &= 1/T integral_0^T x(t) e^(-j n omega_0 t) dif t quad "where" omega_0 = (2 pi)/T
   $
 
 === Half-wave symmetry
