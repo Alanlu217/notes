@@ -8,7 +8,14 @@
   pagebreak()
 }
 
+#set heading(numbering: "1.")
 #set page(columns: 2, margin: 1cm)
+#set table(
+  stroke: (x, y) => (
+    left: if x > 0 { 0.5pt } else { none },
+    top: if y > 0 { 0.5pt } else { none },
+  ),
+)
 
 = Topic 1: Transform Methods
 == Common Waveforms
@@ -20,6 +27,58 @@
 - a *rectangular waveform* resembles a square wave, but the duration of its high level, called the pulse width, is shorter than half of the period.
 - a *triangular waveform* is a non-sinusoidal waveform that oscillates between a positive and negative peak value with a linear rise and fall.
 - a *sawtooth waveform* is a periodic waveform whose shape resembles the teeth of a saw blade.
+
+== Unit Step Function
+- the *unit step function* $u(t)$ (Heaviside step) switches from 0 to 1 at $t = 0$:
+  $
+    u(t) = cases(1 quad & t >= 0, 0 & t < 0)
+  $
+  #align(center, cetz.canvas({
+    import cetz.draw: *
+
+    line((-3, 0), (3, 0), mark: (end: ">"))
+    line((0, -0.7), (0, 2), mark: (end: ">"))
+
+    content((2.8, -0.5), $t$)
+    content((-0.3, 1), $1$)
+    content((-2.4, 1.5), $u(t)$)
+
+    line((-2.5, 0), (0, 0), stroke: red)
+    line((0, 0), (0, 1), stroke: (paint: red, dash: "dashed"))
+    line((0, 1), (2.5, 1), stroke: red)
+    circle((0, 1), radius: 0.06, fill: red, stroke: red)
+  }))
+- a *shifted step* $u(t - a)$ switches on at $t = a$ instead:
+  $
+    u(t - a) = cases(1 quad & t >= a, 0 & t < a)
+  $
+  #align(center, cetz.canvas({
+    import cetz.draw: *
+
+    line((-3, 0), (3, 0), mark: (end: ">"))
+    line((0, -0.7), (0, 2), mark: (end: ">"))
+
+    content((2.8, -0.5), $t$)
+    content((1, -0.5), $a$)
+    content((-0.3, 1), $1$)
+    content((-2.4, 1.5), $u(t - a)$)
+
+    line((-2.5, 0), (1, 0), stroke: red)
+    line((1, 0), (1, 1), stroke: (paint: red, dash: "dashed"))
+    line((1, 1), (2.5, 1), stroke: red)
+    circle((1, 1), radius: 0.06, fill: red, stroke: red)
+  }))
+- multiplying a signal by $u(t)$ zeroes it for $t < 0$, which makes it *causal*, e.g. $e^(-a t) u(t)$ is a decaying exponential that starts at $t = 0$
+- a rectangular pulse of width $tau$ can be built from two steps:
+  $ "pulse"(t) = u(t + tau/2) - u(t - tau/2) $
+- the step is the integral of the impulse, and the impulse is the derivative of the step:
+  $
+    u(t) = integral_(-infinity)^t delta(tau) dif tau quad <=> quad d/(dif t) u(t) = delta(t)
+  $
+- its Fourier transform is (using the time integration property, with the extra $pi delta(omega)$ term because $u(t)$ has a nonzero average):
+  $
+    u(t) <-->^"FT" pi delta(omega) + 1/(j omega)
+  $
 
 == Periodic Waveforms
 - a *sine wave* or *sinusoid* is a *periodic* waveform witha  smooth continuous rise and fall.
@@ -65,7 +124,7 @@ $
   B_n = 2/T integral_(-T/2)^(T/2) x(t)sin(n omega_0 t) dif t
 $
 
-==== Even / Odd function is Fourier Series
+*Even / Odd function in Fourier Series*
 - a function is *even* if $x(t) = -x(t)$ meaning that $ A_n = 4/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t $, $B_n = 0$
 - a function is *odd* if $x(t) = -x(-t)$ meaning that $ B_n = 4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t $, $A_n = 0$
 
@@ -102,126 +161,163 @@ $
 - ideal band pass filter $ | H(j omega) | = cases(1 quad & omega_L <= omega <= omega_H, 0 & "otherwise") $
 - ideal band stop filter $ | H(j omega) | = cases(0 quad & omega_L <= omega <= omega_H, 1 & "otherwise") $
 
-== Useful Formulae
-=== 1. Integrals (for integer $n eq.not 0$)
-$ integral sin(a x) dif x = -1/a cos(a x) $
-$ integral cos(a x) dif x = 1/a sin(a x) $
-$ integral_0^T sin(n omega_0 t) dif t = 0 $
-$ integral_0^T cos(n omega_0 t) dif t = 0 $
+#{
+  let sec(title) = table.cell(
+    colspan: 2,
+    fill: luma(225),
+    align: left,
+  )[*#title*]
+  set page(columns: 1)
+  show figure: set block(breakable: true)
+  figure(
+    table(
+      columns: (auto, 1fr),
+      align: (left + horizon, center + horizon),
+      inset: 10pt,
+      stroke: 0.5pt,
 
-=== 2. Integration by Parts (Key Formula)
-$ integral u dif v = u v - integral v dif u $
-$ integral x e^(a x) dif x = e^(a x)/a^2 (a x - 1) $
-$ integral x^2 e^(a x) dif x = e^(a x)/a^3 (a^2 x^2 - 2 a x + 2) $
+      sec[1. Integrals (for integer $n eq.not 0$)], [Sine],
+      [$display(integral sin(a x) dif x = -1/a cos(a x))$], [Cosine],
+      [$display(integral cos(a x) dif x = 1/a sin(a x))$], [Sine over period],
+      [$display(integral_0^T sin(n omega_0 t) dif t = 0)$],
+      [Cosine over period],
 
-=== 3. Integration by Parts (a): $integral t cos(n omega_0 t) dif t$
-Let $u = t => dif u = dif t$; #h(0.5em) $dif v = cos(n omega_0 t) dif t => v = 1/(n omega_0) sin(n omega_0 t)$
-$
-  integral t cos(n omega_0 t) dif t = t/(n omega_0) sin(n omega_0 t) - 1/(n omega_0)^2 cos(n omega_0 t) + G
-$
+      [$display(integral_0^T cos(n omega_0 t) dif t = 0)$],
 
-=== 4. Integration by Parts (b): $integral t sin(n omega_0 t) dif t$
-Let $u = t => dif u = dif t$; #h(0.5em) $dif v = sin(n omega_0 t) dif t => v = -1/(n omega_0) cos(n omega_0 t)$
-$
-  integral t sin(n omega_0 t) dif t = -t/(n omega_0) cos(n omega_0 t) + 1/(n omega_0)^2 sin(n omega_0 t) + G
-$
+      sec[2. Integration by Parts (Key Formula)], [General],
+      [$display(integral u dif v = u v - integral v dif u)$], [$x e^(a x)$],
+      [$display(integral x e^(a x) dif x = e^(a x)/a^2 (a x - 1))$],
+      [$x^2 e^(a x)$],
 
-=== 5. Definite Integration by Parts (for $0 <= t <= T$ and integer $n$)
-$ integral_0^T t sin(n omega_0 t) dif t = T/(n omega_0) $
-$ integral_0^T t cos(n omega_0 t) dif t = 0 $
+      [$display(integral x^2 e^(a x) dif x = e^(a x)/a^3 (a^2 x^2 - 2 a x + 2))$],
 
-=== 6. Definite Integrals
-$
-  integral_0^T x^2 cos(n x) dif x = [x^2/n sin(n x) + (2 x)/n^2 cos(n x) - 2/n^3 sin(n x)]_0^T
-$
-$
-  integral_0^T x^2 sin(n x) dif x = [(-x^2)/n cos(n x) + (2 x)/n^2 sin(n x) + 2/n^3 cos(n x)]_0^T
-$
+      sec[3. Integration by Parts (a) and (b)],
+      [$integral t cos(n omega_0 t) dif t$],
 
-=== 7. Definite Integrals
-$ integral_0^T x cos(n x) dif x = [x/n sin(n x) + 1/n^2 cos(n x)]_0^T $
-$ integral_0^T x sin(n x) dif x = [(-x)/n cos(n x) + 1/n^2 sin(n x)]_0^T $
+      [
+        $u = t, quad dif v = cos(n omega_0 t) dif t => v = 1/(n omega_0) sin(n omega_0 t)$ \
+        $display(= t/(n omega_0) sin(n omega_0 t) + 1/(n omega_0)^2 cos(n omega_0 t) + G)$
+      ],
+      [$integral t sin(n omega_0 t) dif t$],
 
-=== 8. Definite Integrals
-$
-  integral_0^T cos(m omega_0 t) sin(n omega_0 t) dif t = 0 quad "for all " m "and " n
-$
-$
-  integral_0^T sin(m omega_0 t) sin(n omega_0 t) dif t = cases(0 & "for all " m eq.not n, T/2 & "for " m = n)
-$
-$
-  integral_0^T cos(m omega_0 t) cos(n omega_0 t) dif t = cases(0 & "for all " m eq.not n, T/2 & "for " m = n)
-$
+      [
+        $u = t, quad dif v = sin(n omega_0 t) dif t => v = -1/(n omega_0) cos(n omega_0 t)$ \
+        $display(= -t/(n omega_0) cos(n omega_0 t) + 1/(n omega_0)^2 sin(n omega_0 t) + G)$
+      ],
 
-=== Trigonometric Identities
-#text(style: "italic")[All formulae should be verified by you.]
+      sec[5. Definite Integration by Parts ($0 <= t <= T$, integer $n$)],
+      [$t sin$],
 
-==== Angle sum / difference identities
-$
-  sin(alpha plus.minus beta) = sin alpha cos beta plus.minus cos alpha sin beta
-$
-$
-  cos(alpha plus.minus beta) = cos alpha cos beta minus.plus sin alpha sin beta
-$
-$ cos(alpha plus.minus 90 degree) = minus.plus sin alpha $
-$ sin(alpha plus.minus 90 degree) = plus.minus cos alpha $
+      [$display(integral_0^T t sin(n omega_0 t) dif t = -T/(n omega_0))$],
+      [$t cos$],
 
-==== Product-to-sum identities
-$ cos alpha cos beta = 1/2 cos(alpha + beta) + 1/2 cos(alpha - beta) $
-$ sin alpha sin beta = 1/2 cos(alpha - beta) - 1/2 cos(alpha + beta) $
-$ sin alpha cos beta = 1/2 sin(alpha + beta) + 1/2 sin(alpha - beta) $
+      [$display(integral_0^T t cos(n omega_0 t) dif t = 0)$],
 
-==== Double angle / power-reduction identities
-$ sin 2 alpha = 2 sin alpha cos alpha $
-$
-  cos 2 alpha = 2 cos^2 alpha - 1 = 1 - 2 sin^2 alpha = cos^2 alpha - sin^2 alpha
-$
-$ sin^2 alpha = 1/2 (1 - cos 2 alpha) $
-$ cos^2 alpha = 1/2 (1 + cos 2 alpha) $
+      sec[6. Definite Integrals ($x^2$ terms)], [$x^2 cos$],
+      [$display(integral_0^T x^2 cos(n x) dif x = [x^2/n sin(n x) + (2 x)/n^2 cos(n x) - 2/n^3 sin(n x)]_0^T)$],
+      [$x^2 sin$],
 
-==== Complex exponential (Euler) forms
-$ sin alpha = (e^(j alpha) - e^(-j alpha))/(2 j) $
-$ cos alpha = (e^(j alpha) + e^(-j alpha))/2 $
-$ e^(plus.minus j alpha) = cos alpha plus.minus j sin alpha $
-$ A cos alpha + B sin alpha = sqrt(A^2 + B^2) cos(alpha + tan^(-1)(B/A)) $
+      [$display(integral_0^T x^2 sin(n x) dif x = [(-x^2)/n cos(n x) + (2 x)/n^2 sin(n x) + 2/n^3 cos(n x)]_0^T)$],
 
-=== Useful Formulae for Fourier Series
+      sec[7. Definite Integrals ($x$ terms)], [$x cos$],
+      [$display(integral_0^T x cos(n x) dif x = [x/n sin(n x) + 1/n^2 cos(n x)]_0^T)$],
+      [$x sin$],
 
-==== General trigonometric Fourier series
-$
-  x(t) = A_0 + sum_(n=1)^infinity A_n cos(n omega_0 t) + B_n sin(n omega_0 t)
-$
-$ A_0 = 1/T integral_(-T/2)^(T/2) x(t) dif t $
-$ A_n = 2/T integral_(-T/2)^(T/2) x(t) cos(n omega_0 t) dif t $
-$ B_n = 2/T integral_(-T/2)^(T/2) x(t) sin(n omega_0 t) dif t $
+      [$display(integral_0^T x sin(n x) dif x = [(-x)/n cos(n x) + 1/n^2 sin(n x)]_0^T)$],
 
-==== Odd function: $x(t) = -x(-t)$
-$ A_n = 0 quad "for all " n $
-$ B_n = 4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t $
+      sec[8. Orthogonality Integrals], [$cos dot sin$],
+      [$display(integral_0^T cos(m omega_0 t) sin(n omega_0 t) dif t = 0 quad "for all " m "and " n)$],
+      [$sin dot sin$],
 
-==== Even function: $x(t) = x(-t)$
-$ B_n = 0 quad "for all " n $
-$ A_n = 4/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t $
+      [$display(integral_0^T sin(m omega_0 t) sin(n omega_0 t) dif t = cases(0 & "for all " m eq.not n, T/2 & "for " m = n))$],
+      [$cos dot cos$],
 
-==== Half-wave symmetry: $x(t) = -x(t - T/2)$
-$ A_n = 0 quad "for even " n; quad B_n = 0 quad "for even " n $
-$ A_n = 4/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t quad "for odd " n $
-$ B_n = 4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t quad "for odd " n $
+      [$display(integral_0^T cos(m omega_0 t) cos(n omega_0 t) dif t = cases(0 & "for all " m eq.not n, T/2 & "for " m = n))$],
 
-==== Amplitude-phase (compact) form
-$ x(t) = K_0 + sum_(n=1)^infinity K_n cos(n omega_0 t + phi_n) $
-$ K_n angle phi_n = A_n - j B_n $
-$ K_n = sqrt(A_n^2 + B_n^2); quad phi_n = -tan^(-1)(B_n/A_n) $
+      sec[Trigonometric Identities #text(weight: "regular", style: "italic")[(verify all formulae yourself)]],
+      [Angle sum / difference],
 
-==== Complex exponential form
-$ x(t) = sum_(n=-infinity)^infinity C_n e^(j n omega_0 t) $
-$ C_n = 1/T integral_0^T x(t) e^(-j n omega_0 t) dif t $
-$ C_n = 1/2 (A_n - j B_n) $
+      [
+        $sin(alpha plus.minus beta) = sin alpha cos beta plus.minus cos alpha sin beta$ \
+        $cos(alpha plus.minus beta) = cos alpha cos beta minus.plus sin alpha sin beta$ \
+        $cos(alpha plus.minus 90 degree) = minus.plus sin alpha$ \
+        $sin(alpha plus.minus 90 degree) = plus.minus cos alpha$
+      ],
+      [Product-to-sum],
 
-==== $C_n$ for symmetric functions
-Even symmetry: $ C_n = 2/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t $
-Odd symmetry: $ C_n = (-2 j)/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t $
+      [
+        $cos alpha cos beta = 1/2 cos(alpha + beta) + 1/2 cos(alpha - beta)$ \
+        $sin alpha sin beta = 1/2 cos(alpha - beta) - 1/2 cos(alpha + beta)$ \
+        $sin alpha cos beta = 1/2 sin(alpha + beta) + 1/2 sin(alpha - beta)$
+      ],
+      [Double angle / power reduction],
 
+      [
+        $sin 2 alpha = 2 sin alpha cos alpha$ \
+        $cos 2 alpha = 2 cos^2 alpha - 1 = 1 - 2 sin^2 alpha = cos^2 alpha - sin^2 alpha$ \
+        $sin^2 alpha = 1/2 (1 - cos 2 alpha)$ \
+        $cos^2 alpha = 1/2 (1 + cos 2 alpha)$
+      ],
+      [Complex exponential (Euler)],
+
+      [
+        $sin alpha = (e^(j alpha) - e^(-j alpha))/(2 j)$ \
+        $cos alpha = (e^(j alpha) + e^(-j alpha))/2$ \
+        $e^(plus.minus j alpha) = cos alpha plus.minus j sin alpha$ \
+        $A cos alpha + B sin alpha = sqrt(A^2 + B^2) cos(alpha - tan^(-1)(B/A))$
+      ],
+
+      sec[Fourier Series], [General trigonometric],
+      [
+        $x(t) = A_0 + sum_(n=1)^infinity A_n cos(n omega_0 t) + B_n sin(n omega_0 t)$ \
+        $A_0 = 1/T integral_(-T/2)^(T/2) x(t) dif t$ \
+        $A_n = 2/T integral_(-T/2)^(T/2) x(t) cos(n omega_0 t) dif t$ \
+        $B_n = 2/T integral_(-T/2)^(T/2) x(t) sin(n omega_0 t) dif t$
+      ],
+      [Odd: $x(t) = -x(-t)$],
+
+      [
+        $A_n = 0 quad "for all " n$ \
+        $B_n = 4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t$
+      ],
+      [Even: $x(t) = x(-t)$],
+
+      [
+        $B_n = 0 quad "for all " n$ \
+        $A_n = 4/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t$
+      ],
+      [Half-wave: $x(t) = -x(t - T/2)$],
+
+      [
+        $A_n = 0 " and " B_n = 0 quad "for even " n$ \
+        $A_n = 4/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t quad "for odd " n$ \
+        $B_n = 4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t quad "for odd " n$
+      ],
+      [Amplitude-phase (compact)],
+
+      [
+        $x(t) = K_0 + sum_(n=1)^infinity K_n cos(n omega_0 t + phi_n)$ \
+        $K_n angle phi_n = A_n - j B_n$ \
+        $K_n = sqrt(A_n^2 + B_n^2); quad phi_n = -tan^(-1)(B_n/A_n)$
+      ],
+      [Complex exponential],
+
+      [
+        $x(t) = sum_(n=-infinity)^infinity C_n e^(j n omega_0 t)$ \
+        $C_n = 1/T integral_0^T x(t) e^(-j n omega_0 t) dif t$ \
+        $C_n = 1/2 (A_n - j B_n)$
+      ],
+      [$C_n$ for symmetric functions],
+
+      [
+        Even: $C_n = 2/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t$ \
+        Odd: $C_n = (-2 j)/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t$
+      ],
+    ),
+    caption: [Useful Formulae],
+  )
+  set page(columns: 2)
+}
 
 = Topic 2: Transform Methods
 == Time Domain vs Frequency Domain
@@ -235,9 +331,9 @@ Odd symmetry: $ C_n = (-2 j)/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t $
   $
 - an *aperiodic signal* has no repeating pattern and we assume its period is infinate
   - most signals of practical importance are aperiodic
-- recall that a peiodic waveform possesses a Fourer series
+- recall that a peiodic waveform possesses a Fourier series
   - as we increase the period $T$, the fundamental frequency $omega_0$ becomes smaller since $omega_0 = (2 pi)/T$
-- as $T$ is increases indefinitely, the individual spectral components merge into a continuous spectrum and the fundamental frequency becomes vanishingly small
+- as $T$ increases indefinitely, the individual spectral components merge into a continuous spectrum and the fundamental frequency becomes vanishingly small
 - consequently the frequency $n omega_0$ of each harmonic component becomes the continuous frequency variable $omega$
   - the line spacing $omega_0$ becomes the infinitesimal $d omega$ and the operation of summation becomes the operation of integration
 - consider the exponential Fourier Series
@@ -317,31 +413,47 @@ Odd symmetry: $ C_n = (-2 j)/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t $
              & = 2 pi delta(omega_1 - omega)
   $
 - Fourier Transform Examples Summary:
-  - $
-      X(omega) & = integral_(-infinity)^infinity x(t) e^(-j omega t) dif t \
-          x(t) & = integral_(-infinity)^infinity X(omega) e^(j omega t) dif omega
-    $
-  - $
-        "FT"{delta(t)} & = 1 \
-      "FT"{A delta(t)} & = A
-    $
-  - $
-      "FT" {delta(t - a)} & = e^(-j omega a) \
-      "FT" {delta(t + a)} & = e^(j omega a)
-    $
-  - $
-      integral_(-infinity)^infinity e^(j omega t) dif omega - 2 pi delta(t) \
-      integral_(-infinity)^infinity e^(j omega t) dif t &= 2 pi delta(omega)
-    $
-  - $
-       "FT"{e^(j omega_1 t)} & = 2 pi delta(omega - omega_1) \
-      "FT"{e^(-j omega_1 t)} & = 2 pi delta(omega + omega_1) \
-                     "FT"{A} & = 2 pi A delta(omega)
-    $
-  - $
-      "FT"{cos(omega_1 t)} & = pi delta(omega - omega_1) + pi delta(omega + omega_1) \
-      "FT"{sin(omega_1 t)} & = j pi delta(omega - omega_1) - pi delta(omega + omega_1) \
-    $
+  #let FT = "FT"
+
+  // Definitions
+  #table(
+    columns: (1fr, 2fr),
+    align: (left, left),
+    inset: 8pt,
+    table.header([*Transform*], [*Definition*]),
+    [Forward FT],
+    $X(omega) = integral_(-infinity)^infinity x(t) e^(-j omega t) dif t$,
+
+    [Inverse FT],
+    $x(t) = 1/(2 pi) integral_(-infinity)^infinity X(omega) e^(j omega t) dif omega$,
+  )
+
+  // Identities
+  #table(
+    columns: (1fr, 2fr),
+    align: (left, left),
+    inset: 8pt,
+    table.header([*Identity*], [*Result*]),
+    $integral_(-infinity)^infinity e^(j omega t) dif omega$, $2 pi delta(t)$,
+    $integral_(-infinity)^infinity e^(j omega t) dif t$, $2 pi delta(omega)$,
+  )
+
+  // Transform pairs
+  #table(
+    columns: (1fr, 2fr),
+    align: (left, left),
+    inset: 8pt,
+    table.header([*Signal* $x(t)$], [*Transform* $X(omega)$]),
+    $delta(t)$, $1$,
+    $A delta(t)$, $A$,
+    $delta(t - a)$, $e^(-j omega a)$,
+    $delta(t + a)$, $e^(j omega a)$,
+    $e^(j omega_1 t)$, $2 pi delta(omega - omega_1)$,
+    $e^(-j omega_1 t)$, $2 pi delta(omega + omega_1)$,
+    $A$, $2 pi A delta(omega)$,
+    $cos(omega_1 t)$, $pi delta(omega - omega_1) + pi delta(omega + omega_1)$,
+    $sin(omega_1 t)$, $j pi (delta(omega + omega_1) - delta(omega - omega_1))$,
+  )
 
 == Fourier Transform Properties
 + Frequency Shifting Property
@@ -477,7 +589,7 @@ Odd symmetry: $ C_n = (-2 j)/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t $
     $
   - e.g. Let
     $
-      x(t) = e^(-at) u(t) => X(omega) = 1/(j omega + a) \ therefore d/(d t) (e^(-a t) u(t)) <-->^"FT" j omega X(omega); X(omega) = j omega 1/(j omega + a) = (j omega)/(j omega + a)
+      x(t) = e^(-a t) u(t) => X(omega) = 1/(j omega + a) \ therefore d/(d t) (e^(-a t) u(t)) <-->^"FT" j omega X(omega); X(omega) = j omega 1/(j omega + a) = (j omega)/(j omega + a)
     $
     We can very this result by differentiating:
     $
