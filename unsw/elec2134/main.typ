@@ -1006,3 +1006,30 @@ $
     $
 
 == Transfer Functions
+- is a fundamental concept in signal processing and circuit analysis. It describes how an input signal is modified as it passes through a system.
+- the transfer function $H(s)$ is defined as the ratio of the output response $Y(s)$ to the input excitation $X(s)$, assuming all initial conditions are zero
+  $
+    H(s) = Y(s)/X(s) quad Y(s) = H(s) . X(s)
+  $
+- if both variables are voltages, the transfer function represents a *voltage gain*
+- if both variables are currents, it represents a *current gain*
+- $H(s)$ may have physical units if input and output are different physical quantities
+- if one variable is a voltage and the other is a current, the transfer function represents either an *impedance* of and *admittance*
+- there are four common types:
+  + *Voltage Gain*
+    $
+      H(s) = V_o(s)/V_i(s)
+    $
+  + *Current Gain*
+    $
+      H(s) = I_o(s)/I_i(s)
+    $
+  + *Impedance*
+    $
+      H(s) = V(s)/I(s)
+    $
+  + *Admittance*
+    $
+      H(s) = I(s)/V(s)
+    $
+- a single circuit may have several possible transfer functions, depending on the chosen input and output variables
