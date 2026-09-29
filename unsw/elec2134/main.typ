@@ -5,12 +5,16 @@
   align(center, text(24pt, weight: "bold")[ELEC2134: Circuits and Signals])
   v(2cm)
   outline(depth: 2)
-  pagebreak()
 }
 
+#show heading.where(depth: 1): it => {
+  pagebreak()
+  it
+}
 #set heading(numbering: "1.")
 #set page(columns: 2, margin: 1cm)
 #set table(
+  align: center,
   stroke: (x, y) => (
     left: if x > 0 { 0.5pt } else { none },
     top: if y > 0 { 0.5pt } else { none },
@@ -104,6 +108,7 @@ $
   omega_n = n omega_0 "or" f_n = n f_0 quad "where" n = 1, 2, 3, 4, ...
 $
 
+#colbreak()
 == Fourier Series
 - a Fourier series is a technique for breaking down a periodic signal into a sum of sinusoidal components with different frequencies and amplitudes.
 
@@ -152,6 +157,47 @@ $
   $
     B_n = cases(4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t quad &"for n odd", 0 quad &"for n even")
   $
+
+#figure(
+  cetz.canvas({
+    import cetz.draw: *
+
+    let T = 4
+    let x(t) = calc.sin(2 * calc.pi * t) + 0.4 * calc.sin(6 * calc.pi * t)
+
+    // axes
+    line((-0.3, 0), (2 * T + 0.4, 0), mark: (end: ">"))
+    line((0, -1.7), (0, 1.7), mark: (end: ">"))
+    content((2 * T + 0.5, 0), $t$, anchor: "west")
+    content((0, 1.8), $x(t)$, anchor: "south")
+
+    // waveform over two periods
+    line(
+      ..range(0, 201).map(i => {
+        let t = i / 100
+        (t * T, x(t))
+      }),
+      stroke: blue + 1.2pt,
+    )
+
+    // tick labels
+    for (t, lbl) in ((0.5, $T/2$), (1, $T$), (1.5, $3T/2$), (2, $2T$)) {
+      line((t * T, -0.08), (t * T, 0.08))
+      content((t * T, -0.15), lbl, anchor: "north")
+    }
+
+    // demonstrate x(t) = -x(t - T/2)
+    let t0 = 0.1
+    let t1 = t0 + 0.5
+    for t in (t0, t1) {
+      line((t * T, 0), (t * T, x(t)), stroke: (dash: "dashed", paint: gray))
+      circle((t * T, x(t)), radius: 0.07, fill: red, stroke: none)
+    }
+    content((t0 * T, x(t0) + 0.1), $x(t_0)$, anchor: "south")
+    content((t1 * T, x(t1) - 0.1), $x(t_0 + T/2) = -x(t_0)$, anchor: "north")
+  }),
+  caption: [A half-wave symmetric signal: shifting by $T/2$ flips the sign.],
+)
 
 == Filters
 - ideal low pass filter: $ | H(j omega) | = cases(1 quad & 0<=omega<omega_c, 0 & omega > omega_c) $
@@ -712,3 +758,251 @@ $
     Y(omega) = H(omega)
   $
   Taking IFT, we obtain $y(t) = h(t)$
+
+= Topic 3: Transform Methods - Laplace Transforms of Signals and Circuits
+- can analyse RLC circuits using Laplace transforms instead of using differential equations
+  - *time domain* $ L (dif i(t))/(dif t) + R i(t) + 1/C integral_0^t i(tau) dif tau = v(t) $
+  - *Laplace or s-domain* $ (s L + R + 1/(s C)) I(s) = V(s) \
+    I(s) = V(s)/(s L + R + 1/(s C)) $
+    - is a complex frequency domain ($s$ is a complex variable $s = sigma = j omega$)
+- the Laplace transform maps a function $f(t)$ from the time domain to the complex frequency domain yielding $F(s)$
+  - $
+      cal(L){f(t)} = F(s) = integral_0^infinity f(t) e^(-s t) dif t
+    $
+  - one sided Laplace transform assumes $f(t) = 0, t<0$
+  - $
+      s = sigma + j omega \ omega "- exponential damping factor" quad omega "- frequency"
+    $
+- it is interesting to know that
+  - $s = j omega$ for sinusoidal AC signals
+  - $s = sigma$ for exponential signals
+  - $s = sigma + j omega$ for exponential sinusoidal signals
+- *Fourier* tells us what frequency are present \
+  *Laplace* also lets us handle growth / decay, transients and initial energy
+
+== Laplace Transform (LT) vs Fourier Transform (FT)
+=== Relationship
+- Laplace Transform
+  $
+    cal(L){f(t)} = F(s) = integral_0^infinity f(t) e^(-s t) dif t
+  $
+- Fourier Transform
+  $
+    FT{f(t)} = F(omega) = integral_(-infinity)^infinity f(t) e^(-j omega t) dif t
+  $
+- For a function $f(t)$ that is zero for $t < 0$ and satisfies
+  $
+    integral_0^infinity abs(f(t)) dif t < infinity
+  $
+  then
+  $
+    F(omega) = F(s) |_(s = j omega)
+  $
+- the Fourier Transform is a special case of the Laplace transform with
+  $
+    s = j omega (sigma = 0)
+  $
+
+=== Region of Convergence (ROC)
+- when we take the Laplace Transform
+  $
+    F(s) = integral_0^infinity f(t) e^(-s t) dif t
+  $
+  the integral does not converge for all values of $s$
+- the ROC is the set of values of $s$ in the complex $s-"plane"$ for which the integral converges (is finite)
+- because of the exponential term
+  $
+    e^(-s t) = e^(-sigma t)e^(-j omega t)
+  $
+  - $e^(-j omega t) -> "oscillates (does not decay)"$
+  - $e^(-sigma t) -> "controls growth or decay"$
+- the ROC is the range of $sigma$ values for which the integral converges
+- the Fourier Transform exists only if the ROC includes the imaginary axis
+
+== Laplace Transform Properties
++ *linearity*
+  - if $F_1(s) "and" F_2(s)$ are respectively the Laplace Transforms of $f_1(t) "and" f_2(t)$, then
+    $
+      cal(L){a_1 f_1(t) + a_2 f_2(t)} = a_1 F_1(s) + a_2 F_2(s)
+    $
++ *scaling*
+  - if $F(s)$ is the Laplace Transform of $f(t)$, then
+    $
+      cal(L){f(a t)} = 1/a F(s/a)
+    $
++ *time shift*
+  - if $F(s)$ is the Laplace Transform of $f(t)$, then
+    $
+      cal(L){f(t - a)u(t - a)} = e^(-a s) F(s)
+    $
++ *frequency shift*
+  - if $F(s)$ is the Laplace Transform of $f(t)$, then
+    $
+      cal(L){e^(-a t)f(t)u(t)} = F(s + a)
+    $
++ *time differentiation*
+  - if $F(s)$ is the Laplace Transform of $f(t)$, then the Laplace Transform of its derivatice is
+    $
+      cal(L){(dif f(t))/(dif t)} & = s F(s) - f(0^-) \
+                   cal(L){f'(t)} & = s F(s) - f(0^-) \
+                  cal(L){f''(t)} & = s^2 f(s) - s f(0^-) - f'(0^-)
+    $
+    - $f(0^-)$ is the value of the signal just before $t = 0$
+    - this is the initial value of the signal at $t = 0$ prior to any input or switching happens
+    - $0^-$ means immediatly before switching / input application
+  #colbreak()
++ *time integration*
+  - if $F(s)$ is the Laplace Transform of $f(t)$, then the Laplace Transform of its integral is
+    $
+      cal(L)[integral_0^t f(t) dif t] = 1/s F(s)
+    $
++ *differentiation in the s-domain*
+  - if $F(s)$ is the Laplace Transform of $f(t)$ then the derivative with respect to $s$ is
+    $
+      cal(L)[t f(t)] = - (dif F(s))/(dif s)
+    $
+    Also
+    $
+      t^n f(t) = (-1)^n (d^n F(s))/(d s^n)
+    $
++ *integration in the s-domain*
+  - if $F(s)$ is the Laplace Transform of $f(t)$, then the integration with respect to $s$ is
+    $
+      cal(L)[f(t)/t] = integral_s^infinity F(s) dif s
+    $
+== Initial and Final Value Theorem
+- initial and final values of a function can be found directly from its Laplace Transform
+- $f(0) = limits(lim)_(s->infinity) s F(s)$
+- $f(infinity) = limits(lim)_(s->0) s F(s)$
+- e.g., if $f(t) = e^(-2 t) sin(5 t) u(t)$, then
+  $
+    F(s) = cal(L)[f(t)] = 5/((s+2)^2 + 5^2) \
+    therefore f(infinity) = limits(lim)_(s->0) s F(s) = limits(lim)_(s->0) (5 s)/(s^2 + 4 s + 29) = 0
+  $
+- the Final Value Theorem can only be applied when the system has a finite final value
+
+== Inverse Laplace Transform
+=== Basic Laplace Transform Pairs
+#table(
+  columns: (1fr,) * 2,
+  table.header()[Time Domain $f(t), t>=0$][Laplace Transform $F(s)$],
+  $u(t)$, $1/s$,
+  $e^(-a t)$, $1/(s + a)$,
+  $sin omega t$, $omega/(s^2 + omega^2)$,
+  $cos omega t$, $s / (s^2 + omega^2)$,
+  $e^(-a t )f(t)$, $F(s + a)$,
+  $t^n$, $n!/s^(n + 1)$,
+  $t e^(-a t)$, $1/(s + a)^2$,
+  $e^(-a t) sin omega t$, $omega/((s + a)^2 + omega^2)$,
+  $e^(-a t) cos omega t$, $(s + a)/((s+a)^2 + omega^2)$,
+  $e^(-b t)t^n$, $n!/(s + b)^(n+1)$,
+)
+$
+  cal(L) { (dif^k f(t)/(dif t^k))} = \ s^k F(s) - s^(k - 1)f(0^-) - s^(k - 2) f'(0^-) - ... - f^(k - 1)(0^-)
+$
+
+=== Partial Fractions Residue Method
+e.g.
+$
+  (s^2 + 12)/(s(s+2)(s+3)) = A/s + B/(s + 2) + C/(s+3)
+$
+Residue Method
+$
+  A = s F(s)|_(s=0) = (s^2 + 12)/(s(s+2)(s+3))|_(s=0) = 12/((2)(3)) = 2 \
+  B = (s+2) F(s)|_(s=-2) = (s^2 + 12)/(s(s+2)(s+3))|_(s=0) = (4 + 12)/((-2)(1)) = -8 \
+  C = (s+3) F(s)|_(s=-3) = (s^2 + 12)/(s(s+2)(s+3))|_(s=0) = (9 + 12)/((-3)(-1)) = 7 \
+  therefore
+  (s^2 + 12)/(s(s+2)(s+3)) = 2/s - 8/(s + 2) + 7/(s+3)
+$
+
+== Examples of using the Laplace Transform
+- use the Laplace Transform the solve the following differential equation
+  $
+    (dif^2 v(t))/(dif t^2) + 6 (dif v(t))/(dif t) + 8 v(t) = 2 u(t)
+  $
+  given that $v(0) = 1; v'(0) = -2$
+- taking the Laplace Transform of each term yields
+  $
+    [s^2 V(s) - s v(0) - v'(0)] + 6[s V(s) - v(0)] + 8 V(s) = 2/s
+  $
+- substituting $v(0) = 1; v'(0) = -2$ we obtain
+  $
+    (s^2 + 6 s + 8)V(s) = s + 4 + 2/s = (s^2 + 4 s + 2)/s \
+    => V(s) = (1/4)/s + (1/2)/(s+2) + (1/4)/(s+4)
+  $
+- taking the inverse laplace transform, we obtain
+  $
+    v(t) = 1/4 (1 + 2 e^(-2 t) + e^(-4 t))u(t)
+  $
+
+== Laplace-Domain Circuit Models
+- *resistive circuit*
+  $
+    v(t) = R i(t) =>^cal(L) V(s) = R I(s)
+  $
+- *inductive circuit*
+#table(
+  columns: (1fr,) * 2,
+  table.header()[Time Domain][$s"-Domain"$],
+  $
+    v(t) & = L (dif i(t))/(dif t) \
+    i(t) & = 1/L integral_0^t v(x) dif x + i(0)
+  $,
+  $
+    V(s) & = s L I(s) - L i(0) \
+    I(s) & = V(s)/(s L) + i(0)/s
+  $,
+)
+- *capacitive circuit*
+#table(
+  columns: (1fr,) * 2,
+  table.header()[Time Domain][$s"-Domain"$],
+  $
+    v(t) & = 1/C integral_0^t i(x) dif x + v(0) \
+    i(t) & = C (dif v(t))/(dif t)
+  $,
+  $
+    V(s) & = I(s)/(s C) + v(0)/s \
+    I(s) & = s C V(s) - C v(0)
+  $,
+)
+
+=== Assuming zero initial conditions
+- *resistor*
+  $
+    V(s) = R I(s) \
+  $
+  - _impedance_
+    $
+      Z(s) = V(s)/I(s) = R
+    $
+  - _admittance_
+    $
+      Y(s) = I(s)/V(s) = 1/R
+    $
+- *inductor*
+  $
+    V(s) = s L I(s)
+  $
+  - _impedance_
+    $
+      Z(s) = V(s)/I(s) = s L
+    $
+  - _admittance_
+    $
+      Y(s) = I(s)/V(s) = 1/(s L)
+    $
+- *capacitor*
+  $
+    V(s) = I(s) / (s C)
+  $
+  - _impedance_
+    $
+      Z(s) = V(s)/I(s) = 1/(s C)
+    $
+  - _admittance_
+    $
+      Y(s) = I(s)/V(s) = s C
+    $
+
+== Transfer Functions
