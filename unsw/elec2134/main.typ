@@ -195,14 +195,18 @@ $
       [$integral t cos(n omega_0 t) dif t$],
 
       [
-        $u = t, quad dif v = cos(n omega_0 t) dif t => v = 1/(n omega_0) sin(n omega_0 t)$ \
-        $display(= t/(n omega_0) sin(n omega_0 t) + 1/(n omega_0)^2 cos(n omega_0 t) + G)$
+        $
+          u &= t, quad dif v = cos(n omega_0 t) dif t => v = 1/(n omega_0) sin(n omega_0 t) \
+          &= t/(n omega_0) sin(n omega_0 t) + 1/(n omega_0)^2 cos(n omega_0 t) + G
+        $
       ],
       [$integral t sin(n omega_0 t) dif t$],
 
       [
-        $u = t, quad dif v = sin(n omega_0 t) dif t => v = -1/(n omega_0) cos(n omega_0 t)$ \
-        $display(= -t/(n omega_0) cos(n omega_0 t) + 1/(n omega_0)^2 sin(n omega_0 t) + G)$
+        $
+          u &= t, quad dif v = sin(n omega_0 t) dif t => v = -1/(n omega_0) cos(n omega_0 t) \
+          &= -t/(n omega_0) cos(n omega_0 t) + 1/(n omega_0)^2 sin(n omega_0 t) + G
+        $
       ],
 
       sec[5. Definite Integration by Parts ($0 <= t <= T$, integer $n$)],
@@ -234,84 +238,118 @@ $
 
       [$display(integral_0^T cos(m omega_0 t) cos(n omega_0 t) dif t = cases(0 & "for all " m eq.not n, T/2 & "for " m = n))$],
 
-      sec[Trigonometric Identities #text(weight: "regular", style: "italic")[(verify all formulae yourself)]],
+      sec[Trigonometric Identities], [Symmetry / shifts],
+      [
+        $
+          sin(-alpha) &= -sin alpha, & quad cos(-alpha) &= cos alpha \
+          sin(alpha + pi/2) &= cos alpha, & quad cos(alpha + pi/2) &= -sin alpha \
+          sin(alpha plus.minus pi) &= -sin alpha, & quad cos(alpha plus.minus pi) &= -cos alpha \
+          sin(alpha + 2 pi) &= sin alpha, & quad cos(alpha + 2 pi) &= cos alpha
+        $
+      ],
       [Angle sum / difference],
 
       [
-        $sin(alpha plus.minus beta) = sin alpha cos beta plus.minus cos alpha sin beta$ \
-        $cos(alpha plus.minus beta) = cos alpha cos beta minus.plus sin alpha sin beta$ \
-        $cos(alpha plus.minus 90 degree) = minus.plus sin alpha$ \
-        $sin(alpha plus.minus 90 degree) = plus.minus cos alpha$
+        $
+          sin(alpha plus.minus beta) & = sin alpha cos beta plus.minus cos alpha sin beta \
+          cos(alpha plus.minus beta) & = cos alpha cos beta minus.plus sin alpha sin beta
+        $
       ],
       [Product-to-sum],
 
       [
-        $cos alpha cos beta = 1/2 cos(alpha + beta) + 1/2 cos(alpha - beta)$ \
-        $sin alpha sin beta = 1/2 cos(alpha - beta) - 1/2 cos(alpha + beta)$ \
-        $sin alpha cos beta = 1/2 sin(alpha + beta) + 1/2 sin(alpha - beta)$
+        $
+          cos alpha cos beta & = 1/2 cos(alpha + beta) + 1/2 cos(alpha - beta) \
+          sin alpha sin beta & = 1/2 cos(alpha - beta) - 1/2 cos(alpha + beta) \
+          sin alpha cos beta & = 1/2 sin(alpha + beta) + 1/2 sin(alpha - beta)
+        $
       ],
       [Double angle / power reduction],
 
       [
-        $sin 2 alpha = 2 sin alpha cos alpha$ \
-        $cos 2 alpha = 2 cos^2 alpha - 1 = 1 - 2 sin^2 alpha = cos^2 alpha - sin^2 alpha$ \
-        $sin^2 alpha = 1/2 (1 - cos 2 alpha)$ \
-        $cos^2 alpha = 1/2 (1 + cos 2 alpha)$
+        $
+          sin 2 alpha & = 2 sin alpha cos alpha \
+          cos 2 alpha & = 2 cos^2 alpha - 1 \
+                      & = 1 - 2 sin^2 alpha \
+                      & = cos^2 alpha - sin^2 alpha \
+          sin^2 alpha & = 1/2 (1 - cos 2 alpha) \
+          cos^2 alpha & = 1/2 (1 + cos 2 alpha)
+        $
       ],
       [Complex exponential (Euler)],
 
       [
-        $sin alpha = (e^(j alpha) - e^(-j alpha))/(2 j)$ \
-        $cos alpha = (e^(j alpha) + e^(-j alpha))/2$ \
-        $e^(plus.minus j alpha) = cos alpha plus.minus j sin alpha$ \
-        $A cos alpha + B sin alpha = sqrt(A^2 + B^2) cos(alpha - tan^(-1)(B/A))$
+        $
+                          sin alpha & = (e^(j alpha) - e^(-j alpha))/(2 j) \
+                          cos alpha & = (e^(j alpha) + e^(-j alpha))/2 \
+             e^(plus.minus j alpha) & = cos alpha plus.minus j sin alpha \
+          A cos alpha + B sin alpha & = sqrt(A^2 + B^2) cos(alpha - tan^(-1)(B/A))
+        $
       ],
 
-      sec[Fourier Series], [General trigonometric],
+      sec[Fourier Series],
+
+      [General trigonometric],
       [
-        $x(t) = A_0 + sum_(n=1)^infinity A_n cos(n omega_0 t) + B_n sin(n omega_0 t)$ \
-        $A_0 = 1/T integral_(-T/2)^(T/2) x(t) dif t$ \
-        $A_n = 2/T integral_(-T/2)^(T/2) x(t) cos(n omega_0 t) dif t$ \
-        $B_n = 2/T integral_(-T/2)^(T/2) x(t) sin(n omega_0 t) dif t$
+        $
+          x(t) & = A_0 + sum_(n=1)^infinity A_n cos(n omega_0 t) + B_n sin(n omega_0 t) \
+           A_0 & = 1/T integral_(-T/2)^(T/2) x(t) dif t \
+           A_n & = 2/T integral_(-T/2)^(T/2) x(t) cos(n omega_0 t) dif t \
+           B_n & = 2/T integral_(-T/2)^(T/2) x(t) sin(n omega_0 t) dif t
+        $
       ],
+
       [Odd: $x(t) = -x(-t)$],
 
       [
-        $A_n = 0 quad "for all " n$ \
-        $B_n = 4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t$
+        $
+          A_n & = 0 quad "for all " n \
+          B_n & = 4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t
+        $
       ],
       [Even: $x(t) = x(-t)$],
 
       [
-        $B_n = 0 quad "for all " n$ \
-        $A_n = 4/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t$
+        $
+          B_n & = 0 quad "for all " n \
+          A_n & = 4/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t
+        $
       ],
       [Half-wave: $x(t) = -x(t - T/2)$],
 
       [
-        $A_n = 0 " and " B_n = 0 quad "for even " n$ \
-        $A_n = 4/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t quad "for odd " n$ \
-        $B_n = 4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t quad "for odd " n$
+        $
+          A_n = B_n &= 0 quad "for even " n \
+          A_n &= 4/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t quad "for odd " n \
+          B_n &= 4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t quad "for odd " n
+        $
       ],
       [Amplitude-phase (compact)],
 
       [
-        $x(t) = K_0 + sum_(n=1)^infinity K_n cos(n omega_0 t + phi_n)$ \
-        $K_n angle phi_n = A_n - j B_n$ \
-        $K_n = sqrt(A_n^2 + B_n^2); quad phi_n = -tan^(-1)(B_n/A_n)$
+        $
+                     x(t) & = K_0 + sum_(n=1)^infinity K_n cos(n omega_0 t + phi_n) \
+          K_n angle phi_n & = A_n - j B_n \
+                      K_n & = sqrt(A_n^2 + B_n^2) \
+                    phi_n & = -tan^(-1)(B_n/A_n)
+        $
       ],
       [Complex exponential],
 
       [
-        $x(t) = sum_(n=-infinity)^infinity C_n e^(j n omega_0 t)$ \
-        $C_n = 1/T integral_0^T x(t) e^(-j n omega_0 t) dif t$ \
-        $C_n = 1/2 (A_n - j B_n)$
+        $
+          x(t) & = sum_(n=-infinity)^infinity C_n e^(j n omega_0 t) \
+           C_n & = 1/T integral_0^T x(t) e^(-j n omega_0 t) dif t \
+           C_n & = 1/2 (A_n - j B_n)
+        $
       ],
       [$C_n$ for symmetric functions],
 
       [
-        Even: $C_n = 2/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t$ \
-        Odd: $C_n = (-2 j)/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t$
+        $
+          "Even:" quad C_n & = 2/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t \
+           "Odd:" quad C_n & = (-2 j)/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t
+        $
       ],
     ),
     caption: [Useful Formulae],
