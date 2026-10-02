@@ -140,3 +140,32 @@ $
   (partial u)/(partial x) = (partial v)/(partial y) "and" (partial u)/(partial y) = -(partial v)/(partial x)
 $
 hold at $(x, y)$.
+
+= Theme 3: Analytic Functions
+#def("")[
+  A function $f : S -> CC, S = "domain" f subset CC$ is *analytic* at $z_0$ if it is differentiable in some $epsilon"-neighbhourhood"$ of $z_0$. A function is analytic on a subset $T$ of $S$ if it is analytic at each point of $T$. A function is *entire* if it is analytic on $CC$. That is, $f$ is differentiable on $CC$. Analytic functions then, are differentiable on some open set, while entire functions are analytic everywhere.
+
+  e.g. The function $f$ defined by
+  $
+    & f(x + i y) \
+    & = 4 y^3 - 6 y^2 - x^4 + x + i(-4 y x^3 + y)
+  $
+  is differentiable only on $S = {x + i y in CC : y = 0 "or" y = 1 + x^2}$. So $f$ is nowhere analytic.
+]
+
+== Harmonic Functions
+#def("")[
+  A function $u$ of two real variables $x$ and $y$ is called *harmonic* on a set $D subset RR^2$ if it satisfies Laplace's equation
+  $
+    (partial^2 u)/(partial x^2) (x, y) = (partial^2 u)/(partial y^2) (x, y) = 0
+  $
+  for all $(x, y) in D$.
+]
+
+If $f$ is analytic on a domain $D$ and $f(z) = u(x, y) + i v(x, y)$ for $z = x + i y$, then $u$ and $v$ are both harmonic on $D$.
+
+Thus if $f$ is analytic on $D$, then so are $f'$ and $f''$.
+
+#def("")[
+  If two harmonic functions $u$ and $v$ satisfy the Cauchy-Riemann equations $u_x = v_y$ and $u_y = -v_x$, then we say $v$ is a harmonic conjugate of $u$.
+]

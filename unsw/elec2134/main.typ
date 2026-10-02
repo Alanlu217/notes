@@ -908,11 +908,13 @@ $
 $
 Residue Method
 $
-  A = s F(s)|_(s=0) = (s^2 + 12)/(s(s+2)(s+3))|_(s=0) = 12/((2)(3)) = 2 \
-  B = (s+2) F(s)|_(s=-2) = (s^2 + 12)/(s(s+2)(s+3))|_(s=0) = (4 + 12)/((-2)(1)) = -8 \
-  C = (s+3) F(s)|_(s=-3) = (s^2 + 12)/(s(s+2)(s+3))|_(s=0) = (9 + 12)/((-3)(-1)) = 7 \
-  therefore
-  (s^2 + 12)/(s(s+2)(s+3)) = 2/s - 8/(s + 2) + 7/(s+3)
+                   A = s F(s)|_(s=0) & = (s^2 + 12)/(s(s+2)(s+3))|_(s=0) \
+                                     & = 12/((2)(3)) = 2 \
+              B = (s+2) F(s)|_(s=-2) & = (s^2 + 12)/(s(s+2)(s+3))|_(s=0) \
+                                     & = (4 + 12)/((-2)(1)) = -8 \
+              C = (s+3) F(s)|_(s=-3) & = (s^2 + 12)/(s(s+2)(s+3))|_(s=0) \
+                                     & = (9 + 12)/((-3)(-1)) = 7 \
+  therefore (s^2 + 12)/(s(s+2)(s+3)) & = 2/s - 8/(s + 2) + 7/(s+3)
 $
 
 == Examples of using the Laplace Transform
@@ -1033,3 +1035,88 @@ $
       H(s) = I(s)/V(s)
     $
 - a single circuit may have several possible transfer functions, depending on the chosen input and output variables
+
+=== Unit Impulse Response
+- to determine the transfer function, both input $X(s)$ and output $Y(s)$ must be known
+- if they are given, the output is obtained as
+  $
+    Y(s) = H(s).X(s)
+  $
+- taking the inverse Laplace Transform
+  $
+    y(t) = cal(L)^(-1){Y(s)}
+  $
+- if the input is a *unit impulse*, $x(t) = delta(t)$, then
+  $
+    X(s) = 1
+  $
+  thus $Y(s) = H(s)$ which means $y(t) = h(t)$ where
+  $
+    h(t) = cal(L)^(-1){H(s)}
+  $
+- the function $h(t)$ is called the *unit impulse response*
+  - it represents the time-domain response of the system to a unit impulse input
+- therefore the transfer function $H(s)$ is the Laplace Transform of the unit impulse response of the system
+
+- e.g. if the impulse response of a network is $h(t) = e^(-t) u(t)$, determine the output $v_o(t)$ for the input $v_i(t) = 10 e^(-2 t) u(t)$
+  - the transformed variables are
+    $
+        cal(L)[h(t)] & = H(s) 1/(s + 1) \
+      cal(L)[v_i(t)] & = V_i(s) = 10/(s + 1)
+    $
+    therefore
+    $
+      V_o(s) = H(s)V_i(s) = 10/((s+1)(s+2)) = 10/(s + 1) - 10/(s + 2)
+    $
+    and hence,
+    $
+      v_o(t) & = cal(L)^(-1)(V_o(s)) \
+      v_o(t) & = 10(e^(-t) e e^(-2 t))u(t) V
+    $
+
+#{
+  let sec(title) = table.cell(
+    colspan: 2,
+    fill: luma(225),
+    align: left,
+  )[*#title*]
+  set page(columns: 1)
+  show figure: set block(breakable: true)
+
+  [== Basic Laplace Transform Pairs and Properties]
+  figure(
+    table(
+      columns: (auto, 1fr),
+      align: center,
+      inset: 10pt,
+      stroke: 0.5pt,
+
+      sec[Basic Laplace Transforms],
+
+      $u(t)$, $1/s$,
+      $t u(t)$, $1/s^2$,
+      $t^n u(t)$, $n!/s^(n+1)$,
+      $t^(n-1)/(n-1)! u(t)$, $1/s^n$,
+      $delta(t - tau), tau > 0$, $e^(-s tau)$,
+      $e^(-a t)u(t)$, $1/(s + a)$,
+      $t e^(-a t)u(t)$, $1/(s + a)^2$,
+      $cos(omega t)u(t)$, $s/(s^2 + omega^2)$,
+      $sin(omega t)u(t)$, $omega/(s^2 + omega^2)$,
+      $e^(-a t)cos(omega t)u(t)$, $(s + a)/((s + a)^2 + omega^2)$,
+      $e^(-a t)sin(omega t)u(t)$, $omega/((s + a)^2 + omega^2)$,
+
+      sec[Laplace Transform Properties],
+
+      $x(t)$, $X(s)$,
+      $a x(t) + b y(t)$, $a X(s) + b Y(s)$,
+      $x(t - tau)$, $e^(-s tau) X(s)$,
+      $e^(a_0 t)x(t)$, $X(s - a_0)$,
+      $x(a t), a > 0$, $1/a X(s/a)$,
+      $x(t) times y(t)$, $X(s) Y(s)$,
+      $-t x(t)$, $dif/(dif s) X(s)$,
+      $(dif x(t))/(dif t)$, $s X(s) - x(0)$,
+      $(dif^2 x(t))/(dif t^2)$, $s^2 X(s) - s x(0) - x'(0)$,
+    ),
+  )
+  set page(columns: 2)
+}

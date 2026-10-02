@@ -1,6 +1,6 @@
 #import "templates.typ": def
 
-= Introduction, Curves & Surfaces
+= Topic 1: Introduction, Curves & Surfaces
 - dealing with scalar and vector quantities
   - / Scalars: only has magnitude
   - / Vectors: has magnitude and direction
@@ -95,7 +95,7 @@
   This definition can extend to curves in $RR^n$.
 ]
 
-= Functions and Surfaces
+= Topic 2: Functions and Surfaces
 #def("")[
   A *function* of $n$ *variables* is a mapping $f : Omega -> RR quad "where" Omega subset.eq RR^n$. The set $Omega$ is the *domain* of the function $f$, also written as $"Dom"(f)$ and consists of all possible inputs of the function.
 
@@ -145,3 +145,40 @@
     $
       S = F^(-1)({0}) = {(x, y, z) in RR^3 : F(x, y, z) = 0}
     $
+
+= Topic 3: Differentiation
+== Differentiation on $RR$
+The slope of a chord is
+$
+  (f(a + h) - f(a))/h
+$
+and the slope of the tangent line is
+$
+  f'(a) = limits(lim)_(h->0) (f(a + h) - f(a))/h
+$
+
+As $h -> 0$, the gradient of the chord approaches the gradient of the tangent. We can also write
+$
+  limits(lim)_(x->a) (f(x) - f(a) - f'(a)(x-a))/(x-a) = 0
+$
+
+== Partial Derivatives
+- In $RR^n$, we can notate coordinates by $x_1, x_2, ..., x_n$ and the standard basis vectors by $e_1, e_2, ..., e_n$.
+#def("")[
+  Let $x_0 in Omega subset.eq RR^n$ and $f : Omega -> RR$. If the limit
+  $
+    (partial f)/(partial x_j)(x_0) = limits(lim)_(h->0) (f(x_0 + h e_j) - f(x_0))/h
+  $
+  exists, it is called the *partial derivative of $f$ with respect to $x_j$ at $x_0$*. The function that takes $x_0$ to $(partial f)/(partial x_j)(x_0)$ is notated by $(partial f)/(partial x_j)$.
+
+  Some other common notations are
+  $
+    (partial f)/(partial x_j) = partial_x_j f = f_x_j = partial_j f
+  $
+
+  e.g. consider \
+  $f : RR^2 -> RR, f(x, y) = x^2 + 1/2 y^2$. Then
+  $
+    (partial f)/(partial x) = 2 x quad (partial f)/(partial y) = y
+  $
+]
