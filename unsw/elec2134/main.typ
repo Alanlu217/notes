@@ -1092,45 +1092,45 @@ $
     fill: luma(225),
     align: left,
   )[*#title*]
-  set page(columns: 1)
   show figure: set block(breakable: true)
+  set page(columns: 1)
 
   [== Basic Laplace Transform Pairs and Properties]
   figure(
     table(
-      columns: (auto, 1fr),
+      columns: (1fr, 1fr, 1fr, 1fr),
       align: center,
       inset: 10pt,
       stroke: 0.5pt,
 
-      sec[Basic Laplace Transforms],
+      sec[Basic Laplace Transforms], sec[Laplace Transform Properties],
 
-      $u(t)$, $1/s$,
-      $t u(t)$, $1/s^2$,
-      $t^n u(t)$, $n!/s^(n+1)$,
-      $t^(n-1)/(n-1)! u(t)$, $1/s^n$,
-      $delta(t - tau), tau > 0$, $e^(-s tau)$,
-      $e^(-a t)u(t)$, $1/(s + a)$,
-      $t e^(-a t)u(t)$, $1/(s + a)^2$,
-      $cos(omega t)u(t)$, $s/(s^2 + omega^2)$,
-      $sin(omega t)u(t)$, $omega/(s^2 + omega^2)$,
-      $e^(-a t)cos(omega t)u(t)$, $(s + a)/((s + a)^2 + omega^2)$,
-      $e^(-a t)sin(omega t)u(t)$, $omega/((s + a)^2 + omega^2)$,
+      $ u(t) $, $ 1/s $, $ x(t) $, $ X(s) $,
+      $ t u(t) $, $ 1/s^2 $, $ a x(t) + b y(t) $, $ a X(s) + b Y(s) $,
+      $ t^n u(t) $, $ n!/s^(n+1) $, $ x(t - tau) $, $ e^(-s tau) X(s) $,
+      $ t^(n-1)/(n-1)! u(t) $, $ 1/s^n $, $ e^(a_0 t)x(t) $, $ X(s - a_0) $,
+      $ delta(t - tau), tau > 0 $,
+      $ e^(-s tau) $,
+      $ x(a t), a > 0 $,
+      $ 1/a X(s/a) $,
 
-      sec[Laplace Transform Properties],
+      $ e^(-a t)u(t) $, $ 1/(s + a) $, $ x(t) times y(t) $, $ X(s) Y(s) $,
+      $ t e^(-a t)u(t) $, $ 1/(s + a)^2 $, $ -t x(t) $, $ dif/(dif s) X(s) $,
+      $ cos(omega t)u(t) $,
+      $ s/(s^2 + omega^2) $,
+      $ (dif x(t))/(dif t) $,
+      $ s X(s) - x(0) $,
 
-      $x(t)$, $X(s)$,
-      $a x(t) + b y(t)$, $a X(s) + b Y(s)$,
-      $x(t - tau)$, $e^(-s tau) X(s)$,
-      $e^(a_0 t)x(t)$, $X(s - a_0)$,
-      $x(a t), a > 0$, $1/a X(s/a)$,
-      $x(t) times y(t)$, $X(s) Y(s)$,
-      $-t x(t)$, $dif/(dif s) X(s)$,
-      $(dif x(t))/(dif t)$, $s X(s) - x(0)$,
-      $(dif^2 x(t))/(dif t^2)$, $s^2 X(s) - s x(0) - x'(0)$,
+      $ sin(omega t)u(t) $,
+      $ omega/(s^2 + omega^2) $,
+      $ (dif^2 x(t))/(dif t^2) $,
+      $ s^2 X(s) - s x(0) - x'(0) $,
+
+      $ e^(-a t)cos(omega t)u(t) $, $ (s + a)/((s + a)^2 + omega^2) $, [], [],
+      $ e^(-a t)sin(omega t)u(t) $, $ omega/((s + a)^2 + omega^2) $, [], [],
     ),
   )
-  set page(columns: 2)
+  set page(columns: 1)
 }
 
 = Topic 4: System Analysis
