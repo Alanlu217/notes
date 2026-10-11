@@ -1612,3 +1612,5 @@ $
 $
 - signal spectrum tell us what is present
 - system frequency response tells us what gets passed, attenuated, or phase shifted
+
+#include "cheatsheet.typ"
