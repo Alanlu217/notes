@@ -59,7 +59,6 @@
 
 == Integrals
 
-//D+
 #table(
   columns: (1fr, 2.4fr),
   table.header($display(f(x))$, $display(integral f(x) dif x)$),
@@ -78,173 +77,119 @@
 
   $display(1/(x^2 + a^2))$, $display(1/a arctan(x/a) + C)$,
 )
-//D-
 
-By parts:
-$ integral u dif v = u v - integral v dif u $
-Over one period ($omega_0 = 2 pi\/T$, integer $n != 0$):
-$
-  integral_0^T sin(n omega_0 t) dif t = integral_0^T cos(n omega_0 t) dif t = 0
-$
-$
-  integral_0^T t sin(n omega_0 t) dif t = -T/(n omega_0) quad integral_0^T t cos(n omega_0 t) dif t = 0
-$
-$
-  integral_0^T x^2 cos(n x) dif x = [x^2/n sin(n x) + (2 x)/n^2 cos(n x) - 2/n^3 sin(n x)]_0^T
-$
-$
-  integral_0^T x^2 sin(n x) dif x = [-x^2/n cos(n x) + (2 x)/n^2 sin(n x) + 2/n^3 cos(n x)]_0^T
-$
-Orthogonality:
-$ integral_0^T cos(m omega_0 t) sin(n omega_0 t) dif t = 0 quad "for all" m, n $
-$
-  integral_0^T sin(m omega_0 t) sin(n omega_0 t) dif t = integral_0^T cos(m omega_0 t) cos(n omega_0 t) dif t = cases(0 quad m != n, T\/2 quad m = n)
-$
-$ integral_0^oo t^n e^(-a t) dif t = n!/a^(n+1) $
+#table(
+  columns: (1fr, 3fr),
+  table.header([Rule], [Formula]),
+  [By parts], $display(integral u dif v = u v - integral v dif u)$,
+  [One period ($omega_0 = 2 pi\/T$, integer $n != 0$)],
+  $display(integral_0^T sin(n omega_0 t) dif t = integral_0^T cos(n omega_0 t) dif t = 0)$,
+
+  [One period, $t sin$],
+  $display(integral_0^T t sin(n omega_0 t) dif t = -T/(n omega_0))$,
+
+  [One period, $t cos$], $display(integral_0^T t cos(n omega_0 t) dif t = 0)$,
+  [One period, $x^2 cos$],
+  $display(integral_0^T x^2 cos(n x) dif x = [x^2/n sin(n x) + (2 x)/n^2 cos(n x) - 2/n^3 sin(n x)]_0^T)$,
+
+  [One period, $x^2 sin$],
+  $display(integral_0^T x^2 sin(n x) dif x = [-x^2/n cos(n x) + (2 x)/n^2 sin(n x) + 2/n^3 cos(n x)]_0^T)$,
+
+  [Orthogonality, $cos dot sin$],
+  $display(integral_0^T cos(m omega_0 t) sin(n omega_0 t) dif t = 0 quad "for all" m\, n)$,
+
+  [Orthogonality, $sin dot sin$ and $cos dot cos$],
+  $display(integral_0^T sin(m omega_0 t) sin(n omega_0 t) dif t = integral_0^T cos(m omega_0 t) cos(n omega_0 t) dif t = cases(0 quad m != n, T\/2 quad m = n))$,
+
+  [Gamma-type], $display(integral_0^oo t^n e^(-a t) dif t = n!/a^(n+1))$,
+)
 
 == Trig identities
 
-$ sin(-alpha) = -sin alpha quad quad cos(-alpha) = cos alpha $
-$ sin(alpha + pi\/2) = cos alpha quad quad cos(alpha + pi\/2) = -sin alpha $
-$
-  sin(alpha plus.minus pi) = -sin alpha quad quad cos(alpha plus.minus pi) = -cos alpha
-$
-$ sin^2 alpha + cos^2 alpha = 1 quad quad sin 2 alpha = 2 sin alpha cos alpha $
-$
-  sin(alpha plus.minus beta) = sin alpha cos beta plus.minus cos alpha sin beta
-$
-$
-  cos(alpha plus.minus beta) = cos alpha cos beta minus.plus sin alpha sin beta
-$
-$ cos alpha cos beta = 1/2 cos(alpha + beta) + 1/2 cos(alpha - beta) $
-$ sin alpha sin beta = 1/2 cos(alpha - beta) - 1/2 cos(alpha + beta) $
-$ sin alpha cos beta = 1/2 sin(alpha + beta) + 1/2 sin(alpha - beta) $
-$
-  cos 2 alpha = 2 cos^2 alpha - 1 = 1 - 2 sin^2 alpha = cos^2 alpha - sin^2 alpha
-$
-$
-  sin^2 alpha = 1/2 (1 - cos 2 alpha) quad quad cos^2 alpha = 1/2 (1 + cos 2 alpha)
-$
-$ A cos alpha + B sin alpha = sqrt(A^2 + B^2) cos(alpha - arctan(B\/A)) $
+#table(
+  columns: (1fr, 2.4fr),
+  table.header([Identity], [Formula]),
+  [Parity],
+  $display(sin(-alpha) = -sin alpha quad quad cos(-alpha) = cos alpha)$,
+
+  [Shift by $pi\/2$],
+  $display(sin(alpha + pi\/2) = cos alpha quad quad cos(alpha + pi\/2) = -sin alpha)$,
+
+  [Shift by $pi$],
+  $display(sin(alpha plus.minus pi) = -sin alpha quad quad cos(alpha plus.minus pi) = -cos alpha)$,
+
+  [Pythagorean, double $sin$],
+  $display(sin^2 alpha + cos^2 alpha = 1 quad quad sin 2 alpha = 2 sin alpha cos alpha)$,
+
+  [Sum / difference, $sin$],
+  $display(sin(alpha plus.minus beta) = sin alpha cos beta plus.minus cos alpha sin beta)$,
+
+  [Sum / difference, $cos$],
+  $display(cos(alpha plus.minus beta) = cos alpha cos beta minus.plus sin alpha sin beta)$,
+
+  [Product, $cos cos$],
+  $display(cos alpha cos beta = 1/2 cos(alpha + beta) + 1/2 cos(alpha - beta))$,
+
+  [Product, $sin sin$],
+  $display(sin alpha sin beta = 1/2 cos(alpha - beta) - 1/2 cos(alpha + beta))$,
+
+  [Product, $sin cos$],
+  $display(sin alpha cos beta = 1/2 sin(alpha + beta) + 1/2 sin(alpha - beta))$,
+
+  [Double angle, $cos$],
+  $display(cos 2 alpha = 2 cos^2 alpha - 1 = 1 - 2 sin^2 alpha = cos^2 alpha - sin^2 alpha)$,
+
+  [Power reduction],
+  $display(sin^2 alpha = 1/2 (1 - cos 2 alpha) quad quad cos^2 alpha = 1/2 (1 + cos 2 alpha))$,
+
+  [Combine into one $cos$],
+  $display(A cos alpha + B sin alpha = sqrt(A^2 + B^2) cos(alpha - op("atan2")(B, A)))$,
+)
 
 == Euler, complex numbers, decibels
 
-$ e^(plus.minus j alpha) = cos alpha plus.minus j sin alpha $
-$
-  sin alpha = (e^(j alpha) - e^(-j alpha))/(2 j) quad quad cos alpha = (e^(j alpha) + e^(-j alpha))/2
-$
-$
-  z = a + j b = r e^(j theta) quad r = sqrt(a^2 + b^2) quad theta = arctan(b\/a)
-$
-$ "dB" = 20 log_10 (V_"out"/V_"in") = 10 log_10 (P_"out"/P_"in") $
-$-3$ dB corresponds to a gain of $1\/sqrt(2) = 0.707$.
-
-= Fourier transform
-
-$ X(omega) = integral_(-oo)^oo x(t) e^(-j omega t) dif t $
-$ x(t) = 1/(2 pi) integral_(-oo)^oo X(omega) e^(j omega t) dif omega $
-Periodic signals (from the exponential series, $T -> oo$ gives the continuous transform):
-$ X(omega) = 2 pi sum_(n=-oo)^oo C_n delta(omega - n omega_0) $
-
-//D+
-#table(
-  columns: (1fr, 1.3fr, 1fr, 1.3fr),
-  table.header(
-    $display(x(t))$, $display(X(omega))$, $display(x(t))$, $display(X(omega))$
-  ),
-  $display(delta(t))$,
-  $display(1)$,
-  $display(A)$,
-  $display(2 pi A delta(omega))$,
-
-  $display(A delta(t))$,
-  $display(A)$,
-  $display(e^(j omega_1 t))$,
-  $display(2 pi delta(omega - omega_1))$,
-
-  $display(delta(t - a))$,
-  $display(e^(-j omega a))$,
-  $display(e^(-j omega_1 t))$,
-  $display(2 pi delta(omega + omega_1))$,
-
-  $display(delta(t + a))$,
-  $display(e^(j omega a))$,
-  $display(e^(-a t) u(t))$,
-  $display(1/(a + j omega))$,
-
-  $display(u(t))$,
-  $display(pi delta(omega) + 1/(j omega))$,
-  $display(e^(-a abs(t)))$,
-  $display((2 a)/(a^2 + omega^2))$,
-)
 #table(
   columns: (1fr, 2.4fr),
-  table.header($display(x(t))$, $display(X(omega))$),
-  $display(cos omega_1 t)$,
-  $display(pi delta(omega - omega_1) + pi delta(omega + omega_1))$,
+  table.header([Item], [Formula]),
+  [Euler], $display(e^(plus.minus j alpha) = cos alpha plus.minus j sin alpha)$,
+  [$sin$, $cos$ from exponentials],
+  $display(sin alpha = (e^(j alpha) - e^(-j alpha))/(2 j) quad quad cos alpha = (e^(j alpha) + e^(-j alpha))/2)$,
 
-  $display(sin omega_1 t)$,
-  $display(j pi [delta(omega + omega_1) - delta(omega - omega_1)])$,
+  [Polar form],
+  $display(z = a + j b = r e^(j theta) quad r = sqrt(a^2 + b^2) quad a = r cos theta quad b = r sin theta)$,
 
-  [Rect, height $display(A)$, width $display(tau)$],
-  $display(A tau (sin(omega tau\/2))/(omega tau\/2))$,
+  [Decibels],
+  $display("dB" = 20 log_10 (V_"out"/V_"in") = 10 log_10 (P_"out"/P_"in"))$,
 
-  [Rect, $display(abs(t) <= T)$, height 1], $display((2 sin(omega T))/omega)$,
+  [$-3$ dB point], $display(1\/sqrt(2) = 0.707 "gain")$,
+  [Common dB values],
+  [$10 log_10 2 = 3$ dB; $10 log_10 (1\/2) = -3$ dB (half power); $+10$ dB per $times 10$ in power, $+20$ dB per $times 10$ in voltage ($20 log_10 10 = 20$)],
 )
-//D-
 
-== Properties
+== Phase of a complex number (atan2, quadrants)
 
-//D+
+$ alpha = arctan(abs(b) slash abs(a)) quad (0 <= alpha <= pi\/2) $
+
 #table(
-  columns: (0.8fr, 2.2fr),
-  table.header([Property], [$display(x(t) <==> X(omega))$]),
-  [Linearity], $display(a x_1(t) + b x_2(t) <==> a X_1(omega) + b X_2(omega))$,
-  [Frequency shift], $display(e^(j omega_0 t) x(t) <==> X(omega - omega_0))$,
-  [Time shift], $display(x(t - t_0) <==> e^(-j omega t_0) X(omega))$,
-  [Scaling], $display(x(a t) <==> 1/abs(a) X(omega/a))$,
-  [Reversal], $display(x(-t) <==> X(-omega) = X^*(omega))$,
-  [Differentiation (time)],
-  $display((dif^n x)/(dif t^n) <==> (j omega)^n X(omega))$,
-
-  [Differentiation (freq.)],
-  $display(t^n x(t) <==> j^n (dif^n X)/(dif omega^n))$,
-
-  [Integration],
-  $display(integral_(-oo)^t x(tau) dif tau <==> X(omega)/(j omega) + pi X(0) delta(omega))$,
-
-  [Convolution], $display(x(t) * h(t) <==> X(omega) H(omega))$,
-  [Modulation],
-  $display(x(t) cos(omega_0 t) <==> 1/2 X(omega - omega_0) + 1/2 X(omega + omega_0))$,
+  columns: (1.3fr, 1.7fr),
+  table.header([Location of $z = a + j b$], [$theta = angle z$]),
+  [$a > 0$, $b >= 0$ (Q1)], $alpha$,
+  [$a < 0$, $b >= 0$ (Q2)], $pi - alpha$,
+  [$a < 0$, $b < 0$ (Q3)], $-(pi - alpha) = alpha - pi$,
+  [$a > 0$, $b < 0$ (Q4)], $-alpha$,
+  [$a = 0$ ($alpha$ undefined)], [$plus.minus pi/2$ for $b > 0$ / $b < 0$],
 )
-//D-
 
-#ex[$x(t) = e^(-a t) u(t)$:
-  $ X(omega) = integral_0^oo e^(-(a + j omega) t) dif t = 1/(a + j omega) $]
-
-#ex[Frequency shift: $y(t) = e^(j 10 t) dot "rect"(abs(t) <= pi)$, where the rect has $X(omega) = (2 sin(pi omega))\/omega$:
-  $ Y(omega) = X(omega - 10) = (2 sin((omega - 10) pi))/(omega - 10) $]
-
-#ex[Scaling: rect($abs(t) <= 1$) has $X(omega) = (2 sin omega)\/omega$. For $y(t) = x(t\/2)$:
-  $ Y(omega) = 2 X(2 omega) = (2 sin 2 omega)/omega $]
-
-#ex[Differentiation: $dif\/dif t [e^(-a t) u(t)] = -a e^(-a t) u(t) + delta(t)$, so
-  $ -a/(a + j omega) + 1 = (j omega)/(a + j omega) = j omega X(omega) $]
-
-#ex[Ramp pulse train ($T = 2$, $omega_0 = pi$, $x = 2 t$ on $(0, 1)$, else 0 in the period):
-  $
-    C_n = 1/2 integral_0^1 2 t e^(-j n pi t) dif t = (j (-1)^n)/(n pi) + ((-1)^n - 1)/(n^2 pi^2) quad (n != 0)
-  $
-  $ C_0 = 1/2 quad quad X(omega) = 2 pi sum_n C_n delta(omega - n pi) $]
+#ex[$z = -3 + j 4$ (Q2): $alpha = arctan(4\/3) = 53.1 degree$, so $theta = 180 degree - 53.1 degree = 126.9 degree$. \
+  $z = -3 - j 4$ (Q3): same $alpha$, so $theta = 53.1 degree - 180 degree = -126.9 degree$. A bare $arctan(b\/a)$ gives $-53.1 degree$ for the first and $+53.1 degree$ for the second, both wrong.]
 
 = Laplace transform
 
 $
   F(s) = cal(L)\{f(t)\} = integral_(0^-)^oo f(t) e^(-s t) dif t quad quad s = sigma + j omega
 $
-$sigma$ is the exponential damping, $omega$ the frequency. The *ROC* is the set of $sigma$ for which the integral converges. If $f(t) = 0$ for $t < 0$ and the ROC includes the $j omega$-axis, then $F(omega) = F(s)|_(s = j omega)$.
+$sigma$ is the exponential damping, $omega$ the frequency. The *ROC* is the set of $sigma$ for which the integral converges. If $f(t) = 0$ for $t < 0$ and the ROC includes the $j omega$-axis, then $F(omega) = F(s)|_(s = j omega)$ (Fourier = Laplace on $sigma = 0$).
 
-//D+
 #table(
   columns: (1fr, 1.4fr, 1fr, 1.4fr),
   table.header(
@@ -297,10 +242,11 @@ $sigma$ is the exponential damping, $omega$ the frequency. The *ROC* is the set 
   [$display(s)$-integration], $display(f(t)/t <==> integral_s^oo F(s') dif s')$,
   [Convolution], $display(f(t) * g(t) <==> F(s) G(s))$,
 )
-//D-
 
 *Initial and final value* ($f(oo)$ needs a finite final value, i.e. all poles of $s F$ in the left half-plane):
-$ f(0^+) = lim_(s -> oo) s F(s) quad quad f(oo) = lim_(s -> 0) s F(s) $
+#key[
+  $ f(0^+) = lim_(s -> oo) s F(s) quad quad f(oo) = lim_(s -> 0) s F(s) $
+]
 
 *Periodic function* with period $T$ ($F_1$ is the transform of the first period only):
 #key[$
@@ -334,7 +280,6 @@ For a complex pair keep $(B s + C)\/((s + a)^2 + omega^2)$ and match $e^(-a t) c
 
 $H(s)$ alone does not fix $h(t)$; the ROC does. The same $1\/(s + a)$ comes from two different signals:
 
-//D+
 #table(
   columns: (1.4fr, 0.7fr, 1fr),
   table.header([Signal], [$display(F(s))$], [ROC]),
@@ -346,7 +291,6 @@ $H(s)$ alone does not fix $h(t)$; the ROC does. The same $1\/(s + a)$ comes from
   $display(1/(s + a))$,
   $display(sigma < -a)$,
 )
-//D-
 
 The ROC is a vertical strip in $sigma = "Re"(s)$ and contains no poles. Right-sided: ROC right of the rightmost pole. Left-sided: ROC left of the leftmost pole. Two-sided: a strip between poles.
 #key[*Causal:* ROC is $sigma >$ rightmost pole. *Stable:* ROC includes the $j omega$-axis. *Causal and stable:* all poles have $sigma < 0$.]
@@ -375,7 +319,6 @@ $
 
 == Circuits in the $s$-domain
 
-//D+
 #table(
   columns: (0.4fr, 1fr, 1.3fr, 1.3fr, 0.6fr),
   table.header(
@@ -399,7 +342,6 @@ $
   $display(I = s C V - C v(0))$,
   $display(1/(s C))$,
 )
-//D-
 
 Admittance is $Y = 1\/Z$. With zero initial conditions, $Z_R = R$, $Z_L = s L$, $Z_C = 1\/(s C)$. Series RLC: $(s L + R + 1\/(s C)) I(s) = V(s)$.
 
@@ -407,20 +349,29 @@ Admittance is $Y = 1\/Z$. With zero initial conditions, $Z_R = R$, $Z_L = s L$, 
 $
   H(s) = Y(s)/X(s) quad quad Y(s) = H(s) X(s) quad quad h(t) = cal(L)^(-1)\{H(s)\}
 $
-$H$ can be a voltage gain $V_o\/V_i$, current gain $I_o\/I_i$, impedance $V\/I$ or admittance $I\/V$. $h(t)$ is the unit impulse response (input $delta(t)$, $X = 1$).
+$H$ can be a voltage gain $V_o\/V_i$, current gain $I_o\/I_i$, impedance $V\/I$ or admittance $I\/V$. $h(t)$ is the unit impulse response (input $delta(t)$, $X = 1$). *ODE $<->$ $H(s)$:* replace $dif^k\/dif t^k$ by $s^k$ (zero ICs).
 
 #ex[$h(t) = e^(-t) u(t)$, $v_i (t) = 10 e^(-2 t) u(t)$:
   $ V_o (s) = H(s) V_i (s) = 10/((s + 1)(s + 2)) = 10/(s + 1) - 10/(s + 2) $
   $ v_o (t) = 10 (e^(-t) - e^(-2 t)) u(t) $]
 
+#ex[From poles and zeros to ODE: poles $-1 plus.minus j 2$, zero $-4$, gain $K = 3$:
+  $
+    H(s) = (3 (s + 4))/(s^2 + 2 s + 5) quad => quad y'' + 2 y' + 5 y = 3 x' + 12 x
+  $]
+
 = System analysis
 
 $ y(t) = h(t) * x(t) quad quad Y(s) = H(s) X(s) $
-Cascade: $H = H_1 H_2$. Parallel: $H = H_3 + H_4$.
+Cascade: $H = H_1 H_2$. Parallel: $H = H_3 + H_4$. Convert by factorising (cascade) or partial fractions (parallel).
+
+#ex[$
+  H = (4 s + 28)/(s^2 + 6 s + 5) = (4 s + 28)/(s + 1) dot 1/(s + 5) "(cascade)" = 6/(s + 1) - 2/(s + 5) "(parallel)."
+$]
 
 == Poles, zeros and stability
 
-*Poles* are the roots of the denominator of $H = P\/Q$ ($H -> oo$); *zeros* are the roots of $P$ ($H = 0$). On the $s$-plane the horizontal axis is $sigma$ (damping) and the vertical axis is $j omega$ (oscillation).
+*Poles* are the roots of the denominator of $H = P\/Q$ (the characteristic equation $Q(s) = 0$, $H -> oo$); *zeros* are the roots of $P$ ($H = 0$). Plot poles as $times$ and zeros as $circle.small$. On the $s$-plane the horizontal axis is $sigma$ (damping) and the vertical axis is $j omega$ (oscillation).
 
 #table(
   columns: (1.3fr, 1.7fr),
@@ -429,16 +380,26 @@ Cascade: $H = H_1 H_2$. Parallel: $H = H_3 + H_4$.
   [$e^(-a t) u(t)$ decays: stable],
 
   [Right half-plane, $H = 1\/(s - a)$], [$e^(a t) u(t)$ grows: unstable],
-  [On the $j omega$-axis], [pure oscillation (no decay or growth)],
+  [On the $j omega$-axis],
+  [pure oscillation (no decay or growth), *not* BIBO stable],
+
+  [Origin ($1\/s$)], [constant (step at the output)],
+  [Real axis ($omega_a = 0$)], [no oscillation],
   [Complex pair $sigma_a plus.minus j omega_a$],
   [real part sets decay, imaginary part sets oscillation],
 )
 
 For a complex pair the impulse response is
 $ h(t) = 1/omega_a e^(sigma_a t) sin(omega_a t) $
-BIBO stability needs all poles strictly in the open left half-plane. Moving poles further left (same imaginary part) speeds the decay without changing the oscillation frequency. A pole near the $j omega$-axis gives a strong, slowly decaying response; a zero near it attenuates that frequency.
+BIBO stability (causal rational LTI) needs all poles strictly in the open left half-plane, $"Re"{p_i} < 0$. Moving poles further left (same imaginary part) speeds the decay without changing the oscillation frequency; raising $omega_a$ at fixed $sigma_a$ keeps the envelope and raises the frequency. A pole near the $j omega$-axis gives a strong, slowly decaying response; a zero near it attenuates that frequency.
 
-#ex[Zeros and poles of $ H(s) = ((s + 1)(s + 3))/([(s + 1)^2 + 1](s + 2)) $Zeros: $-1, -3$. Poles: $-2$ and $-1 plus.minus j$.]
+#ex[Zeros and poles of $ H(s) = ((s + 1)(s + 3))/([(s + 1)^2 + 1](s + 2)) $Zeros: $-1, -3$. Poles: $-2$ and $-1 plus.minus j$. \
+  $H = (s^2 + 2 s + 2)\/(s^2 + 4 s + 13)$: zeros $-1 plus.minus j$, poles $-2 plus.minus j 3$.]
+
+#ex[Find $H$ from poles/zeros plus one value: poles $0, -2, -4$, zeros $-1, -3$, $H(1) = 4\/3$: $H = K (s + 1)(s + 3)\/(s (s + 2)(s + 4))$, $H(1) = K dot 8\/15 = 4\/3 => K = 2.5$. \
+  Steps: factor $N$, factor $D$, find zeros, find poles, plot, interpret.]
+
+#ex[$H = (s + 2)\/(s + 5)$, unit step: $Y = 1/s (s + 2)/(s + 5) = (2\/5)/s + (3\/5)/(s + 5)$, so $y(t) = 2/5 + 3/5 e^(-5 t)$. The pole at the origin gives the step; the pole at $-5$ gives $e^(-5 t)$.]
 
 == First- and second-order systems
 
@@ -446,16 +407,37 @@ BIBO stability needs all poles strictly in the open left half-plane. Moving pole
 $
   H(s) = a/(s + a) quad quad Y(s) = 1/s - 1/(s + a) quad quad y(t) = 1 - e^(-a t)
 $
-The time constant is $tau = 1\/a$ (63% of the final value at $t = tau$), and $a$ is the cutoff frequency.
+The time constant is $tau = 1\/a$ (63% of the final value at $t = tau$; initial slope $= a$), and $a$ is the cutoff frequency. The further the pole from the $j omega$-axis, the faster the transient.
 
 *Second order* (standard form), with step response $Y = H\/s$:
 $
   H(s) = omega_n^2/(s^2 + 2 zeta omega_n s + omega_n^2) quad quad s = -zeta omega_n plus.minus omega_n sqrt(zeta^2 - 1)
 $
-$zeta > 1$ overdamped, $zeta = 1$ critically damped, $zeta < 1$ underdamped with $omega_d = omega_n sqrt(1 - zeta^2)$:
+$zeta > 1$ overdamped, $zeta = 1$ critically damped, $0 < zeta < 1$ underdamped with $omega_d = omega_n sqrt(1 - zeta^2)$, $zeta = 0$ undamped:
 $
   y(t) = 1 - e^(-zeta omega_n t) [cos omega_d t + zeta/sqrt(1 - zeta^2) sin omega_d t]
 $
+Lecture form $H = a\/(s^2 + b s + a)$ (here $omega_n^2 = a = 9$), step responses:
+
+#table(
+  columns: (0.9fr, 0.5fr, 1fr, 2.3fr),
+  table.header([Case], [$display(b)$], [Poles], [$display(y(t))$]),
+  [Overdamped],
+  $display(9)$,
+  [$-1.146$, $-7.854$],
+  $display(1 + 0.171 e^(-7.854 t) - 1.171 e^(-1.146 t))$,
+
+  [Underdamped],
+  $display(2)$,
+  [$-1 plus.minus j sqrt(8)$],
+  $display(1 - e^(-t) (cos sqrt(8) t + sqrt(8)/8 sin sqrt(8) t))$,
+
+  [Undamped], $display(0)$, [$plus.minus j 3$], $display(1 - cos 3 t)$,
+  [Critically damped],
+  $display(6)$,
+  [$-3$ (repeated)],
+  $display(1 - 3 t e^(-3 t) - e^(-3 t))$,
+)
 
 == Frequency response and filters
 
@@ -465,8 +447,10 @@ $
 $
 The cutoff $omega_c$ is where $abs(H) = H_"max"\/sqrt(2)$ ($-3$ dB). For the low-pass $H = a\/(s + a)$:
 $ abs(H(j omega)) = a/sqrt(a^2 + omega^2) quad quad omega_c = a = "BW" $
+$omega = 0$: $abs(H) = 1$, $0 degree$; $omega = a$: $1\/sqrt(2)$, $-45 degree$; $omega -> oo$: $abs(H) -> 0$, $-90 degree$.
 
-//D+
+#ex[$H = 16\/(s + 4)^2$ (two cascaded poles): $abs(H(j omega)) = 16\/(omega^2 + 16)$, $Phi = -2 arctan(omega\/4)$. Near in phase at low $omega$; lag grows but saturates at $-180 degree$.]
+
 #table(
   columns: (1.1fr, 1.2fr, 1.1fr, 0.7fr),
   table.header(
@@ -490,24 +474,58 @@ $ abs(H(j omega)) = a/sqrt(a^2 + omega^2) quad quad omega_c = a = "BW" $
   $display(90 degree - arctan(omega R C))$,
   $display(1/(R C))$,
 )
-//D-
 
-Low-pass: $abs(H(0)) = 1$. High-pass: $abs(H(0)) = 0$ and $abs(H(j oo)) = 1$.
+Low-pass: $abs(H(0)) = 1$, passes below $omega_c$. High-pass $H = s\/(s + omega_c)$: $abs(H(0)) = 0$ (blocks DC) and $abs(H(j oo)) = 1$, slope $+20$ dB/dec below $omega_c$.
+
+*Roll-off:* each pole adds $-20$ dB/dec and each zero $+20$ dB/dec at high $omega$, so slope $= 20 (m - n)$ dB/dec ($m$ zeros, $n$ poles). 1st-order low-pass: $-20$ dB/dec; 2nd-order: $-40$ dB/dec (sharper). Cascading two identical first-order low-pass stages gives a 2nd-order low-pass with two repeated real poles.
+
+*Ideal blocks* (Q: delay $T$, differentiator, integrator):
+#table(
+  columns: (1.2fr, 0.8fr, 0.9fr, 0.9fr),
+  table.header(
+    [System], [$display(H(s))$], [$display(abs(H(j omega)))$], [$display(Phi)$]
+  ),
+  [Delay $T$ s], $display(e^(-s T))$, $display(1)$, $display(-omega T)$,
+  [Differentiator], $display(s)$, $display(omega)$, $display(+90 degree)$,
+  [Integrator], $display(1\/s)$, $display(1\/omega)$, $display(-90 degree)$,
+)
+
+*Second-order filters* ($b_0 = omega_0\/Q$; keep $omega_0$, raising $Q$ moves poles along a circle of radius $omega_0$ towards the $j omega$-axis, sharpening the peak):
+
+#table(
+  columns: (0.8fr, 1.4fr, 1.6fr),
+  table.header([Type], [$display(H(s))$], [Key facts]),
+  [Low-pass],
+  $display(omega_0^2/(s^2 + b_0 s + omega_0^2))$,
+  [$abs(H(j omega)) = omega_0^2\/sqrt((omega_0^2 - omega^2)^2 + (omega omega_0\/Q)^2)$; $abs(H(j omega_0)) = Q$; $-40$ dB/dec. Real repeated poles: cutoff $omega_0$. Real distinct: cutoff set by the dominant pole (closest to $j omega$-axis).],
+
+  [Band-pass],
+  $display(b_0 s/(s^2 + b_0 s + omega_0^2))$,
+  [zero at origin, complex poles; $abs(H(j omega_0)) = 1$; resonant-low-pass term $omega_0^2$ in numerator replaced by $b_0 s$],
+
+  [High-pass],
+  $display(s^2/(s^2 + b s + omega_c^2))$,
+  [double zero at origin, $+40$ dB/dec; complex poles give a peak, real poles do not],
+)
 
 *Series RLC band-pass* (output across $R$):
 $ H(s) = ((R\/L) s)/(s^2 + (R\/L) s + 1\/(L C)) $
-$ abs(H(j omega)) = (omega R\/L)/sqrt((1\/(L C) - omega^2)^2 + (omega R\/L)^2) $
-The centre frequency $omega_0$ is where $H$ is purely real ($j omega_0 L + 1\/(j omega_0 C) = 0$):
+$
+  abs(H(j omega)) = (omega R\/L)/sqrt((1\/(L C) - omega^2)^2 + (omega R\/L)^2) quad quad Phi = 90 degree - arctan((omega R\/L)/(1\/(L C) - omega^2))
+$
+Cutoffs $omega_l, omega_u$ are where $abs(H) = H_"max"\/sqrt(2)$. The centre (resonant) frequency $omega_0$ is where $H$ is purely real, $H_"max" = abs(H(j omega_0))$ ($j omega_0 L + 1\/(j omega_0 C) = 0$):
 #key[$
     omega_0 = 1/sqrt(L C) = sqrt(omega_u omega_l) quad quad "BW" = omega_u - omega_l = R/L
   $
   $ Q = omega_0/"BW" = (omega_0 L)/R quad quad abs(H(j omega_0)) = 1 $
   $ omega_(u, l) = plus.minus R/(2 L) + sqrt((R/(2 L))^2 + 1/(L C)) $]
+$Q$ measures the passband width independent of its location.
 
-*Notch and band-stop* (zero at the notch frequency $omega_z$, pole bandwidth $b_p = omega_p\/Q_p$):
+*Notch and band-stop* (zero at the notch frequency $omega_z$, pole bandwidth $b_p = omega_p\/Q_p$; a notch is a band-stop with $omega_p = omega_z$, larger $Q_p$ = narrower notch):
 $
   H(s) = (s^2 + omega_z^2)/omega_z^2 quad quad H(s) = (s^2 + omega_z^2)/(s^2 + b_p s + omega_p^2)
 $
+Pure notch: $abs(H(j omega)) = abs(omega_z^2 - omega^2)\/omega_z^2$, zero at $omega_z$ (complex zero pair on the $j omega$-axis).
 
 #ex[RC low-pass with $f_c = 1$ kHz and $R = 1.6$ k$Omega$:
   $ f_c = 1/(2 pi R C) quad quad C = 1/(2 pi dot 1600 dot 1000) = 99.47 "nF" $]
@@ -520,6 +538,10 @@ $
     omega_u = 37.0 "krad/s" quad quad omega_l = 27.0 "krad/s" quad quad sqrt(omega_u omega_l) = omega_0
   $]
 
+#ex[Notch for 50 Hz hum, $H = (s^2 + omega_0^2)\/(s^2 + 2 omega_0 cos theta s + omega_0^2)$: $omega_0 = 2 pi dot 50 = 314.2$ rad/s; $theta = 60 degree$ gives $b_p = 2 omega_0 cos 60 degree = omega_0$ ($Q_p = 1$).]
+
+*Op-amp (active) filters:* inverting low-pass $H_1 = -(R_f\/R) dot a\/(s + a)$, $a = 1\/(R_f C_f)$. With series input $C$: $H_2 = -(C\/C_f)(s + b)\/(s + a)$, $b = 1\/(R C)$.
+
 == Pole-zero geometry and the magnitude / phase response
 
 For $H(s) = K (s - z_1) dots.c (s - z_m)\/[(s - p_1) dots.c (s - p_n)]$ put $s = j omega$. Each factor $j omega - r$ is a vector from the root $r$ to the point $j omega$ on the axis:
@@ -528,7 +550,6 @@ $
 $
 So $abs(H)$ is (product of distances to zeros) over (product of distances to poles), and the phase is (angles to zeros) minus (angles to poles). Slide a point up the $j omega$ axis and watch the distances.
 
-//D+
 #table(
   columns: (1.3fr, 2fr),
   table.header([Feature], [Effect on the response]),
@@ -551,7 +572,6 @@ So $abs(H)$ is (product of distances to zeros) over (product of distances to pol
   [Large $display(omega)$],
   [$display(abs(H) tilde omega^(m - n))$: decays if $display(n > m)$, grows if $display(m > n)$],
 )
-//D-
 
 #key[*All-pass:* a zero at $+a$ mirrored by a pole at $-a$ gives $abs(j omega - a) = abs(j omega + a)$, so $abs(H) = 1$ for all $omega$ and only the phase changes. *Quick roots:* $s^2 + b s + c = (s + b\/2)^2 + (c - b^2\/4)$, so $s = -b\/2 plus.minus sqrt(b^2\/4 - c)$. For $s^2 + 2 s + 101$ this gives $-1 plus.minus j 10$.]
 
@@ -560,4 +580,3 @@ So $abs(H)$ is (product of distances to zeros) over (product of distances to pol
   (c) $H = (s - 2)\/(s + 2)$: all-pass, $abs(H) = 1$.]
 
 #key[*Take-aways.* Real part of a pole is decay or growth; imaginary part is oscillation frequency. Poles give the transient (natural) response; $H(j omega)$ gives gain and phase against frequency. $X(omega)$ is what is in the input, $H(j omega)$ is how each frequency is treated, and $Y(omega) = H(j omega) X(omega)$.]
-
