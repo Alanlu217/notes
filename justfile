@@ -1,38 +1,50 @@
 # Build every main.typ (except those under out/), skipping outputs that are
-# already up to date. Dependency tracking is done by hand here since `just`
-# has no built-in file-mtime dependency graph like make does.
+# already up to date.
+#   - A note with no sub-notes   -> out/<parent path>/<foldername>.pdf
+#   - A note with sub-notes      -> out/<path>/main.pdf (+ sub-note outputs inside)
 all:
     #!/usr/bin/env python3
     import os
     import pathlib
     import subprocess
 
+    ROOT = pathlib.Path(".")
     root_name = pathlib.Path.cwd().name
 
     def find_sources():
         sources = []
         for dirpath, dirnames, filenames in os.walk("."):
-            if pathlib.Path(dirpath) == pathlib.Path(".") and "out" in dirnames:
+            if pathlib.Path(dirpath) == ROOT and "out" in dirnames:
                 dirnames.remove("out")
             if "main.typ" in filenames:
                 sources.append(pathlib.Path(dirpath, "main.typ"))
         return sources
 
+    def has_sub_notes(d):
+        for dirpath, dirnames, filenames in os.walk(d):
+            dp = pathlib.Path(dirpath)
+            if d == ROOT and dp == d and "out" in dirnames:
+                dirnames.remove("out")
+            if dp != d and "main.typ" in filenames:
+                return True
+        return False
+
     def output_path(src):
         d = src.parent
-        if d == pathlib.Path("."):
+        if has_sub_notes(d):
+            return pathlib.Path("out", d, "main.pdf")
+        if d == ROOT:
             return pathlib.Path("out", f"{root_name}.pdf")
-        parent = d.parent
-        outdir = pathlib.Path("out") if parent == pathlib.Path(".") else pathlib.Path("out", parent)
-        return outdir / f"{d.name}.pdf"
+        return pathlib.Path("out", d.parent, f"{d.name}.pdf")
 
     def deps_of(src):
         d = src.parent
         files = []
         for dirpath, dirnames, filenames in os.walk(d):
             dp = pathlib.Path(dirpath)
-            if dp == d and "out" in dirnames:
+            if d == ROOT and dp == d and "out" in dirnames:
                 dirnames.remove("out")
+            dirnames[:] = [n for n in dirnames if not (dp / n / "main.typ").exists()]
             files.extend(dp / f for f in filenames)
         return files
 
@@ -115,6 +127,7 @@ index:
 site: all index
 
 # Scaffold a new note: just init <note-name>
+[no-cd]
 init name:
     #!/usr/bin/env python3
     import pathlib

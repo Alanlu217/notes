@@ -6,15 +6,11 @@
   pagebreak()
 
   set page(columns: 2)
-  show heading.where(depth: 1): it => {
-    pagebreak()
-    it
-  }
 
   text(20pt, weight: "bold")[Vector Calculus]
   include "vector_calculus.typ"
 
   pagebreak()
-  text(20pt, weight: "bold")[Vector Calculus]
+  text(20pt, weight: "bold")[Complex Analysis]
   include "complex_analysis.typ"
 }

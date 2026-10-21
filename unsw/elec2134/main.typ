@@ -1711,4 +1711,3 @@ $
   - horizontal line at -90 for $omega > 10 omega_c$
   #image("assets/phase_approx.png")
 
-#include "cheatsheet.typ"

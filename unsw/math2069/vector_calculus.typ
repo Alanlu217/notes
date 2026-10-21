@@ -182,3 +182,5 @@ $
     (partial f)/(partial x) = 2 x quad (partial f)/(partial y) = y
   $
 ]
+
+= Topic 4

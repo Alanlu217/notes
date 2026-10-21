@@ -1,4 +1,4 @@
-#import "templates.typ": def
+#import "templates.typ": def, theorem
 
 = Theme 1: Revision
 #def("")[
@@ -168,4 +168,63 @@ Thus if $f$ is analytic on $D$, then so are $f'$ and $f''$.
 
 #def("")[
   If two harmonic functions $u$ and $v$ satisfy the Cauchy-Riemann equations $u_x = v_y$ and $u_y = -v_x$, then we say $v$ is a harmonic conjugate of $u$.
+]
+
+= Theme 4: Exponential, Trigonometric & Hyberbolic Functions
+- if a function $f$ is to be the analog of the exponential $e^x$ if a real variable we require that
+  + $f(x + i 0) = e^x$
+  + $f$ is entire and $f'(z) = f(z)$ for all $z$
+- is there such a function?
+  - consider $g(z) = g(x + i y) = e^x e^(i y) = e^x (cos y + i sin y)$
+  - clearly $g(x + i 0) = e^x$
+  - let $u(x, y) = e^x cos y$ and $v(x, y) = e^x sin y$ then
+    $
+      (partial u)/(partial x) & = e^x cos y quad (partial u)/(partial y) & = -e^x sin y \
+      (partial v)/(partial x) & = e^x sin y quad (partial v)/(partial y) & = e^x cos y
+    $
+  - so the partial derivatives of $u, v$ exist everywhere and are continuous everywhere adn the Cauchy-Riemann Equations hold everywhere. Hence $g$ is differentiable on $CC$ with
+    $
+      g'(z) = (partial u)/(partial x) + i (partial v)/(partial x) = e^x cos y + i e^x sin y = g(z)
+    $
+
+#theorem("")[
+  If $f$ and $g$ are entire functions and $f(x) = g(x)$ for all $x in RR$, then $f(z) = g(z)$ for all $z in CC$.
+]
+
+#def("Complex Exponential Function")[
+  $ exp z = e^z = e^x e^(i y) = e^x (cos y + i sin y) $
+
+  $
+       e^(z_1 + z_2) & = e^(z_1) e^(z_2) \
+             (e^z)^n & = e^(n z) "for" n in ZZ \
+    e^(z + 2 k pi i) & = e^z e^(2 k pi i) = e^z
+  $
+]
+
+== Trig functions of a complex variable
+- Euler's formula says
+  $
+    e^(i x) = cos x + i sin x "and" \ e^(-i x) = cos x - i sin x "for" x in RR
+  $
+  and hence
+  $
+    e^(i x) - e^(-i x) = 2 i sin x "and" e^(i x) + e^(-i x) = 2 cos x
+  $
+
+#def("sine and cosine")[
+  $
+    sin z = (e^(i z) - e^(-i z))/(2 i) \
+    cos z = (e^(i z) + e^(-i z))/(2 i) \
+  $
+
+  Definitions of tangent, cotangent, secant, cosecant function then follow as usual.
+]
+
+== Complex Hyberbolic Functions
+#def("")[
+  For $z in CC$
+  $
+    sinh z = (e^z - e^(-z))/2 \
+    cosh z = (e^z + e^(-z))/2 \
+  $
 ]
