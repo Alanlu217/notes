@@ -5,13 +5,17 @@
   outline(depth: 1)
 }
 
+#set heading(numbering: (..n) => {
+  let n = n.pos()
+  numbering(("Q1.", "a)").at(n.len() - 1), n.last())
+})
 #show heading.where(depth: 1): it => {
   pagebreak()
   it
 }
 
-= Question 1
-== a) What is the smallest positive (non-zero) value of $theta$ such that
+=
+== What is the smallest positive (non-zero) value of $theta$ such that
 
 $
   e^(i theta) e^(2 i theta)...e^(7 i theta) = 1
@@ -31,7 +35,7 @@ $
   theta & = (2 pi)/28 = pi/14
 $
 
-== b) What is the smallest positive integer $n$ such that $(7 - 7 i)^n$ is real?
+== What is the smallest positive integer $n$ such that $(7 - 7 i)^n$ is real?
 
 #divider()
 
@@ -56,8 +60,8 @@ $
   n & = 4 \
 $
 
-= Question 2
-== a) Let $z = x + y i$. The real part of $z/(z + 2)$ has the following form
+=
+== Let $z = x + y i$. The real part of $z/(z + 2)$ has the following form
 $
   f(x, y)/((x+2)^2 = y^2)
 $
@@ -75,7 +79,7 @@ $
   therefore f(x, y) = x^2 + 2x + y^2
 $
 
-== If $z/(z+2)$ is purely imaginary then $z$ lies on a certain circle. What is the radius of this circle?
+== $z/(z+2)$ is purely imaginary then $z$ lies on a certain circle. What is the radius of this circle?
 
 #divider()
 
@@ -92,8 +96,8 @@ $
   therefore "radius" = 1
 $
 
-= Question 3
-== a) If $p$ is a polynomial with real coefficients with factor $z - (1 - 3 i)$, find the monic quadratic factor of $p$ with real coefficients.
+=
+== If $p$ is a polynomial with real coefficients with factor $z - (1 - 3 i)$, find the monic quadratic factor of $p$ with real coefficients.
 
 #divider()
 
@@ -108,16 +112,16 @@ $
                                 & = z^2 - 2z + 10
 $
 
-== b) Suppose that $q$ is a polynomial with real coefficients of degree $5$.
+== Suppose that $q$ is a polynomial with real coefficients of degree $5$.
 #divider()
 
 For each complex factor of $q$, its complex conjugate must also be a factor of $q$. However since $q$ has an odd degree, there must exists one factor without a pair. This factor must be real.
 
 Thus $q$ has at least one real root for all $q$.
 
-= Question 4
+=
 Consider the line given by $Re(z) = 1/10$ in the complex plane.
-== a) Find a Cartesian equation in terms of $u, v$ of the image of the line under the mapping
+== Find a Cartesian equation in terms of $u, v$ of the image of the line under the mapping
 $
   f(z) = u + i v = (1 + 2 i z)/z
 $
@@ -145,23 +149,23 @@ $
   (u - 5)^2 + (v - 2)^2 & = 25
 $
 
-== b) Choose the correct statement for the image of the line
+== Choose the correct statement for the image of the line
 #divider()
 The image is a circle.
 
 Original equations divides by $z$, therefore $z != 0$ so there is one point removed.
 
-= Question 5
-== a) Choose the correct statement from the options below
+=
+== Choose the correct statement from the options below
 #divider()
 Set is two seperate circles, thus it is not path connected.
 
-== b) Which of the following sets represents a domain in the complex plane?
+== Which of the following sets represents a domain in the complex plane?
 #divider()
 Domain must be open and path connected.
 
-= Question 6
-== a) Consider the image of the circle $abs(z - 4) = 4$ under the mapping $w = 1/z$. This image is:
+=
+== Consider the image of the circle $abs(z - 4) = 4$ under the mapping $w = 1/z$. This image is:
 #divider()
 
 $
@@ -184,25 +188,25 @@ $
 
 Thus, it is a line that doesn't pass through $0$.
 
-== b) Find two points which are in this image
+== Find two points which are in this image
 #divider()
 
 Choose $u = 1/8$ and any $v$.
 
 e.g. $1/8$, $1/8 + i$
 
-== c) Letting $w = u + i v$, find a Cartesian equation in $u, v$ satisfied by the points in this image.
+== Letting $w = u + i v$, find a Cartesian equation in $u, v$ satisfied by the points in this image.
 
 #divider()
 
 Equation found in part a).
 
-= Question 7
+=
 Let $z = x + i y$ and define
 $
   f(z) = f(x + i y) = x cos(8 y) + (I sin(8 y))/8
 $
-== a) We are told that all the points where $f$ is differentiable are given by an equation $g(x, y) = 0$. Find the simple function $g(x, y)$, involving $x, y$ to which $f$ is differentiable.
+== We are told that all the points where $f$ is differentiable are given by an equation $g(x, y) = 0$. Find the simple function $g(x, y)$, involving $x, y$ to which $f$ is differentiable.
 
 #divider()
 
@@ -227,7 +231,7 @@ As $u_x(x, y) = v_y(x, y)$ at all points and $u_y(x, y) = - v_x(x, y)$ only when
 
 Thus $g(x, y) = -8 x sin(8 y)$.
 
-== b) Hence $f$ is differentiable either when
+== Hence $f$ is differentiable either when
 #divider()
 $
   x = 0 "or "\
@@ -235,14 +239,14 @@ $
   y = k pi / 8
 $
 
-= Question 8
+=
 Consider the function $u$ given by
 $
   u(x, y) = 4 cos(x) cosh(y) + 9x^3 + x h(y)
 $
 where $h$ is a real function.
 
-== a) Find $u_(x x)$ and $u_(y y)$ in terms of $x, y$ and derivatives of $h$.
+== Find $u_(x x)$ and $u_(y y)$ in terms of $x, y$ and derivatives of $h$.
 #divider()
 
 $
@@ -255,7 +259,7 @@ $
   u_(y y) = 4 cos(x) cosh(y) + x h''(y)
 $
 
-== b) Suppose that $u$ is the real part of an analytic function $f$ where $f(z) = f(x + i y)$. Find a possible choice for $h$.
+== Suppose that $u$ is the real part of an analytic function $f$ where $f(z) = f(x + i y)$. Find a possible choice for $h$.
 
 #divider()
 
@@ -271,13 +275,13 @@ $
                                                    h(y) & = -27 y^2
 $
 
-= Question 9
+=
 Consider the function $f$ given by
 $
   f(z) = f(x + i y) = cos(x) sinh(y) - I sin(x) cosh(y) + 7 x^2 + 14 I x y + h(y)
 $
 where $h$ is a real function.
-== a) Suppose that $f$ is an analytic function. Find $h'(y)$ in terms of x, y.
+== Suppose that $f$ is an analytic function. Find $h'(y)$ in terms of x, y.
 
 #divider()
 
@@ -303,7 +307,7 @@ $
   h'(y) = -14 y
 $
 
-== b) Hence, find $h$
+== Hence, find $h$
 
 #divider()
 
@@ -312,10 +316,10 @@ $
   h(y) = -7y^2
 $
 
-= Question 10
+=
 Let $f(z) = p.v.(i z)^(1/2)$
 
-== a) Find $f(-14)$ in $`a + b i`$ form
+== Find $f(-14)$ in $`a + b i`$ form
 #divider()
 
 $
@@ -324,7 +328,7 @@ $
          & = p.v.(sqrt(14) e^(-i pi/4)) & = sqrt(7) - i sqrt(7)
 $
 
-== b) We want to find out where $f(i z)$ is analytic. Choose the correct answer from the options below.
+== We want to find out where $f(i z)$ is analytic. Choose the correct answer from the options below.
 #divider()
 
 Substitute $i z$ into the function.
@@ -338,13 +342,13 @@ Principle value has the range $(-pi, pi]$ so it has a discontinuity when $angle 
 
 Thus $f(i z)$ is analytic when $z$ is not on the non-negative real axis.
 
-= Question 11
+=
 Let $log_0(z)$ be the branch of the logarithm function defined by the choice of argument
 $
   0 < arg_0(z) <= 2 pi
 $
 
-== a) Find the value of $log_0(e^(-(6 i pi)/4))$
+== Find the value of $log_0(e^(-(6 i pi)/4))$
 #divider()
 
 Complex logarithm is defined as
@@ -366,7 +370,7 @@ $
 
 Thus, $log_0(e^(-(6 i pi)/4)) = 0 + i pi /2 = i pi / 2$
 
-== b) Which of the following is a simplified form of $log_0(6 i) + log_0(-6 i)$
+== Which of the following is a simplified form of $log_0(6 i) + log_0(-6 i)$
 #divider()
 
 $
@@ -385,10 +389,10 @@ $
             & = log_0(6 i) + log_0(-6 i)
 $
 
-= Question 12
+=
 Let $f(z) = p.v. z^(6 i)$.
 
-== a) Find $f(i)$
+== Find $f(i)$
 #divider()
 
 $
@@ -399,7 +403,7 @@ $
        & = e^(-3 pi)
 $
 
-== b) Find the principle arguments of $f(1.3 i)$
+== Find the principle arguments of $f(1.3 i)$
 #divider()
 
 $
@@ -410,8 +414,8 @@ $
   angle f(1.3 i) & = 6 ln 1.3
 $
 
-= Question 13
-== a) Find the square of the modulus of $cosh(6 + 3 i)$ in term of cos and sinh
+=
+== Find the square of the modulus of $cosh(6 + 3 i)$ in term of cos and sinh
 #divider()
 
 Using the identity $cosh(z) = cosh x cos y + i sinh x sin y$.
@@ -425,7 +429,7 @@ $
                        & = cos^2 3 + sinh^2 6
 $
 
-== b) If $z$ lies on the imaginary axis, then the value $abs(7 cos (4 z))$ has the smallest and greatest values
+== If $z$ lies on the imaginary axis, then the value $abs(7 cos (4 z))$ has the smallest and greatest values
 #divider()
 
 If $z$ is on the imaginary axis, then $z = i y$.
@@ -439,7 +443,7 @@ The $cosh x$ function is smallest at $x = 0$ where $cosh 0 = 1$. It is unbounded
 
 Thus, the smallest value of $abs(7 cos(4 z))$ is $7$ and it has no largest value.
 
-= Question 14
+=
 
 We want to find all solutions of $sinh(z) = 3$.
 
@@ -448,7 +452,7 @@ $
   (e^z)^2 + b e^z + c = 0
 $
 
-== a) What are the coefficients $b$ and $c$ of the quadratic equation above?
+== What are the coefficients $b$ and $c$ of the quadratic equation above?
 #divider()
 
 We know that $sinh(z) = (e^z - e^(-z))/2$. Thus
@@ -460,7 +464,7 @@ $
 
 Thus, $b = -6, c = -1$
 
-== b) Now let $z = x + i y$, and suppose that $e^z = 3 - sqrt(10)$. Find $x, y$.
+== Now let $z = x + i y$, and suppose that $e^z = 3 - sqrt(10)$. Find $x, y$.
 #divider()
 
 $
@@ -476,4 +480,49 @@ $
     y & = pi + 2 k pi
 $
 
-= Question 15
+=
+We want to find all solutions of $cos(z) = -4$
+
+== Let $z = x + i y$ in the above equation. Select ALL correct statements
+#divider()
+
+As $cos(z) = -4$, the real part must equal $-4$ and the imaginary part much equal $0$. Thus
+$
+  cos(x)cosh(y) = -4 \
+  -i*sin(x)sinh(y) = 0 \
+$
+
+Since $max(cos(x)) = 1$, $abs(cosh(y)) = 4$, as $cosh(y)$ is always positive, $cosh(y) = 4$. This means that $cos(x) = -1$. By extension, since $cos(x) = -1$and $x in RR$, then $sin(x) = 0$.
+
+== Find $x$ and $y$
+#divider()
+
+If $cos(x) = -1$ and $sin(x) = 0$, then $x = pi + 2 k pi$.
+
+If $cosh(y) = 4$, we have $y = plus.minus cosh^(-1)(4)$
+
+=
+== If $gamma$ is any contour lying entirely to the right of the line $Re(z) = 4$, from $z = 5 + i$ to $z = 5 - i$, find the value of
+$
+  integral_gamma 7/(z - 4) dif z
+$
+
+#divider()
+
+$7/(z - 4)$ is analytic for all $z != 4$, and since the contour is entirely to the right of $Re(z) = 4$, it is analytic for all $z in gamma$.
+
+Thus,
+
+$
+  integral_gamma 7/(z - 4) dif z & = [7 "Log" (z - 4)]_(5 + i)^(5 - i) \
+                                 & = 7 ["Log"(1-i) - "Log"(1 + i)] \
+                                 & = 7[ln sqrt(2) - i pi/4 - ln sqrt(2) - i pi/4] \
+                                 & = -(7 i pi) /2
+$
+
+== If $C$ is any contour lying entirely to the left of the line $Re(z) = 4$, from $z = 3 + i$ to $z = 3 - i$ find the value of
+$
+  integral_C 7/(z - 4) dif z
+$
+
+#divider()
