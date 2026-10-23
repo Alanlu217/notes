@@ -325,4 +325,155 @@ $
 $
 
 == b) We want to find out where $f(i z)$ is analytic. Choose the correct answer from the options below.
+#divider()
 
+Substitute $i z$ into the function.
+
+$
+  f(i z) = p.v. (i (i z))^(1/2) \
+  f(i z) = p.v. (-z)^(1/2)
+$
+
+Principle value has the range $(-pi, pi]$ so it has a discontinuity when $angle z = pi$. Which is the negative real axis. For $-z$ it is discontinuous for the positive real axis.
+
+Thus $f(i z)$ is analytic when $z$ is not on the non-negative real axis.
+
+= Question 11
+Let $log_0(z)$ be the branch of the logarithm function defined by the choice of argument
+$
+  0 < arg_0(z) <= 2 pi
+$
+
+== a) Find the value of $log_0(e^(-(6 i pi)/4))$
+#divider()
+
+Complex logarithm is defined as
+$
+  log_0 z = ln abs(z) + i arg(z)
+$
+where $0 < arg(z) <= 2 pi$.
+
+$
+  ln abs(z) & = ln abs(e^(-(6 i pi)/4)) \
+            & = ln 1 = 0
+$
+
+$
+  arg z & = -6/4 pi + 2 k pi \
+        & = -6/4 pi + 2 pi "to stay within the correct range" \
+        & = pi / 2
+$
+
+Thus, $log_0(e^(-(6 i pi)/4)) = 0 + i pi /2 = i pi / 2$
+
+== b) Which of the following is a simplified form of $log_0(6 i) + log_0(-6 i)$
+#divider()
+
+$
+     log_0(6 i) = ln abs(6 i) + i arg(6 i) & = ln 6 + i pi / 2 \
+  log_0(-6 i) = ln abs(-6 i) + i arg(-6 i) & = ln 6 + i (-pi / 2 + 2 pi) \
+                                           & = ln 6 + i (3 pi / 2)
+$
+Thus
+$
+  log_0(6 i) + log_0(-6 i) & = ln 6 + ln 6 + i pi / 2 + i (3 pi /2) \
+                           & = ln 36 + i 2 pi
+$
+
+$
+  log_0(36) & = ln 36 + i (0 + 2 pi) = ln 36 + i 2 pi \
+            & = log_0(6 i) + log_0(-6 i)
+$
+
+= Question 12
+Let $f(z) = p.v. z^(6 i)$.
+
+== a) Find $f(i)$
+#divider()
+
+$
+  f(i) & = p.v. i^(6 i) \
+       & = exp(6 i "Log" i) \
+       & = exp(6 i (ln abs i + i arg i)) \
+       & = exp(6 i (i pi / 2)) \
+       & = e^(-3 pi)
+$
+
+== b) Find the principle arguments of $f(1.3 i)$
+#divider()
+
+$
+        f(1.3 i) & = p.v. (1.3 i)^(6 i) \
+                 & = e^(6 i (ln abs(1.3 i) + i arg(1.3 i))) \
+                 & = e^(6 i (ln 1.3 + i pi / 2)) \
+                 & = e^(i 6 ln 1.3) e^(-3 pi) \
+  angle f(1.3 i) & = 6 ln 1.3
+$
+
+= Question 13
+== a) Find the square of the modulus of $cosh(6 + 3 i)$ in term of cos and sinh
+#divider()
+
+Using the identity $cosh(z) = cosh x cos y + i sinh x sin y$.
+
+$
+         cosh(6 + 3 i) & = cosh 6 cos 3 + i sinh 6 sin 3 \
+  abs(cosh(6 + 3 i))^2 & = (cosh 6 cos 3)^2 + (sinh 6 sin 3)^2 \
+                       & = cosh^2 6 cos^2 3 + sinh^2 6 sin^2 3 \
+                       & = (1 + sinh^2 6) cos^2 3 + sinh^2 6 sin^2 3 \
+                       & = cos^2 3 + sinh^2 6 (cos^2 3 + sin^2 3) \
+                       & = cos^2 3 + sinh^2 6
+$
+
+== b) If $z$ lies on the imaginary axis, then the value $abs(7 cos (4 z))$ has the smallest and greatest values
+#divider()
+
+If $z$ is on the imaginary axis, then $z = i y$.
+
+Thus we get
+$
+  abs(7 cos (4 i y)) = abs(7 cosh (4 y))
+$
+
+The $cosh x$ function is smallest at $x = 0$ where $cosh 0 = 1$. It is unbounded vertically.
+
+Thus, the smallest value of $abs(7 cos(4 z))$ is $7$ and it has no largest value.
+
+= Question 14
+
+We want to find all solutions of $sinh(z) = 3$.
+
+If $z$ is a solution, then $e^z$ satisfies a quadratic equation
+$
+  (e^z)^2 + b e^z + c = 0
+$
+
+== a) What are the coefficients $b$ and $c$ of the quadratic equation above?
+#divider()
+
+We know that $sinh(z) = (e^z - e^(-z))/2$. Thus
+$
+         (e^z - e^(-z))/2 & = 3 \
+         e^z - e^(-z) = 6 \
+  (e^z)^2 - 6 e^z - 1 = 0
+$
+
+Thus, $b = -6, c = -1$
+
+== b) Now let $z = x + i y$, and suppose that $e^z = 3 - sqrt(10)$. Find $x, y$.
+#divider()
+
+$
+  e^z = e^x e^(i y) = 3 - sqrt(10)
+$
+
+As $3 - sqrt(10)$ is negative, it has a magnitude of $sqrt(10) - 3$ and an angle of $pi$.
+
+Thus
+$
+  e^x & = sqrt(10) - 3 \
+    x & = ln(sqrt(10 - 3)) \
+    y & = pi + 2 k pi
+$
+
+= Question 15
