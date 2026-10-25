@@ -509,7 +509,7 @@ $
 
 #divider()
 
-$7/(z - 4)$ is analytic for all $z != 4$, and since the contour is entirely to the right of $Re(z) = 4$, it is analytic for all $z in gamma$.
+$7/(z - 4)$ is analytic for all $z != 4$, and since the contour is entirely to the right of $Re(z) = 4$, it is analytic for all $z in gamma$ and $"Log" z$ will also be fully analytic.
 
 Thus,
 
@@ -526,3 +526,143 @@ $
 $
 
 #divider()
+
+Since the contour is to the left of the line $Re(z) = 4$, the Principle Log is no longer analytic for all points in $C$.
+
+Thus we must choose another branch where it is analytic. e.g. $(0, 2 pi)$.
+
+Thus,
+$
+  integral_C 7/(z - 4) & = 7[log_0(3 - i - 4) - log_0(3 + i - 4)] \
+                       & = 7[ln sqrt(2) + i 5 pi / 4 - ln sqrt(2) - 3 pi / 4] \
+                       & = 7 i pi /2
+$
+
+=
+
+We want to use the ML estimation lemma to
+$ K = abs(integral_gamma (3 z)/(z^2 + 2) dif z) $,
+where $gamma$ is a semicircle in the upper half plane from $-4$ to $4$.
+
+== what is the length $L$ of $gamma$?
+#divider()
+
+$gamma$ is a semicircle so its length is half of its circumference.
+
+$
+  L & = 2 pi r / 2 \
+    & = 4 pi
+$
+
+== Find the smallest value of $M$ such that
+$ abs((3 z) / (z^2 + 2)) <= M "for all" z "on the curve" gamma $
+
+#divider()
+
+Since $gamma$ is a semicircle with radius $4$, $abs(z) = 4$.
+
+Thus the numerator is $ abs(3 z) = abs(3) abs(z) = 12 $
+
+The denominator is
+$
+  abs(z^2 + 2) & >= abs(abs(z^2) - abs(2)) "reverse triangle inequality" \
+               & = abs(abs(4^2) - abs(2)) \
+               & = abs(16 - 2) \
+               & = 14
+$
+
+Thus
+$
+  abs((3 z)/(z^2 + 2)) <= 12/14 = 6/7
+$
+
+== Choose the correct statement
+
+$K <= M L$ is the ML estimation lemma.
+
+=
+Suppose $C$ is the contour $abs(z - 1) = 5$ taken once anticlockwise.
+
+== Which of the following is a parameterisation of $C$?
+#divider()
+
+The contour is a circle centered at $z = 1$ with a radius of $5$.
+
+Thus it is
+$
+  gamma(t) = 1 + 5 e^(i t), 0 <= t <= 2 pi
+$
+
+== Find the derivative of $gamma(t)$ with respect to $t$ in the parameterisation you chose in part (a)
+
+#divider()
+
+$
+   gamma(t) & = 1 + 5 e^(i t) \
+  gamma'(t) & = 5 i e^(i t)
+$
+
+== Find the value of
+$
+  A = integral.cont_C 4 overline(z) dif z
+$
+#divider()
+
+$
+  A & = integral.cont_C 4 overline(z) dif z \
+  & = integral.cont_0^(2 pi) 4 overline(gamma(t)) gamma'(t) dif t \
+  & = 4 integral.cont_0^(2 pi) (1 + 5 e^(-i t)) 5 i e^(i t) dif t \
+  & = 4 integral.cont_0^(2 pi) (5 i e^(i t) + 25 i) dif t \
+  & = 4 integral.cont_0^(2 pi) 25 i dif t quad "since the integral of" e^(i t) "from" 0 "to" 2 pi "is" 0 \
+  & = 4 times 50 pi i \
+  & = 200 pi i
+$
+
+=
+== Consider the contour $C_1$ given by the circle $abs(z) = 6$, traversed anti-clockwise. Let
+$
+  g(omega) = integral_C_1 (z^2 - 6z + 10)/(z - w) dif z, "where" abs(w) != 6
+$
+Find two real values of $w$ inside the circle $C_1$ such that $g(w) = 4 pi i$
+
+#divider()
+
+By Cauchy's integral formula, if $f$ is analytic inside and on a simple closed contour $C$ and $w$ is inside $C$, then
+$
+  integral.cont_C f(z)/(z - w) dif z & = 2 pi i f(w) \
+                         2 pi i f(w) & = 4 pi i \
+                       z^2 - 6z + 10 & = 2 \
+                        z^2 - 6z + 8 & = 0 \
+                      (z - 2)(z - 4) & = 0 \
+                                   z & = 2, 4
+$
+
+== Let $C_2$ be the contour given by the square whose vertices are $(plus.minus 1, 0), (0, plus.minus 1)$. Evaluate the following integral
+$
+  integral_C_2 (4 cos (2 z))/(z(z^2 + 8))
+$
+
+#divider()
+
+The poles of the integral are
+$
+        z & = 0 \
+  z^2 + 8 & = 0 \
+        z & = plus.minus sqrt(8) i \
+$
+
+Only pole within the contour is $ z = 0 $
+
+Thus, the residue is
+$
+  "Res"_(z = 0) (4 cos(2 z))/(z(z^2 + 8)) &= limits(lim)_(z -> 0) z (4 cos(2 z))/(z(z^2 + 8)) \
+  & = limits(lim)_(z -> 0) (4 cos(2 z))/(z^2 + 8) \
+  & = (4 cos(0))/8 \
+  & = 1/2 \
+$
+
+By the residue theorem
+$
+  integral_C_2 (4 cos (2 z))/(z(z^2 + 30)) & = 2 i pi dot 1/2 \
+                                           & = i pi
+$
