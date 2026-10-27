@@ -666,3 +666,48 @@ $
   integral_C_2 (4 cos (2 z))/(z(z^2 + 30)) & = 2 i pi dot 1/2 \
                                            & = i pi
 $
+
+=
+== Which of the following values of $k$ will make the integral
+$
+  integral.cont_(abs(z - 2)=4) 1/(2z - k) dif z
+$
+equal to $0$?
+
+#divider()
+
+First find the poles
+$
+  2z - k = 0 \
+  z = k/2
+$
+
+Integral will equal $0$ if all poles are outside of the contour.
+
+$
+  abs(z - 2) > 4 \
+  abs(k / 2 - 2) > 4 \
+  abs(k - 4) > 8 \
+  k > 12 "or" k < -4
+$
+
+Thus answer is $13, 14$ from possible options.
+
+== If $C$ is the contour $abs(z) = 5$ taken once anticlockwise, what is the value of the contour integral
+$
+  1/(2 pi i) integral.cont_C cos(8 z)/(z - 3i) dif z
+$
+
+#divider()
+
+By cauchy integral formula (f is analytic in $C$ and $3i$ is within $C$)
+
+$
+  f(a) & = 1/(2 pi i) integral.cont_C f(z)/(z - a) dif z \
+       & = cos(8 a) \
+       & = cos(8 times 3 i) \
+       & = cos(24 i)
+$
+
+=
+== For which of the following regions will the integral $integral.cont_gamma 2/(z^2 - 196) dif z$ be equal to $0$, where $gamma$ is the contour which traverses the boundary of the region anti-clockwise?
