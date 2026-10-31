@@ -276,7 +276,8 @@ $
            -0.772 < & y < -0.33
 $
 
-= Light with a wavelength $lambda = 558 "nm"$ is incident on a transparent block with an angle of incidence of $20.2 degree$. The light travels at a speed of $v=1.80#e(8) m\/s$ inside the block. The refractive index of air is $n_"air" = 1.00$.
+=
+Light with a wavelength $lambda = 558 "nm"$ is incident on a transparent block with an angle of incidence of $20.2 degree$. The light travels at a speed of $v=1.80#e(8) m\/s$ inside the block. The refractive index of air is $n_"air" = 1.00$.
 #image("assets/q8.png")
 
 == What is the angle of refraction for this ray?
@@ -313,4 +314,86 @@ $
   f & = v/lambda \
     & = (1.8#e(8))/(334.8#e(-9)) \
     & = 537634408602150.5
+$
+
+=
+Two monochromatic, coherent radio sources are located a distance $D = 54.64 "cm"$ apart, they emit radio waves with a wavelength of $lambda = 10.61 "cm"$. A detector moves along a track parallel to a line joining the two sources. The track is also $D = 54.64 "cm"$ from the sources. The detector starts in line with the lower radio source, labeled $x = 0$ on the figure.
+#image("assets/q9.png")
+
+== When $x = 0$ what is the path difference between the radio waves coming from the two sources?
+
+The two distances are $D$ and $sqrt(D^2 + D^2)$ for the diagonal.
+
+$
+  Delta & = sqrt(2) D - D \
+        & = 22.63 "cm"
+$
+
+== What is the phase difference between these two waves? Give your answer as a number between $0$ and $2 pi$ radians.
+
+Phase difference is
+$
+  2 pi (Delta / lambda) & = 2pi times 22.63/10.61 = 13.40136508025203
+$
+
+This converted to be between $0$ and $2 pi$ radians is
+$
+  0.8349944658928568
+$
+
+== As the detector moves between $x = 0$ and $x = D$ how many local maximums does it encounter?
+
+Local maxima occurs when phase difference is $0$.
+
+As
+$
+  Delta/lambda = 2.132893496701225
+$
+there are 2 points before the midpoint where phase difference is $0$. Thus including the midpoint and the other side, there are $5$ total local maximums.
+
+=
+Two light waves traveling in the x direction have an electric field component polarized parallel to the y axis given by
+$
+  E_1 = 1.74 sin(1.42 #e(15) t) mu V\/m \
+  E_2 = 1.74 sin(1.42 #e(15) t + 1.271) mu V\/m
+$
+at a point $P$, where $t$ is in seconds and phase is in radians.
+
+== What is the amplitude of the resulting electric field at this point
+
+$
+  E_1 + E_2 & = 1.74 sin(1.42 #e(15) t) + 1.74 sin(1.42 #e(15) t + 1.271) \
+            & = 1.74(sin(1.42 #e(15) t) + sin(1.42 #e(15) + 1.271))
+$
+
+Using the trig identity
+$
+  sin A + sin B = 2 sin((A + B)/2)cos((A - B)/2)
+$
+$
+                 & 1.74(sin(1.42 #e(15) t) + sin(1.42 #e(15) t + 1.271)) \
+                 & = 1.74(2 sin(1.42 #e(15) t + 1.271/2) cos(1.271/2)) \
+  abs(E_1 + E_2) & = 1.74 times 2 times cos(1.271/2) \
+                 & = 2.8
+$
+
+== What is the phase difference between $E_1$ and $E_1 + E_2$
+
+From part a
+$
+  E_1 + E_2 & = 1.74(2 sin(1.42 #e(15) t + 1.271/2) cos(1.271/2)) \
+$
+
+Thus $E_1 + E_2$ has a phase of $1.271/2$ while $E_1$ has a phase of $0$.
+Thus the phase difference is
+$
+  1.271/2 = 0.6355
+$
+
+== What is the intensity of the resultant wave at this point?
+
+$
+  I & = E_"max"^2/(2 mu_0 c) \
+    & = (2.8#e(-6))^2/(2 times 4#e(-7) pi times 3#e(8)) \
+    & = 1.04#e(-14)
 $
