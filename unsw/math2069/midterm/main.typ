@@ -711,3 +711,40 @@ $
 
 =
 == For which of the following regions will the integral $integral.cont_gamma 2/(z^2 - 196) dif z$ be equal to $0$, where $gamma$ is the contour which traverses the boundary of the region anti-clockwise?
+#divider()
+
+The poles are
+$
+  z^2 = 100 \
+  z = plus.minus 10
+$
+
+The integral is zero is no poles are within the contour, or both are.
+
+Thus, when
+$
+  abs(z) < 5 \
+  "or" \
+  abs(z) < 15 \
+$
+
+== Let $C$ be the contour given by the square whose sides lie along the lines $Re(z)=plus.minus 7$ and $Im(z)=plus.minus 7$, traversed anti-clockwise.
+
+Evaluate the following integral
+$
+  integral_C (z dif z)/(2z + 4)
+$
+
+#divider()
+
+The poles are at
+$
+  2z + 4 & = 0 \
+       z & = -2
+$
+
+Thus
+$
+  integral_C (z dif z)/(2z + 4) & = 2 pi i times -2/(2) \
+                                & = -2 pi i
+$
