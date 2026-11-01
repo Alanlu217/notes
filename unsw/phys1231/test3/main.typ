@@ -1,3 +1,5 @@
+#import "@preview/cetz:0.5.3": canvas, draw
+
 #{
   v(2cm)
   align(center, text(20pt, weight: "bold")[MATH2069 Midterm Notes])
@@ -41,8 +43,8 @@ Wavelengths greater than $1"mm"$ are radio waves.
 
 $
   harpoon(bold(B)) & = E_0 / c sin(0.951z - 2.85 times 10^8 t) hat(h) T \
-  & = 1.42/(3 times 10^8) sin(0.951z - 2.85 times 10^8 t) hat(h) T \
-  & = 4.73 times 10^(-12) sin(0.951z - 2.85 times 10^8 t) hat(h) T \
+                   & = 1.42/(3 times 10^8) sin(0.951z - 2.85 times 10^8 t) hat(h) T \
+                   & = 4.73 times 10^(-12) sin(0.951z - 2.85 times 10^8 t) hat(h) T \
 $
 
 =
@@ -56,9 +58,9 @@ here $x$ is in metres and $t$ is in seconds.
 
 $
   S & = 1/(mu_0) harpoon(E) times harpoon(B) \
-  & = 1/(c mu_0) E^2 \
-  & = (9.67 times 10^(-3))^2/(c mu_0) sin^2(1.22 times 10^7 x - 3.65 times 10^15 t) hat(i) \
-  & = 2.48 #e(-7) sin^2(1.22 times 10^7 x - 3.65 times 10^15 t) hat(i)
+    & = 1/(c mu_0) E^2 \
+    & = (9.67 times 10^(-3))^2/(c mu_0) sin^2(1.22 times 10^7 x - 3.65 times 10^15 t) hat(i) \
+    & = 2.48 #e(-7) sin^2(1.22 times 10^7 x - 3.65 times 10^15 t) hat(i)
 $
 
 == What is the intensity (average magnitude of the Poynting vector) for this wave at the point described?
@@ -202,8 +204,8 @@ A star 732 light years from an observer outputs a power $P_"star"=1.02#e(26) W$.
 
 $
   I & = P_s/(4 pi r^2) \
-  & = (1.02#e(26))/(4 pi (3#e(8) times 265 times 24 times 60 times 60 times 732)^2) \
-  & = 1.692436653241963e-13
+    & = (1.02#e(26))/(4 pi (3#e(8) times 265 times 24 times 60 times 60 times 732)^2) \
+    & = 1.692436653241963e-13
 $
 
 == What is the root mean squared magnitude of the electric field making up the electromagnetic radiation at the observer?
@@ -397,3 +399,94 @@ $
     & = (2.8#e(-6))^2/(2 times 4#e(-7) pi times 3#e(8)) \
     & = 1.04#e(-14)
 $
+
+=
+A Lloyd's mirror consists of a source of coherent light which travels to an interferometer along two paths.
++ A direct path and
++ a path along which it is reflected once off a reflective surface.
+
+In the setup:
++ The source light has a wavelength of λ.
++ The distance between the source and the interferometer is d.
+
+The source and interferometer are equidistant from the reflective mirror. Their perpendicular distance from the reflective mirror is h. The refractive index of the mirror is greater than the refractive index of air.
+
+#align(
+  canvas(length: 1.2cm, {
+    import draw: *
+
+    // Source and interferometer points
+    circle((0, 0), radius: 0.12, fill: gray, stroke: black + 1pt)
+    circle((6, 0), radius: 0.12, fill: gray, stroke: black + 1pt)
+
+    // Labels
+    content(
+      (-0.1, 0.9),
+      text(style: "italic", size: 14pt)[Source],
+      anchor: "south-east",
+    )
+    content(
+      (6.4, 0.9),
+      text(style: "italic", size: 14pt)[Interferometer],
+      anchor: "south-east",
+    )
+
+    // d arrow (double-headed)
+    line((0.1, 0.35), (5.9, 0.35), mark: (start: ">", end: ">", fill: black))
+    content((3, 0.35), $d$, anchor: "south", padding: 0.1)
+
+    // Reflective surface
+    rect((1.05, -1.97), (4.95, -1.87), fill: gray, stroke: black + 0.5pt)
+    content(
+      (5.0, -2.2),
+      text(style: "italic", size: 14pt)[Reflective \ surface],
+      anchor: "north-west",
+    )
+
+    // h arrow (double-headed)
+    line((3, -0.2), (3, -1.87), mark: (start: ">", end: ">", fill: black))
+    content((3, -1.0), $h$, anchor: "west", padding: 0.2)
+  }),
+  center,
+)
+
+== Write an algebraic expression for the optical path difference between the direct and reflected light.
+
+Straight path is just $d$.
+
+Second path is
+$
+  2 times sqrt((d/2)^2 + h^2)
+$
+
+Thus path difference is
+$
+  2 times sqrt((d/2)^2 + h^2) - d
+$
+
+== Let $m$ stand for an integer. Write the condition on the optical path difference and $lambda$ which will result in constructive interference.
+
+Constructive interference occurs when the two incoming waves are in phase.
+
+Usually this is when the path difference is $0$.
+
+But one wave is reflected on a mirror with a higher refractive index of the air. This offsets its phase by $pi$.
+
+Thus the waves undergo constructive interference when the path difference is
+$
+  lambda(m + 1/2)
+$
+
+== The distances $d$ and $h$ are set so that constructive interference is observed for the wavelength $lambda$. A length $l$ of transparent material with refractive index $n$ is now inserted into the upper path. Write an expression for the minimum $l$ for which constructive interference is observed.
+
+Wavelength in a medium is $lambda/n$, so the light completes $n L/lambda$ wavelengths over that distance. This means that the path difference from travelling through the medium is $n L$.
+
+Thus the medium causes the path difference to increase. To minimise $l$ and keep constructive interference, the medium must cause one extra wavelength.
+
+Thus,
+$
+   n l - l & = lambda \
+  l(n - 1) & = lambda \
+         l & = lambda/(n - 1)
+$
+
