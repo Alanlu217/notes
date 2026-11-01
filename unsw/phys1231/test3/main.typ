@@ -490,3 +490,55 @@ $
          l & = lambda/(n - 1)
 $
 
+=
+A coherent light source with a wavelength $lambda=454 "nm"$ is incident on a single slit. A distance $D=2.00 m$ away the diffraction pattern can be seen on a distant screen. The slit has a width $a=0.363 "mm"$.
+#image("assets/q12.png")
+
+== Taking $x = 0$ on the screen as the center of the bright central maximum, at what height on the screen will the second minimum be observed?
+
+For a single slit diffraction pattern, the minima occurs at
+$
+  a sin theta = m lambda
+$
+
+Thus
+$
+  theta = arcsin((m lambda)/a)
+$
+$m = 2$, for the second minimum.
+
+Where
+$
+  tan theta & = x / D \
+          x & = D tan theta \
+            & = D tan(arcsin((m lambda)/a)) \
+            & = 2 tan(arcsin((2 times 454#e(-9))/(0.363 #e(-3)))) \
+            & = 0.005 m
+$
+
+== What is the width of the bright central maximum (i.e. what is the distance between the minima on either side)?
+
+Use same formula as part a but with $m = 1$ and double the result for the full width.
+
+$
+  x & = 2 D tan(arcsin((m lambda)/a)) \
+    & = 4 tan(arcsin((1 times 454#e(-9))/(0.363 #e(-3)))) \
+    & = 0.005 m \
+    & = 0.5 "cm"
+$
+== If the entire apparatus is now submerged in water, what will be the new width of the central maximum? The refractive index of water is $n=1.33$.
+
+The wavelength changes
+$
+  lambda_"water" & = lambda_"air"/n \
+                 & = (454#e(-9))/1.33 \
+                 & = 3.4135#e(-7)
+$
+
+Using the same equation again:
+$
+  x & = 2 D tan(arcsin((m lambda)/a)) \
+    & = 4 tan(arcsin((1 times 3.4135#e(-7))/(0.363 #e(-3)))) \
+    & = 0.0037625 m \
+    & = 0.37625
+$
