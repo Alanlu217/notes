@@ -542,3 +542,98 @@ $
     & = 0.0037625 m \
     & = 0.37625
 $
+
+=
+Radiowave are incident on a double slit setup as shown in the figure. The distance between the centres of the narrow slits is $d=10.3 "cm"$. The distance between the slits and the screen is $D=1.52 "m"$
+
+#image("assets/q13.png")
+
+== Consider a point at $y=h=31.2 "cm"$ on the screen. $y=0$ is aligned with the mid-point between the slits. What is the path length of the waves from slit 1 to the point at $y=h$?
+
+$
+  "path length" & = sqrt((h - d/2)^2 + d^2) \
+                & = sqrt((0.312 - 0.103/2)^2 + 1.52^2) \
+                & = sqrt(0.2605^2 + 1.52^2) \
+                & = 1.5421609027595014 "m"
+$
+
+== What is the path difference between the waves coming to this point from slit 1 and slit 2?
+
+$
+  "slit 2 path length" & = sqrt((h + d/2)^2 + d^2) \
+                       & = sqrt((0.312 + 0.103/2)^2 + 1.52^2) \
+                       & = sqrt(0.3635^2 + 1.52^2) \
+                       & = 1.5628602784638173 "m"
+$
+
+$
+  "path difference" & = 1.5628602784638173 - 1.5421609027595014 \
+                    & = 0.020699375704315903 "m"
+$
+
+== If $lambda$ is slowly increased from $lambda = 1.00 "cm"$, what is the first $lambda$ for which constructive interference will be observed at this point?
+
+Constructive interference occurs when path difference is a integer multiple of wavelength.
+
+Thus, the first value larger than $1"cm"$ that divides $2.0699375704315903 "cm"$ is
+$
+  2.0699375704315903 / 2 = 1.0349687852157952
+$
+
+=
+A coherent light with a wavelength $lambda=566 "nm"$ illuminates a double slit setup with a slit spacing of $d=0.0899 "mm"$. The intensity of light is measured along a distant screen at different angles. When one slit is covered the intensity on the screen is $I_0=16.65 W\/m^2$. In this problem ignore any effects due to diffraction of light around the slits.
+
+#image("assets/q14.png", width: 33%)
+
+== What is the maximum intensity observed at any point on the screen?
+
+Given by question, with one slit, intensity is $I_0 = 16.65 W\/m^2$.
+
+When there are two slits, the amplitude of the wave doubles causing the intensity to quadruple.
+
+Thus
+$
+  I_"max" & = 4 times I_0 \
+          & = 4 times 16.65 \
+          & = 66.6
+$
+
+== What is the average intensity observed on the screen?
+
+$
+  I = I_"max" cos^2((pi d sin theta)/lambda)
+$
+
+Average value of $cos^2(x)$ over a full period is $1/2$.
+
+Thus
+$
+  I_"avg" & = I_"max" times 1/2 \
+          & = 66.6/2 \
+          & = 33.3
+$
+
+== At what angle will the 7th maximum be observed on the screen?
+
+Maxima occurs at
+$
+  d sin theta & = m lambda \
+    sin theta & = (m lambda)/d \
+              & = (7 lambda)/d \
+        theta & = arcsin((7 lambda)/d) \
+              & = arcsin((7 times 566#e(-9))/(0.0899#e(-3))) & = 0.0441
+$
+
+=
+A sheet of glass with a refractive index $n_"glass"=1.47$ is coated with a $t=0.292 mu m$ thick reflective coating with a refractive index $n_"coating"=1.30$ to prevent the reflection of some light in the visible spectrum.
+
+== For light with a wavelength $lambda$ in air, write an expression for the wavelength of the light in the coating.
+
+$
+  lambda_m & = lambda/n \
+           & = lambda/1.30
+$
+
+== Visible light is in the wavelength range $390−700 "nm"$. What it the shortest wavelength in this range for which you will get destructive interference?
+
+
