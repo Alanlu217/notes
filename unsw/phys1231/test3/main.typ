@@ -727,3 +727,61 @@ $
             & = 0.06142516097643181 "m"
 $
 
+=
+Electromagnetic waves with a wavelength of $lambda=0.489 "mm"$ are sent along a reflective tube with a diameter of $9.14 "mm"$. In this material the waves do not undergo a phase shift upon reflection.
+
+Some of the waves travel straight along the $L=17.4 "cm"$ tube while others make an angle $theta=15.4 degree$ with the wall and are reflected as shown in the diagram.
+
+#image("assets/q17.png", width: 25%)
+
+== What is the path difference between the waves that are reflected along the tube and the ones that travel straight along the tube?
+
+The zigzag light ray can be converted into a large triangle with side length $L$ with an angle of $theta = 15.4 degree$.
+
+Thus, the length that it travels, $L_z$, is
+$
+  cos(theta) & = L/L_z \
+         L_z & = L/cos(theta) \
+             & = (17.4#e(-2))/cos(15.4degree) \
+             & = 0.1804800637321032
+$
+
+Then, the path difference can be calculated as
+$
+  p = L_z - L = 0.1804800637321032 - 0.174 = 0.0064800637321032195
+$
+
+== What is the phase difference between the reflected light and the light travels directly along the tube?
+
+Phase difference is
+$
+  p/lambda dot 2 pi & = 0.0064800637321032195/(0.489#e(-3)) dot 2 pi \
+                    & = 83.26266100437273
+$
+
+== By how much would the tube need to be extended in order to achieve constructive interference between the direct and reflected light at the end of the tube?
+
+For constructive interference, phase difference should be a integer multiple of $2 pi$.
+
+$
+  83.26266100437273/(2 pi) = 13.251664073830716 \
+$
+
+So the amount of extra phase required is
+$
+  14 dot 2 pi - 83.26266100437273 = 4.701933296141476 "rad"
+$
+
+This should then be converted back to the extra path difference required
+$
+  "phase"/(2 pi) dot lambda & = 4.701933296141476/(2 pi) dot 0.489#e(-3) \
+                            & = 0.00036593626789678015 "m"
+$
+
+This can finally be converted back to a length
+$
+  "change in path difference" & = (Delta L)/(cos theta) - Delta L \
+                      Delta L & = "change in path difference"/(1/(cos theta) - 1) \
+                              & = 0.00036593626789678015/(1/(cos 15.4) - 1) \
+                              & = 0.009825969812394654 "m"
+$
