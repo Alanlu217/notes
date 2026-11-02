@@ -634,6 +634,96 @@ $
            & = lambda/1.30
 $
 
-== Visible light is in the wavelength range $390−700 "nm"$. What it the shortest wavelength in this range for which you will get destructive interference?
+== Visible light is in the wavelength range $390−700 "nm"$. What is the shortest wavelength in this range for which you will get destructive interference?
 
+Two light rays:
++ reflects at the coating
++ reflects at the glass
+
+The second light ray travels an extra $2t$ and is also in phase with the first light ray as their phases both flip when reflecting.
+
+For this to produce destructive interference
+$
+      2t & = (m + 1/2)lambda_"coating" \
+         & = (m + 1/2)lambda/n_"coating" \
+  lambda & = (2t n_"coating")/(m + 1/2) \
+$
+
+Now try different values of $m$ until you find the smallest $lambda$ within the visible light range.
+
+For $m = 1$
+$
+  lambda = 506 "nm"
+$
+
+== The entire apparatus is now submerged in water with $n_"water"=1.33$. Which is now the shortest visible wavelength for which destructive interference will occur? Enter the wavelength this light would have in air as your answer.
+
+Now only the reflection on glass causes a phase flip.
+
+Thus the formula changes to
+$
+  lambda & = (2t n_"coating")/m \
+$
+
+Where the smallest visible wavelength is $m=1$
+$
+  lambda = 760 "nm"
+$
+
+*Question is wrong as this isn't visible light*
+
+=
+The intensity of a single slit diffraction pattern can be described by
+$
+  I(theta) = I_m ((sin alpha)/alpha)^2
+$
+where
+$
+  alpha = (pi a)/lambda sin theta
+$
+with $a$ being the width of the slit and $I_m$ being the intensity at the center of the central maximum. Consider a diffraction pattern formed by a slit with width $a = 7.83 mu m$, upon which coherent light with a wavelength $lambda = 425 "nm"$ is incident, the screen upon which the diffraction pattern is observed is a distance $D = 1.13 m$ away.
+
+== Consider a point on the screen at $x=h=1.57 "cm"$, where $x=0$ is taken as the center of the  bright central maximum. What is α at this point?
+
+$
+  sin theta & = x/D \
+            & = (1.57#e(-2))/1.13
+$
+
+$
+  alpha & = (pi a)/lambda sin theta \
+        & = (pi 7.83#e(-6))/(425#e(-9)) (1.57#e(-2))/1.13 \
+        & = 0.8041626788098841
+$
+
+== What is the ratio of the intensity at this point to the intensity at the bright central maximum?
+
+From the given equation:
+$
+      I(theta) & = I_m ((sin alpha)/alpha)^2 \
+  I(theta)/I_m & = ((sin alpha)/alpha)^2 \
+               & = 0.8021927769789486
+$
+
+== Where will the next minimum in the pattern be located on the screen?
+
+According to the given equation, minimas will occur when $sin alpha = 0$ or when $alpha = k pi$.
+
+As $alpha_n$ is less than $pi$, the next minima will occur at $alpha = pi$.
+
+$
+      alpha & = (pi a)/lambda sin theta \
+         pi & = (pi a)/lambda sin theta \
+  sin theta & = lambda/a \
+      theta & = arcsin(lambda/a) \
+            & = 0.05430510377137481
+$
+
+To find $x$
+$
+  tan theta & = x/D \
+          x & = D tan theta \
+            & = 1.13 tan(0.05430510377137481) \
+            & = 0.06142516097643181 "m"
+$
 
