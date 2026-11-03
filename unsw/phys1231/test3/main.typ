@@ -785,3 +785,122 @@ $
                               & = 0.00036593626789678015/(1/(cos 15.4) - 1) \
                               & = 0.009825969812394654 "m"
 $
+
+=
+In this problem we are going to use phasors to derive the formula for the intensity $I$ of a double slit pattern on a distant screen as a function of "theta".
+
+We shall start be considering the electric field of the light arriving at the screen. At any point these are out of phase with each other by some angle $phi$. We can write the two electric fields as:
+$
+  E_1 = E_0 sin(omega t) \
+  E_2 = E_0 sin(omega t + phi)
+$
+In this problem, ignore any effects from the diffraction pattern of the light around the slits. (i.e. the slits are so narrow that each one radiates equally over the angles we consider.)
+
+== Using phasors or otherwie, derive an equation relating $E$, the electric field amplitude due to the two waves to $E_0$ and $phi$.
+
+We can convert $E_1$ and $E_2$ to phasors and add them tip to tail.
+Each phasor has length $E_0$, and the angle between them is $phi$.
+
+In the phasor diagram, $E_1$, $E_2$ and the resultant $E$ form an isosceles triangle.
+The two equal sides are $E_0$ and the base is $E$.
+The base angles are both $phi/2$.
+
+Splitting the triangle down the middle gives two right-angled triangles with
+hypotenuse $E_0$ and a side $E/2$ adjacent to the angle $phi/2$.
+
+Thus
+$
+  cos(phi/2) & = (E/2)/E_0 \
+           E & = 2 E_0 cos(phi/2)
+$
+
+== Now use the relationship between intensity and electric fields:
+$
+  I/I_0 = E^2/E_0^2
+$
+to obtain an expression for the total intensity on the screen, $I$, in terms of the intensity of each light $I_0$ and $phi.alt$.
+
+From part a:
+$
+      E & = 2 E_0 cos(phi.alt/2) \
+  E/E_0 & = 2 cos(phi.alt/2)
+$
+$
+  I/I_0 & = (E/E_0)^2 \
+        & = (2 cos(phi.alt/2))^2 \
+      I & = 4 I_0 cos^2(phi.alt/2)
+$
+
+== Write an expression for the phase difference $phi.alt$ between the electric fields at a point on the screen for light with a wavelength $lambda$, passing through slits with a slit length $d$ at an angle $theta$ as shown on the diagram. (The screen is distant so we may approximate the two rays as parallel.)
+
+$
+  d sin theta & = m lambda \
+              & = "path difference" \
+      phi.alt & = (2 pi)/lambda "path difference" \
+              & = (2 pi d sin theta)/lambda
+$
+
+=
+A thin wafer of a solid with a refractive index n1=1.24 and thickness t floats on a fluid with refractive index n2=1.43. Light with a wavelength λ=441 nm shines directly down onto the wafer.
+
+#image("assets/q19.png")
+
+== What is the wavelength of light inside the wafer?
+
+$
+  lambda & = lambda_0/n \
+         & = 441/1.24 \
+         & = 355.64516129032256 "nm"
+$
+
+== What is the minimum thickness $t$, for which constructive interference will occur for the reflected light?
+
+$
+  "path difference" & = 2 t = m lambda \
+                  t & = lambda/2 \
+                    & = 1.778225#e(-7) "m"
+$
+
+== If the wafer is now held in air and illuminated from on top as before, what minimum thickness will lead to constructive interference?
+
+Reflected wave is now phase flipped.
+
+$
+  "path difference" & = 2 t = (m + 0.5) lambda \
+                  t & = lambda/4 \
+                    & = 8.891125#e(-8) "m"
+$
+
+=
+White light is incident on a narrow slit. After passing through the slit it forms a diffraction pattern on the wall a distance $D=1.8 m$ away from the slit. It is noticed that the first minimum for the wavelength $lambda=520 "nm"$ occurs $x=1.8 "cm"$ above the central maximum.
+
+#image("assets/q20.png")
+
+== What is the width of the slit $a$?
+
+$
+  a sin theta & = m lambda \
+            a & = m lambda/(x/D) \
+              & = (520#e(-9))/(0.018/1.8) \
+              & = 5.2e-05 "m"
+$
+
+== Which wavelength will have its first diffraction maxima at this same point $(x = h)$?
+
+$
+  a sin theta & = (m + 0.5) lambda \
+       lambda & = (a x/D)/(1.5) \
+              & = 2/3 dot 520#e(-9) dot 0.018/1.8 \
+              & = 3.4666666666666663e-09 "m" \
+              & = 347 "nm"
+$
+
+== If the entire apparatus is now submerged in water with a refractive index $n=1.33$, how far from the central maximum will the first minima for the light with $lambda=520 "nm"$ in air be?
+
+$
+  a sin(theta) & = m lambda \
+         a x/D & = m lambda \
+             x & = (D m lambda)/a \
+               & = (1.8 dot (520#e(-9))/1.33)/(5.2#e(-5)) \
+               & = 1.3533834586466165 "cm"
+$
