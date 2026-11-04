@@ -26,13 +26,12 @@ $
 By Euler's formula, $1 = e^(i 2 k pi)$, thus
 
 $
-  e^(i theta) e^(2 i theta)...e^(7 i theta)
-  & = e^(i theta + 2 i theta + ... + 7 i theta) \
-  & = e^(28 i theta) \
-  therefore 28 theta & = 2 k pi \
-  theta & = (2 k pi)/28 \
-  "choosing the smallest value"
-  theta & = (2 pi)/28 = pi/14
+  e^(i theta) e^(2 i theta)...e^(7 i theta) & = e^(i theta + 2 i theta + ... + 7 i theta) \
+                                            & = e^(28 i theta) \
+                         therefore 28 theta & = 2 k pi \
+                                      theta & = (2 k pi)/28 \
+              "choosing the smallest value"
+              theta                         & = (2 pi)/28 = pi/14
 $
 
 == What is the smallest positive integer $n$ such that $(7 - 7 i)^n$ is real?
@@ -72,10 +71,10 @@ where $f(x, y)$ depends on $x, y$. Find $f(x, y)$.
 First substitute $x + y i$ for $z$.
 
 $
-  z / (z + 2) & = (x + y i)/(x + y i + 2) \
-  & = (x + y i)/(x + y i + 2) (x - y i + 2)/(x - y i + 2) \
-  & = (x^2 + 2x + y^2 + 2 y i)/(x^2 + 4x + y^2 + 4) \
-  Re(z/(z + 2)) & = (x^2 + 2x + y^2)/((x + 2)^2 + y^2) \
+                         z / (z + 2) & = (x + y i)/(x + y i + 2) \
+                                     & = (x + y i)/(x + y i + 2) (x - y i + 2)/(x - y i + 2) \
+                                     & = (x^2 + 2x + y^2 + 2 y i)/(x^2 + 4x + y^2 + 4) \
+                       Re(z/(z + 2)) & = (x^2 + 2x + y^2)/((x + 2)^2 + y^2) \
   therefore f(x, y) = x^2 + 2x + y^2
 $
 
@@ -610,12 +609,12 @@ $
 
 $
   A & = integral.cont_C 4 overline(z) dif z \
-  & = integral.cont_0^(2 pi) 4 overline(gamma(t)) gamma'(t) dif t \
-  & = 4 integral.cont_0^(2 pi) (1 + 5 e^(-i t)) 5 i e^(i t) dif t \
-  & = 4 integral.cont_0^(2 pi) (5 i e^(i t) + 25 i) dif t \
-  & = 4 integral.cont_0^(2 pi) 25 i dif t quad "since the integral of" e^(i t) "from" 0 "to" 2 pi "is" 0 \
-  & = 4 times 50 pi i \
-  & = 200 pi i
+    & = integral.cont_0^(2 pi) 4 overline(gamma(t)) gamma'(t) dif t \
+    & = 4 integral.cont_0^(2 pi) (1 + 5 e^(-i t)) 5 i e^(i t) dif t \
+    & = 4 integral.cont_0^(2 pi) (5 i e^(i t) + 25 i) dif t \
+    & = 4 integral.cont_0^(2 pi) 25 i dif t quad "since the integral of" e^(i t) "from" 0 "to" 2 pi "is" 0 \
+    & = 4 times 50 pi i \
+    & = 200 pi i
 $
 
 =
@@ -655,10 +654,10 @@ Only pole within the contour is $ z = 0 $
 
 Thus, the residue is
 $
-  "Res"_(z = 0) (4 cos(2 z))/(z(z^2 + 8)) &= limits(lim)_(z -> 0) z (4 cos(2 z))/(z(z^2 + 8)) \
-  & = limits(lim)_(z -> 0) (4 cos(2 z))/(z^2 + 8) \
-  & = (4 cos(0))/8 \
-  & = 1/2 \
+  "Res"_(z = 0) (4 cos(2 z))/(z(z^2 + 8)) & = limits(lim)_(z -> 0) z (4 cos(2 z))/(z(z^2 + 8)) \
+                                          & = limits(lim)_(z -> 0) (4 cos(2 z))/(z^2 + 8) \
+                                          & = (4 cos(0))/8 \
+                                          & = 1/2 \
 $
 
 By the residue theorem
