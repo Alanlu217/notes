@@ -242,10 +242,56 @@ First solve for $z$ in $S_1$, then equate to a constant $c$.
 $
             S_1: 5z & =3x^2−6y^2+12x \
                   z & = (3x^2−6y^2+12x)/5 \
-  (3x^2−6y^2+12x)/5 & = c
+  (3x^2−6y^2+12x)/5 & = c \
+      3x^2−6y^2+12x & = 5c \
+    x^2 - 2y^2 + 4x & = 5/3 c \
+   (x + 2)^2 - 2y^2 & = 5/3 c + 4 \
 $
 
+This is a hyperbola centered on $(-2, 0)$.
+
+=
+Let $S$ be the surface $RR^2$ defined by the equation
+$
+  x^2/4^2 + y^2/3^2 - z^2/y^2 = 1
+$
+
+== Select the option that best describes the curve of intersection of the surface $S$ and the plane $z = -4$:
+#divider()
 
 $
-  (V - 0.4)/50k + V/20k = 0
+     x^2/4^2 + y^2/3^2 - z^2/7^2 & = 1 \
+  x^2/4^2 + y^2/3^2 - (-4)^2/7^2 & = 1 \
+      x^2/4^2 + y^2/3^2 - 16/7^2 & = 1 \
+               x^2/4^2 + y^2/3^2 & = 1 + 16/7^2 \
 $
+
+This is the form of an ellipse.
+
+== Select the option that best describes the curve of intersection of the surface $S$ and the plane $y = 2$.
+
+$
+  x^2/4^2 + (2)^2/3^2 - z^2/7^2 & = 1 \
+      x^2/4^2 + 4/3^2 - z^2/7^2 & = 1 \
+              x^2/4^2 - z^2/7^2 & = 1 - 4/3^2 \
+$
+
+This is a hyperbola.
+
+== Select the plot below that best represents the surface $S$.
+
+Look at it.
+
+== Select the option that best describes the surface $S$.
+
+Look at it.
+
+=
+Suppose that a function $h(x, y)$ is differentiable at the point $(4, 4)$, with
+$
+  h(4, 4) = 3, h_x(4, 4) = -1 "and" h_y(4, 4) = 2
+$
+
+== Find the Cartesian equation for the tangent plane of the surface $z = h(x, y)$ at the point $(4, 4)$.
+
+
