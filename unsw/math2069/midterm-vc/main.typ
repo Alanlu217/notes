@@ -609,3 +609,331 @@ $
   $D < 0$, [any], [saddle point],
   $D = 0$, [any], [inconclusive],
 )
+
+== Suppose that $(x_2, y_2)$ is another critical point of $f$ such that
+$
+  f_(x x)(x_2, y_2) = 9 quad f_(y y)(x_2, y_2) = 2 quad "and" f_(x y)(x_2, y_2) = 14
+$
+#divider()
+
+Descriminant is
+$
+  D & = f_(x x) dot f_(y y) - (f_(x y))^2 \
+    & = 9 dot 2 - 14^2 \
+    & = -178
+$
+
+This is a saddle point.
+
+=
+The temperature $T$ at each point $(x, y, z)$ in space is given by
+$
+  T(x, y, z) = x y z^4.
+$
+Consider the problem of computing the maximum and minimum temperatures on the surface
+$
+  4x^2 + 4y^2 + z^2 = 6
+$
+
+== Each extreme point $(x, y, z)$ of this optimisation problem must satisfy the equation of the surcace as well as three additional equations provided by the mthod of Lagrange multipliers. Enter the Lagrance multipliers constraint obtained by taking partial derivatives with respect to $x, y, z$ in the following box, using $lambda$ to denote the Lagrange multiplier.
+
+The Lagrange condition is $nabla T = lambda nabla g$.
+
+Thus with respect to $x$
+$
+    T_x & = lambda g_x \
+  y z^4 & = lambda 8x
+$
+
+$
+    T_y & = lambda g_y \
+  x z^4 & = lambda 8 y
+$
+
+$
+        T_z & = lambda g_z \
+  4 x y z^3 & = lambda 2 z
+$
+
+== There are eight points on the surface that satisfy the Lagrange multipliers constraints. These points are
+$
+  (plus.minus 12, plus.minus 12, plus.minus 2)
+$
+for all possible combinations of signs. Using this information, it can be concluded that:
+- The maximum temperature on the surface is:
+- The minimum temperature on the surface is:
+#divider()
+
+Largest value is
+$
+  T(1/2, 1/2, 2) & = 1/2 1/2 2^4 \
+                 & = 4
+$
+
+Smallest value is
+$
+  T(-1/2, 1/2, 2) & = -1/2 1/2 2^4 \
+                  & = -4
+$
+
+=
+Consider the problem of classifying the extreme points of the function
+$
+  f(x, y) = 2x -y + 2
+$
+subject to the constraint
+$
+  4x^2 - 3y^2 = 36
+$
+
+== Each extreme point $(x, y)$ must satisfy the above constraint equation as well a two additional constraints provided by the method of Lagrange multiplers. Enter the Lagrange multipliers constraint obtained by taking partial derivatives with respect to $x, y$.
+
+$
+  pd(f, x) & = 3 = lambda 8 x \
+  pd(f, y) & = -1 = lambda -6 y
+$
+
+== There are two points that satisfy the constraint equation and the Lagrange multipler constraints. They are
+$
+  A & = ((9 sqrt(69))/23, (4 sqrt(69))/23) \
+  B & = (-(9sqrt(69))/23, -(4 sqrt(69))/23)
+$
+Select all true statements from the following list:
+#divider()
+
+A is a local minima, B is a local maxima.
+
+=
+Consider the double integral
+$
+  I = integral_(-5)^0 integral_(-y/sqrt(20))^(sqrt((5-y)/8)) dif x dif y + integral_0^5 integral_0^sqrt((5-7)/8) dif x dif y.
+$
+
+== Select from the following options the plot that displays the region of integration of $I$ in blue:
+
+Looking at the limits, $y$ goes from $-5$ to $5$, and $x$ goes from $-y/sqrt(20) = 5/sqrt(20)$ to $sqrt((5-y)/8) = sqrt(10/8)$ and $0$ to $sqrt((5-y)/8) = sqrt(5/8)$.
+
+So it should be a blob with $y in [-5, 5]$ and $x$ mostly positive.
+
+== By reversing the order of integration, the integral I can be written in the form$ I = integral_a^b integral_(y_1(x))^(y_2(x)) dif y dif x $
+#divider()
+
+$
+  a & = 0 \
+  b & = sqrt(10/8)
+$
+
+$
+  x & = -y/sqrt(20) \
+  y & = -x sqrt(20)
+$
+
+$
+     x & = sqrt((5 -y)/8) \
+   x^2 & = (5 - y)/8 \
+  8x^2 & = 5 - y \
+     y & = 5-8x^2
+$
+
+=
+Consider the double integral
+$
+  I = integral_0^9 integral_(-sqrt(9x - y^2))^0 x^5 dif x dif y
+$
+
+== Select from the following options the plot that displays the region of integration of $I$ in blue:
+
+Look at it.
+
+== Using polar coordinates, the integral I can be written in the form
+$
+  I = integral_a^b integral_0^(c(theta)) f(r, theta) dif r dif theta quad "with" 0 <= a < b <= 2pi
+$
+#divider()
+
+From the second integral
+$
+                  x & = -sqrt(9y - y^2) \
+                x^2 & = 9y - y^2 \
+     x^2 + y^2 -9 y & = 0 \
+  x^2 + (y - 9/2)^2 & = (9/2)^2
+$
+
+*Polar form of the boundary.* Substituting $x = r cos theta$ and $y = r sin theta$ into $x^2 + y^2 = 9y$:
+$
+  r^2 & = 9 r sin theta \
+    r & = 9 sin theta
+$
+So $c(theta) = 9 sin theta$.
+
+*Angles.* The left half of the disc lies in the second quadrant, so
+$
+  a = pi/2, quad b = pi
+$
+
+*Integrand.* Using $x = r cos theta$ and $dif x dif y = r dif r dif theta$:
+$
+  x^5 dif x dif y = (r cos theta)^5 r dif r dif theta = r^6 cos^5 theta dif r dif theta
+$
+So $f(r, theta) = r^6 cos^5 theta$.
+
+#divider()
+*Answer:*
+$
+  I = integral_(pi/2)^pi integral_0^(9 sin theta) r^6 cos^5 theta dif r dif theta
+$
+$
+  a = pi/2, quad b = pi, quad c(theta) = 9 sin theta, quad f(r, theta) = r^6 cos^5 theta
+$
+
+=
+Consider the double integral
+$
+  I = integral integral_Omega dif A
+$
+where $Omega$ is the region between the parabolas $y=x^2$ and $y = 4x^2 - 27$ for $x in [0, 6]$ and $y >= 0$.
+
+== Select the following options the plot that displays the region of integration of $I$ in blue.
+
+Look at it.
+
+== The integral I can be written in the form
+$
+  I = integral_0^9 integral_(a(y))^(b(y)) dif x dif y + integral_c^d integral_(x^2)^(4x^2 - 27) dif y dif x.
+$
+#divider()
+
+Find intersection point.
+$
+   x^2 & = 4x^2 - 27 \
+  3x^2 & = 27 \
+   x^2 & = 9 \
+     x & = plus.minus 3
+$
+
+$
+  c & = 3 \
+  d & = 6 \
+$
+
+Solving the boundaries for $x$ gives
+
+$
+     a(y): y & = 4x^2 - 27 \
+  (y + 27)/4 & = x^2 \
+           x & = sqrt(y + 27)/2 \
+     b(y): y & = x^2 \
+           x & = sqrt(y)
+$
+
+=
+Consider the tetrahedron bounded by the planes $x = 0, y = 0, z = 0$ and
+$
+  3x + 2y + 9z = 6.
+$
+
+The volume of the tetrahedron can be expressed as a triple integral of the form
+$
+  integral_0^a integral_0^(b(x)) integral_0^(c(x, y)) dif z dif y dif x.
+$
+
+== Determine exact expressions for $a, b(x), c(x, y)$, and use Maple syntax to enter your answers into the following boxes:
+
+$c(x, y)$ can be found by solving the plane for $z$.
+
+$
+  3x + 2y + 9z & = 6 \
+            9z & = 6-3x-2y \
+             z & = (6 - 3x - 2y)/9
+$
+
+$b(x)$ can be found by substituting $z = 0$ and solving the plane for $y$.
+$
+  3x + 2y & = 6 \
+       2y & = 6-3x \
+        y & = (6 - 3x)/2
+$
+
+$a$ can be found by substituting $z = 0, y = 0$ and solving the plane for $x$.
+
+$
+  3x & = 6 \
+   x & = 2
+$
+
+=
+Let $Omega$ be the region inside the cylinder
+$
+  x^2 + y^2 = 6^2
+$
+that is bounded below by the plane $z = 0$ and bounded above by the paraboloid
+$
+  z = x^2 + (y -10)^2.
+$
+
+The volume of $Omega$ can be expressed as a triple integral of the form
+$
+  integral_0^a integral_0^(b(theta)) integral_0^(c(r, theta)) r dif z dif r dif theta
+$
+
+== Determine the exact expressions for each of $a, b(theta)$ and $c(r, theta)$, and use Maple to syntax to enter your answers into the following boxes:
+
+As we are integrating the entire cylinder, $a = 2 pi$.
+
+The cylinder has a radius of $6$, so $b(theta) = 6$.
+
+Substituting $x = r cos theta$ and $y = r sin theta$ into the paraboloid gives
+$
+            z & = x^2 + (y - 10)^2 \
+              & = x^2 + y^2 - 20y + 100 \
+              & = (r cos theta)^2 + (r sin theta)^2 - 20 r sin theta + 100 \
+  c(r, theta) & = r^2 - 20 r sin theta + 100 \
+$
+
+=
+Let $Omega$ be the region within the sphere
+$
+  x^2 + y^2 + (z - 9)^2 = 9^2
+$
+that lies above the cone
+$
+  z = sqrt(x^2 + y^2).
+$
+
+The volume of $Omega$ can be expressed as a triple integral of the form
+$
+  integral_0^a integral_0^(b(theta)) integral_0^(c(theta), phi) rho^2 sin(phi) dif rho dif phi dif theta
+$
+
+== Determine exact expressions for each of $a, b(theta), c(theta, phi)$, and use Maple syntax to enter your answers into the following boxes:
+
+
+*Cone.* Using $z = rho cos phi$ and $sqrt(x^2 + y^2) = rho sin phi$:
+$
+            z & = sqrt(x^2 + y^2) \
+  rho cos phi & = rho sin phi \
+      tan phi & = 1 \
+          phi & = pi/4
+$
+The region lies above the cone, so $phi$ runs from $0$ to $pi/4$. Hence $b(theta) = pi/4$.
+
+*Sphere.* Expand and substitute $x^2 + y^2 + z^2 = rho^2$ and $z = rho cos phi$:
+$
+        x^2 + y^2 + (z - 9)^2 & = 9^2 \
+  x^2 + y^2 + z^2 - 18 z + 81 & = 81 \
+       x^2 + y^2 + z^2 - 18 z & = 0 \
+       rho^2 - 18 rho cos phi & = 0 \
+                          rho & = 18 cos phi
+$
+For each direction $(theta, phi)$, $rho$ runs from $0$ out to the sphere. Hence $c(theta, phi) = 18 cos phi$.
+
+*Angle.* Nothing restricts the region around the $z$-axis, so $theta$ runs over a full turn. Hence $a = 2 pi$.
+
+#divider()
+*Answer:*
+$
+  V = integral_0^(2 pi) integral_0^(pi/4) integral_0^(18 cos phi) rho^2 sin phi dif rho dif phi dif theta
+$
+$
+  a = 2 pi, quad b(theta) = pi/4, quad c(theta, phi) = 18 cos phi
+$
