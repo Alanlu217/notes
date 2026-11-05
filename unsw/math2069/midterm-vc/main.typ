@@ -294,4 +294,252 @@ $
 
 == Find the Cartesian equation for the tangent plane of the surface $z = h(x, y)$ at the point $(4, 4)$.
 
+For a differentiable surface $z = g(x, y)$, the tangent plane (x_0, y_0, z_0) is
+$
+  z - z_0 = g_x(x_0, y_0)(x - x_0) + g_y(x_0, y_0)(y-y_0)
+$
 
+Substituting known values gives:
+
+$
+  z - 3 & = -1(x - 4) + 2(y - 4) \
+      z & = -x +4 + 2y - 8 + 3 \
+        & = 2y - x -1
+$
+
+== Use a differential approximation to estimate the value of $h(4.2, 3.8)$.
+
+For $z = h(x, y)$, the differential is
+$
+  dif z = h_x(x_0, y_0)dif x + h_y(x_0, y_0) dif y
+$
+for small $dif x = Delta x, dif y = Delta y$.
+So
+$
+  h(x_0 + Delta x, y_0 + Delta y) = h(x_0, y_0) + h_x(x_0, y_0)Delta x + h_y(x_0, y_0)Delta y
+$
+
+Thus
+$
+  h(4.2, 3.8) & = h_x(x_0, y_0)h_x(x_0, y_0) Delta x + h_y(x_0, y_0) Delta y \
+              & = 3 -1 dot 0.2 +2 dot (-0.2) \
+              & = 2.4
+$
+
+=
+Suppose that a funcion $g(x, y)$ is differentiable at the point $(4, 6)$, with
+$
+  g(4, 6) = 4, g_x(4, 6) = -1, g_y(4, 6) = -8
+$
+
+== Find the Cartesian equation for the tangent plane of the surface $z = g(x, y)$ at the point $(4, 6)$.
+
+The tangent plane is
+$
+  z - z_0 & = g_x(x_0, y_0)(x - x_0) + g_y(x_0, y_0)(y - y_0) \
+    z - 4 & = -1(x - 4) - 8(y - 6) \
+        z & = -x - 8y + 4 + 48 + 4 \
+          & = -x -8y + 56
+$
+
+== Let $l$ be the line of intersection between the plane $x = 4$ and tangent plane to the surface $z = g(x, y)$ at the point $(4, 6)$. Find a vector $v$ such that
+$
+  vec(x, y, z) = vec(4, 6, 4) + lambda v
+$
+is a vector parametric form of the line $l$.
+#divider()
+
+Substitute $x = 4$ in the tanget plane equation.
+
+$
+  z & = -x -8y + 56 \
+  z & = -4 - 8y + 56 \
+  z & = -8y + 52
+$
+
+We already have $x = 4$. Next we can choose our parameter as $y = 6 + lambda$.
+
+Substituting this gives
+$
+  z & = -8(6 + lambda) + 52 \
+    & = -48 -8lambda + 52 \
+    & = 4 - 8lambda
+$
+
+This gives the result of $ v = vec(0, 1, -8) $
+
+=
+Suppose that a function $u(x, y)$ is differentiable at the point $(5, 3)$, with tangent plane to the surface $z = u(x, y)$ given by the equation
+$
+  27x - 12y + 3z = 111.
+$
+
+== Find the following values
+$
+    u(5, 3) & = ? \
+  u_x(5, 3) & = ? \
+  u_y(5, 3) & = ? \
+$
+#divider()
+
+The first value can be found by substituting $x$ and $y$ into the tangent equation.
+
+$
+           27x - 12y + 3z & = 111 \
+  27 dot 5 -12 dot 3 + 3z & = 111 \
+                       3z & = 111 - 135 + 36 \
+                       3z & = 12 \
+                        z & = 4 \
+                  u(5, 3) & = 4 \
+$
+
+We can then substitute the known values into the tangent plane equation.
+
+$
+  z - 4 & = h_x(5, 3)(x - 5) + h_y(5, 3)(y - 3) \
+  z - 4 & = x h_x(5, 3) - 5 h_x(5, 3) + y h_y(5, 3) -3 h_y(5, 3) \
+$
+
+Next we solve the tangent equation for $z$, then equate coefficients to find $h_x$ and $h_y$.
+$
+  27x - 12y + 3z = 111 \
+  3z = 111 - 27x + 12y \
+  z = 37 - 9x + 4y
+$
+
+Thus
+$
+  h_x(5, 3) & = -9 \
+  h_y(5, 3) & = 4 \
+$
+
+== FInd vectors $a, v in RR^3$ such that the line $x = a + lambda v$, for $lambda in RR$, is normal to the surface $z = u(x, y)$ at the point $(5, 3)$.
+
+$a$ is any point on the surface. Thus $a = (5, 3, 4)$.
+
+$v$ is the vector normal to the tangent plane. Thus $v = (27, -12, 3)$
+
+=
+The temperature $T$ at each point $(x, y)$ on the surface of a steel plate is given by the function
+$
+  T(x, y) = 3x^2 + 2y
+$
+where the temperature is measured in degrees celsius, while $x, y$ are measured in millimeters.
+
+== Suppose that a temperature probe is placed at the point $(3,4)$ on the steel plate. In which direction from the probe's location does the temperature increase most rapidly?
+
+Temperature increases most rapidly in the direction of the gradient.
+
+The partial derivatives are
+$
+  T_x = 6x quad T_y = 2
+$
+
+At the point $3, 4$, this is
+$
+  T_x = 6dot 3 = 18 \
+  T_y = 2
+$
+
+== What is the rate of change of the temperature in the direction found in Part (1)?
+
+This is just the magnitude of the gradient.
+
+$
+  norm(vec(18, 2)) = sqrt(18^2 + 2^2)
+$
+
+== Suppose now that the probe is dragged along the surface directly towards the origin at a constant rate of 2 millimetres per second. In the following box, enter the initial rate of change of the temperature measured by probe as it is moved:
+
+The derivative in a direction is given by
+$
+  nabla T dot v & = vec(18, 2) dot 1/sqrt(3^2 + 4^2)vec(-3, -4) \
+                & = vec(18, 2) dot vec(-3/5, -4/5) \
+                & = -12.4
+$
+
+As it is travelling at $2 "mm"$ per seconds, the initial rate of change is
+$
+  -12.4 * 2 = -24.8
+$
+
+=
+The elevation $h$ of a mountain at each point $(x, y)$ is given by the function
+$
+  h(x, y) = 4805 - 3x^4 - 5y^2
+$
+where all measurements are in metres.
+
+== Suppose that a hiker is located at the point $(−2,−3,4712)$ on the mountain. In which direction from the hiker's location does the mountain's elevation increase most rapidly?
+
+The direction increases most rapidly in the direction of the gradient.
+
+$
+          nabla h & = vec(-12x^3, -10y) \
+  nabla h(-2, -3) & = vec(-12 dot (-2)^3, -10 dot -3) \
+                  & = vec(-12 dot -8, 30) \
+                  & = vec(96, 30)
+$
+
+== What is the slope of the mountain in the direction found in Part 1)?
+
+This is the magnitude of the vector found in Part 1).
+
+$
+  norm(vec(96, 30)) = sqrt(96^2 + 30^2)
+$
+
+== Assume further that the hiker is walking in the direction of the mountain's peak at a rate of 3 metres per second relative to the xy-plane. In the following box, enter the initial rate of change in elevation experienced by the hiker:
+
+Peak is at $x = 0, y = 0$.
+
+Derivative in this direction is
+$
+  nabla h_u & = nabla h dot u \
+            & = vec(96, 30) dot 1/sqrt(2^2 + 3^2) vec(2, 3) \
+            & = 78.2127276677573
+$
+
+As the hiker is travelling at 3 metres per second, the initial rate of change in elevation is
+$
+  78.2127276677573 *3 = 234.63818300327193
+$
+
+=
+Suppose that $g(x, y)$ is a differentiable function, and define
+$
+  f(w, z) = g(2w - 3z, 4w^2 - 3z).
+$
+Use the following table of values to answer Part 1) and Part 2) of this quesiton:
+#align(
+  table(
+    columns: 5,
+    align: center + horizon,
+    stroke: none,
+    table.hline(),
+    table.header[$(x_0, y_0)$][$g(x_0, y_0)$][$f(x_0, y_0)$][$g_x (x_0, y_0)$][$g_y (x_0, y_0)$],
+    table.hline(),
+    [$(3, 2)$], [$5$], [$3$], [$4$], [$-2$],
+    [$(0, 30)$], [$4$], [$-2$], [$-3$], [$2$],
+    table.hline(),
+  ),
+  center,
+)
+
+== Compute the following derivatives:
+- $(partial g)/(partial u) (3, 2) = ? quad "for" u = 1/sqrt(17) vec(1, 4)$
+- $(partial f)/(partial w) (3, 2) = ?$
+#divider()
+
+This question asks to find the directional derivative of directions $u$ and $w$.
+
+$
+  (partial g)/(partial u) (3, 2) & = nabla f dot u \
+                                 & = vec(4, -2) dot 1/sqrt(17) vec(1, 4) \
+                                 & = 4/sqrt(17) - 8/sqrt(17)
+$
+
+$
+  (partial f)/(partial w) (3, 2) & = nabla f dot w \
+                                 & = 4
+$
