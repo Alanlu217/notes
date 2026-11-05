@@ -13,6 +13,7 @@
   pagebreak()
   it
 }
+#let pd(a, b) = $(partial #a)/(partial #b)$
 
 =
 
@@ -539,7 +540,72 @@ $
                                  & = 4/sqrt(17) - 8/sqrt(17)
 $
 
+At $(w, z) = (3, 2)$,
 $
-  (partial f)/(partial w) (3, 2) & = nabla f dot w \
-                                 & = 4
+  g(2w - 3z, 4w^2 - 3z) & = g(2 dot 3 - 3 dot 2, 4 dot 3^2 - 3 dot 2) \
+                        & = g(0, 30)
 $
+For $(partial f)/(partial w)$, the chain rule is needed.
+$
+  (partial f)/(partial w) (3, 2) & = g_x (0, 30) (partial x)/(partial w) + g_y (0, 30) (partial y)/(partial w) \
+                                 & = (-3) (2) + (2) (8 w) \
+                                 & = -6 + 16 dot 3 \
+                                 & = 42
+$
+
+== Enter the unit vector $v$ that minimises $(partial g)/(partial v) (3, 2)$ in the following box:
+
+At $(3, 2)$, the gradient is $(4, -2)$. This is the maximum $(partial g)/(partial v) (3, 2)$. Thus the minimum occurs in the opposite direction.
+
+$
+  v & = vec(-4, 2) 1/norm(vec(-4, 2)) \
+    & = vec(-4, 2) 1/sqrt(20) \
+    & =vec(-4/sqrt(20), 2/sqrt(20))
+$
+
+=
+
+== Find the single critical point $(x_0, y_0)$ of the function
+$
+  h(x, y) = 3x^2 + 3y^2 + 18x + 12 y + 37
+$
+#divider()
+
+First find the partial derivatives.
+
+$
+  pd(h, x) & = 6x + 18 \
+  pd(h, y) & = 6y + 12 \
+$
+
+Then equate to $0$.
+
+$
+  6x + 18 & = 0 \
+        x & = -18/6 = -3 \
+  6y + 12 & = 0 \
+        y & = -12/6 = -2
+$
+
+== A different function $f(x, y)$ has continuous second-order partial derivatives. Suppose that $(x_1, x_2)$ is a critical point of $f$ such that
+$
+  f_(x x)(x_1, y_1) = -12 quad f_(y y)(x_1, y_1) = -2 quad "and" f_(x y)(x_1, y_1) = -2
+$
+#divider()
+
+Find the descriminant of $f$.
+
+$
+  D & = f_(x x) f_(y y) - (f_(x y))^2 \
+    & = -13 dot -2 - (-2)^2 \
+    & = 26 - 4 = 22
+$
+
+#table(
+  columns: (1fr,) * 3,
+  table.header()[D][$f_(x x)$][Result],
+  $D > 0$, $>0$, [local minimum],
+  $D > 0$, $<0$, [local maximum],
+  $D < 0$, [any], [saddle point],
+  $D = 0$, [any], [inconclusive],
+)
