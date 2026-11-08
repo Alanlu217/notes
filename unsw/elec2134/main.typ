@@ -2068,3 +2068,145 @@ $
 - if we say that we have a $5 k W$ load, this means that $P = 5 k W$.
 - if we have a $5 k "VA"$ load, $V_"rms" I_"rms" = 5 k "VA"$
 - if we say that a load absorbs $5 k "VAR"$ then $Q = 5 k "VAR"$
+
+== Power Triangle
+- the relationship between real power or average power $P$, reactive power $Q$, apparent power $V_"rms" I_"rms"$ and the power angle can be represented by the power triangle.
+- For an inductive load, in which case $theta (theta = theta_v - theta_i)$ and the reactive power $Q$ are positive and the power triangle is shown below.
+- The power triangle for a capacitive load is shown in which case $theta = [theta = theta_v - theta_i]$ and the reactive power $Q$ are negative.
+#image("assets/power_triangle.png")
+
+== Power in AC circuits: additional relationships
+- consider the circuit shown below where a voltage source delivering power to a load impedance $z$.
+- We have $P = (V_m I_m)/2 cos(theta) = (V_m I_m)/2 R/abs(Z) = (I_m^2 R)/2 = I_"rms"^2 R$
+- In a similar fashion we can show that $Q = I_"rms"^2 X$
+- For inductive load $X$ is positive, whereas for a capacitive load, $X$ is negative.
+- Furthermore we can show that $P = (V_"rms"^2)/R$ and $Q = (V_"Xrms"^2)/X$
+
+== Complex Power
+- consider the circuit shown below. The complex power, denoted $S$, delivered to the circuit is given by
+  $
+    S = 1/2 V I^*
+  $
+  $
+    S = 1/2 V I^* = 1/2(V_m angle theta_v) (I_m angle -theta_i) \ = (V_m I_m)/2 angle theta_v - theta_i = V_m I_m / 2 angle theta\
+  $
+- whereas before $theta = theta_v - theta_i$ is the power angle
+$
+  S = 1/2 V I^* = (V_m I_m)/2 cos(theta) + j (V_m I_m)/2 sin(theta) = P + j Q
+$
+- the first term on the right hand side is the average power $P$ delivered to the circuit and the second term is $j$ times the reactive power $Q$.
+- if we know the complex power $S$, then we can find the average power, reactive power and apparent power:
+$
+  P + Re(S) = Re(1/2 V I^*); Q = Im(S) = Im(1/2 V I^*) \
+  "Apparent Power" = abs(S) = abs(1/2 V I^*)
+$
+
+== Maximum Power Transfer
+- for resistive circuits, power transfer is maximised when the load resistance equals the source resistance
+- now consider an AC source driving a load impedance
+  #zap.circuit({
+    import zap: *
+    import cetz.draw: content
+
+    vsource("Voc", (0, 0), (0, 3), label: $V_"oc"$)
+    resistor("Zeq", (0, 3), (4, 3), label: $Z_"eq"$)
+    resistor("ZL", (4, 0), (4, 3), label: $Z_L$)
+    wire((4, 0), (0, 0))
+  })
+  - $V_"oc"$ is the maximum amplitude of the source
+  $
+    Z_"eq" & = R_"eq" + j X_"eq" \
+       Z_L & = R_L + j X_L \
+       I_m & = abs(V_"oc")/abs(Z_"eq" + Z_L)
+  $
+- we want to find $R_L$ and $X_L$ that maximise the power $P_L$ delivered to the load
+  $
+    P_L & = R_L I_"rms"^2 \
+    P_L & = R_L (1/sqrt(2))^2 abs(V_"oc")^2/((R_"eq" + R_L)^2 + (X_"eq" + X_L)^2)
+  $
+- on average, reactances absorb *zero* power, so any non-zero value of $(X_"eq" + X_L)^2$ only reduces $P_L$
+- we eliminate this term by imposing
+  $
+    X_L = -X_"eq"
+  $
+- the power then becomes
+  $
+    P_L = 1/2 abs(V_"oc")^2 R_L/(R_"eq" + R_L)^2
+  $
+- $P_L$ is *maximised* when $(dif P_L)/(dif R_L) = 0$
+  $
+       (dif P_L)/(dif R_L) & = 1/2 abs(V_"oc")^2 [((R_"eq" + R_L)^2 - 2 R_L (R_"eq" + R_L))/(R_"eq" + R_L)^4] = 0 \
+    (R_"eq" + R_L) - 2 R_L & = 0 \
+                       R_L & = R_"eq"
+  $
+- for maximum power transfer
+  $
+    R_L + j X_L = R_"eq" - j X_"eq" quad => quad Z_L = Z_"eq"^*
+  $
+  where $Z_"eq"^*$ is the *complex conjugate* of the source impedance
+- in words: power transfer from an AC source to a load is maximised when the load impedance equals the *complex conjugate* of the source impedance
+- the maximum average power $P_(L("max"))$, found by substituting $R_L = R_"eq"$:
+  $
+    P_(L("max")) & = 1/2 abs(V_"oc")^2 R_"eq"/(R_"eq" + R_"eq")^2 \
+                 & = 1/2 abs(V_"oc")^2 R_"eq"/(4 R_"eq"^2) \
+                 & = 1/8 abs(V_"oc")^2/R_"eq"
+  $
+- if the source voltage is given as an rms value, then $P_(L("max")) = V_"rms"^2/(4 R_"eq")$
+
+== Power Factor Correction
+- large currents can flow through energy storage devices (inductance and capacitance) without any average power being delivered
+- in heavy industry, many loads are partially inductive, so there is a large amount of reactive power flow
+  $
+             P_"average" & = V_"rms" I_"rms" cos(theta) quad "Watts" \
+    "Reactive power" (Q) & = V_"rms" I_"rms" sin(theta) quad "VAR" \
+        "Apparent power" & = V_"rms" I_"rms" quad "VA"
+  $
+- reactive power causes higher currents in the power distribution system
+- consequently, lines and transformers must have higher ratings than would be needed to deliver the same average power to a resistive (100% power factor) load
+- energy rates charged to industry depend on the power factor, with higher charges for energy delivered at low power factors
+  - power factor is *not* taken into account for residential customers
+- therefore, it is advantageous to choose loads that operate near *unity power factor*
+  $
+    theta = 0 quad => quad cos(theta) = 1
+  $
+
+=== Power triangles
+#align(center, cetz.canvas({
+  import cetz.draw: *
+
+  // Inductive load (theta > 0)
+  line((0, 0), (3, 0), stroke: blue)
+  line((3, 0), (3, 1.8), stroke: blue)
+  line((0, 0), (3, 1.8), stroke: red, mark: (end: ">"))
+  line((2.75, 0), (2.75, 0.25), (3, 0.25), stroke: gray)
+
+  content((1.5, -0.4), [$P$ #text(size: 8pt)[(average power)]])
+  content((3.6, 0.9), $Q > 0$)
+  content((1.1, 1.2), $V_"rms" I_"rms"$)
+  content((0.6, 0.15), $theta$)
+  content((1.5, -1), [Inductive load: $theta > 0$, lagging pf])
+}))
+#align(center, cetz.canvas({
+  import cetz.draw: *
+
+  // Capacitive load (theta < 0)
+  line((0, 0), (3, 0), stroke: blue)
+  line((3, 0), (3, -1.8), stroke: blue)
+  line((0, 0), (3, -1.8), stroke: red, mark: (end: ">"))
+  line((2.75, 0), (2.75, -0.25), (3, -0.25), stroke: gray)
+
+  content((1.5, 0.4), [$P$ #text(size: 8pt)[(average power)]])
+  content((3.6, -0.9), $Q < 0$)
+  content((1.1, -1.2), $V_"rms" I_"rms"$)
+  content((0.6, -0.15), $theta$)
+  content((1.5, -2.2), [Capacitive load: $theta < 0$, leading pf])
+}))
+- inductive load: $theta$ is positive, *lagging* power factor
+- capacitive load: $theta$ is negative, *leading* power factor
+
+=== Correcting the power factor
+- a common approach is to place a *capacitor in parallel* with the inductive load
+  - the capacitor supplies reactive power ($Q < 0$) that cancels part of the inductive $Q$
+  - this decreases $theta$, so $cos(theta)$ increases and the power factor increases
+- note as $theta -> 0$, $Q -> 0$, giving a $100%$ power factor
+- the average power $P$ is unchanged by the capacitor (it absorbs no average power), but $I_"rms"$ drops, so line losses fall
