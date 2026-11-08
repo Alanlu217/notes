@@ -158,8 +158,8 @@ $
 
 === Fourier Series: (C) Exponential Fourier Series
 - $
-    x(t) &= sum_(n=-infinity)^infinity C_n e^(j n omega_0 t) \
-    C_n &= 1/T integral_0^T x(t) e^(-j n omega_0 t) dif t quad "where" omega_0 = (2 pi)/T
+    x(t) & = sum_(n=-infinity)^infinity C_n e^(j n omega_0 t) \
+     C_n & = 1/T integral_0^T x(t) e^(-j n omega_0 t) dif t quad "where" omega_0 = (2 pi)/T
   $
 
 === Half-wave symmetry
@@ -237,41 +237,36 @@ $
       sec[1. Integrals (for integer $n eq.not 0$)], [Sine],
       [$display(integral sin(a x) dif x = -1/a cos(a x))$], [Cosine],
       [$display(integral cos(a x) dif x = 1/a sin(a x))$], [Sine over period],
-      [$display(integral_0^T sin(n omega_0 t) dif t = 0)$],
-      [Cosine over period],
+      [$display(integral_0^T sin(n omega_0 t) dif t = 0)$], [Cosine over period],
 
       [$display(integral_0^T cos(n omega_0 t) dif t = 0)$],
 
       sec[2. Integration by Parts (Key Formula)], [General],
       [$display(integral u dif v = u v - integral v dif u)$], [$x e^(a x)$],
-      [$display(integral x e^(a x) dif x = e^(a x)/a^2 (a x - 1))$],
-      [$x^2 e^(a x)$],
+      [$display(integral x e^(a x) dif x = e^(a x)/a^2 (a x - 1))$], [$x^2 e^(a x)$],
 
       [$display(integral x^2 e^(a x) dif x = e^(a x)/a^3 (a^2 x^2 - 2 a x + 2))$],
 
-      sec[3. Integration by Parts (a) and (b)],
-      [$integral t cos(n omega_0 t) dif t$],
+      sec[3. Integration by Parts (a) and (b)], [$integral t cos(n omega_0 t) dif t$],
 
       [
         $
-          u &= t, quad dif v = cos(n omega_0 t) dif t => v = 1/(n omega_0) sin(n omega_0 t) \
-          &= t/(n omega_0) sin(n omega_0 t) + 1/(n omega_0)^2 cos(n omega_0 t) + G
+          u & = t, quad dif v = cos(n omega_0 t) dif t => v = 1/(n omega_0) sin(n omega_0 t) \
+            & = t/(n omega_0) sin(n omega_0 t) + 1/(n omega_0)^2 cos(n omega_0 t) + G
         $
       ],
       [$integral t sin(n omega_0 t) dif t$],
 
       [
         $
-          u &= t, quad dif v = sin(n omega_0 t) dif t => v = -1/(n omega_0) cos(n omega_0 t) \
-          &= -t/(n omega_0) cos(n omega_0 t) + 1/(n omega_0)^2 sin(n omega_0 t) + G
+          u & = t, quad dif v = sin(n omega_0 t) dif t => v = -1/(n omega_0) cos(n omega_0 t) \
+            & = -t/(n omega_0) cos(n omega_0 t) + 1/(n omega_0)^2 sin(n omega_0 t) + G
         $
       ],
 
-      sec[5. Definite Integration by Parts ($0 <= t <= T$, integer $n$)],
-      [$t sin$],
+      sec[5. Definite Integration by Parts ($0 <= t <= T$, integer $n$)], [$t sin$],
 
-      [$display(integral_0^T t sin(n omega_0 t) dif t = -T/(n omega_0))$],
-      [$t cos$],
+      [$display(integral_0^T t sin(n omega_0 t) dif t = -T/(n omega_0))$], [$t cos$],
 
       [$display(integral_0^T t cos(n omega_0 t) dif t = 0)$],
 
@@ -282,14 +277,12 @@ $
       [$display(integral_0^T x^2 sin(n x) dif x = [(-x^2)/n cos(n x) + (2 x)/n^2 sin(n x) + 2/n^3 cos(n x)]_0^T)$],
 
       sec[7. Definite Integrals ($x$ terms)], [$x cos$],
-      [$display(integral_0^T x cos(n x) dif x = [x/n sin(n x) + 1/n^2 cos(n x)]_0^T)$],
-      [$x sin$],
+      [$display(integral_0^T x cos(n x) dif x = [x/n sin(n x) + 1/n^2 cos(n x)]_0^T)$], [$x sin$],
 
       [$display(integral_0^T x sin(n x) dif x = [(-x)/n cos(n x) + 1/n^2 sin(n x)]_0^T)$],
 
       sec[8. Orthogonality Integrals], [$cos dot sin$],
-      [$display(integral_0^T cos(m omega_0 t) sin(n omega_0 t) dif t = 0 quad "for all " m "and " n)$],
-      [$sin dot sin$],
+      [$display(integral_0^T cos(m omega_0 t) sin(n omega_0 t) dif t = 0 quad "for all " m "and " n)$], [$sin dot sin$],
 
       [$display(integral_0^T sin(m omega_0 t) sin(n omega_0 t) dif t = cases(0 & "for all " m eq.not n, T/2 & "for " m = n))$],
       [$cos dot cos$],
@@ -299,10 +292,10 @@ $
       sec[Trigonometric Identities], [Symmetry / shifts],
       [
         $
-          sin(-alpha) &= -sin alpha, & quad cos(-alpha) &= cos alpha \
-          sin(alpha + pi/2) &= cos alpha, & quad cos(alpha + pi/2) &= -sin alpha \
-          sin(alpha plus.minus pi) &= -sin alpha, & quad cos(alpha plus.minus pi) &= -cos alpha \
-          sin(alpha + 2 pi) &= sin alpha, & quad cos(alpha + 2 pi) &= cos alpha
+                       sin(-alpha) & = -sin alpha, &              quad cos(-alpha) & = cos alpha \
+                 sin(alpha + pi/2) & = cos alpha,  &        quad cos(alpha + pi/2) & = -sin alpha \
+          sin(alpha plus.minus pi) & = -sin alpha, & quad cos(alpha plus.minus pi) & = -cos alpha \
+                 sin(alpha + 2 pi) & = sin alpha,  &        quad cos(alpha + 2 pi) & = cos alpha
         $
       ],
       [Angle sum / difference],
@@ -377,9 +370,9 @@ $
 
       [
         $
-          A_n = B_n &= 0 quad "for even " n \
-          A_n &= 4/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t quad "for odd " n \
-          B_n &= 4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t quad "for odd " n
+          A_n = B_n & = 0 quad "for even " n \
+                A_n & = 4/T integral_0^(T/2) x(t) cos(n omega_0 t) dif t quad "for odd " n \
+                B_n & = 4/T integral_0^(T/2) x(t) sin(n omega_0 t) dif t quad "for odd " n
         $
       ],
       [Amplitude-phase (compact)],
@@ -483,11 +476,11 @@ $
 - e.g Find the FT of $ x(t) = e^(-a t) u(t) quad a > 0 \ "where" u(t) = cases(1 quad & t >= 0, 0) $
   $
     X(omega) & = integral_(-infinity)^infinity e^(-a t) u(t) e^(-j omega t) dif t \
-    & = integral_0^infinity e^(-(a + j omega) t) \
-    & = [-1/(a + j omega) e^(-(a + j omega)t)]_0^infinity \
-    & = [-1/(a + j omega) e^(-(a + j omega) infinity)] - [-1/(a + j omega) e^0] \
-    & = [-1/(a + j omega) times 0] + [1/(a + j omega)] \
-    & = 1/(a + j omega)
+             & = integral_0^infinity e^(-(a + j omega) t) \
+             & = [-1/(a + j omega) e^(-(a + j omega)t)]_0^infinity \
+             & = [-1/(a + j omega) e^(-(a + j omega) infinity)] - [-1/(a + j omega) e^0] \
+             & = [-1/(a + j omega) times 0] + [1/(a + j omega)] \
+             & = 1/(a + j omega)
   $
 - summary:
   - Fourier transform of a rectangular pulse in the time domain is the Sinc function in the frequency domain
@@ -517,11 +510,9 @@ $
     align: (left, left),
     inset: 8pt,
     table.header([*Transform*], [*Definition*]),
-    [Forward FT],
-    $X(omega) = integral_(-infinity)^infinity x(t) e^(-j omega t) dif t$,
+    [Forward FT], $X(omega) = integral_(-infinity)^infinity x(t) e^(-j omega t) dif t$,
 
-    [Inverse FT],
-    $x(t) = 1/(2 pi) integral_(-infinity)^infinity X(omega) e^(j omega t) dif omega$,
+    [Inverse FT], $x(t) = 1/(2 pi) integral_(-infinity)^infinity X(omega) e^(j omega t) dif omega$,
   )
 
   // Identities
@@ -667,13 +658,13 @@ $
       line((2, 0), (3, 0))
     }))
   $
-    X(omega) = 2 (sin(omega T))/omega \
+                     X(omega) = 2 (sin(omega T))/omega \
     T = 1 quad therefore X(omega) = 2 sin(omega)/omega \
-    "Note that" y(t) = x(1/2 t) \
-    "applying the scaling property" \
-    "of the Fourier transform gives" \
-    y(t) = x(t/2) => Y(omega) & = 1/abs(a) X(omega/a) = 2 X(2 omega) \
-    & = 2 dot 2/(2 omega) sin(2 omega) = 2/omega sin(2 omega)
+                           "Note that" y(t) = x(1/2 t) \
+                       "applying the scaling property" \
+                      "of the Fourier transform gives" \
+                             y(t) = x(t/2) => Y(omega) & = 1/abs(a) X(omega/a) = 2 X(2 omega) \
+                                                       & = 2 dot 2/(2 omega) sin(2 omega) = 2/omega sin(2 omega)
   $
 + Differentiation in Time
   - $
@@ -1109,22 +1100,13 @@ $
       $ t u(t) $, $ 1/s^2 $, $ a x(t) + b y(t) $, $ a X(s) + b Y(s) $,
       $ t^n u(t) $, $ n!/s^(n+1) $, $ x(t - tau) $, $ e^(-s tau) X(s) $,
       $ t^(n-1)/(n-1)! u(t) $, $ 1/s^n $, $ e^(a_0 t)x(t) $, $ X(s - a_0) $,
-      $ delta(t - tau), tau > 0 $,
-      $ e^(-s tau) $,
-      $ x(a t), a > 0 $,
-      $ 1/a X(s/a) $,
+      $ delta(t - tau), tau > 0 $, $ e^(-s tau) $, $ x(a t), a > 0 $, $ 1/a X(s/a) $,
 
       $ e^(-a t)u(t) $, $ 1/(s + a) $, $ x(t) times y(t) $, $ X(s) Y(s) $,
       $ t e^(-a t)u(t) $, $ 1/(s + a)^2 $, $ -t x(t) $, $ dif/(dif s) X(s) $,
-      $ cos(omega t)u(t) $,
-      $ s/(s^2 + omega^2) $,
-      $ (dif x(t))/(dif t) $,
-      $ s X(s) - x(0) $,
+      $ cos(omega t)u(t) $, $ s/(s^2 + omega^2) $, $ (dif x(t))/(dif t) $, $ s X(s) - x(0) $,
 
-      $ sin(omega t)u(t) $,
-      $ omega/(s^2 + omega^2) $,
-      $ (dif^2 x(t))/(dif t^2) $,
-      $ s^2 X(s) - s x(0) - x'(0) $,
+      $ sin(omega t)u(t) $, $ omega/(s^2 + omega^2) $, $ (dif^2 x(t))/(dif t^2) $, $ s^2 X(s) - s x(0) - x'(0) $,
 
       $ e^(-a t)cos(omega t)u(t) $, $ (s + a)/((s + a)^2 + omega^2) $, [], [],
       $ e^(-a t)sin(omega t)u(t) $, $ omega/((s + a)^2 + omega^2) $, [], [],
@@ -1648,11 +1630,11 @@ $
 == Cascade Connection
 - given $H_1(j omega)$ and $H_2(j omega)$:
   $
-    H_1(j omega) & = V_"out1"/V_"in1"; quad H_2(j omega) = V_"out2"/V_"in2" \
-    "since" V_"out1" & = V_"in2" \
-    H(j omega) & = V_"out2"/V_"in1" = V_"out2"/V_"in2" times V_"out1"/V_"in1" \
-    & = H_2(j omega) times H_1(j omega) \
-    therefore H(j omega) &= H_1(j omega) H_2(j omega)
+            H_1(j omega) & = V_"out1"/V_"in1"; quad H_2(j omega) = V_"out2"/V_"in2" \
+        "since" V_"out1" & = V_"in2" \
+              H(j omega) & = V_"out2"/V_"in1" = V_"out2"/V_"in2" times V_"out1"/V_"in1" \
+                         & = H_2(j omega) times H_1(j omega) \
+    therefore H(j omega) & = H_1(j omega) H_2(j omega)
   $
 - when we connect the output terminals of one two-port circuit to the input terminals of another two port circuit, we say that we have a cascade connection
 - this can also be extended to three or more two-ports connected in cascade
@@ -1711,3 +1693,378 @@ $
   - horizontal line at -90 for $omega > 10 omega_c$
   #image("assets/phase_approx.png")
 
+
+= Topic 6a: AC Circuit Analysis
+== AC Fundamentals
+- In Direct Current (DC), the electric charge flows only in one direction.
+- In Alternating Current (AC), the flow of electric charge periodically reverses direction.
+
+== AC Transmission
+- AC is more efficient and economical to transmit over long distances.
+- AC voltage may be increased or decreased with a transformer.
+- The power losses ($P_l$) in a conductor are a product of the square of the current and the resistance of the conductor.
+  $
+    "Power loss" = I^2 R
+  $
+- When transmitting a fixed power through a power line, if the current is doubled, the power loss will be four times greater.
+- The power transmitted is equal to the product of the current and the voltage.
+  $
+    P_T = V I
+  $
+- The same amount of power can be transmitted with a lower current by increasing the voltage.
+- Use of a higher voltage leads to significantly more efficient transmission of power.
+
+== Characteristics of Alternating Current and Voltage (AC)
+- An alternating current or voltage can have different waveforms, but we will focus only on the sine wave (sinusoidal waveform).
+  $
+    v(t) & = V_m sin(2 pi f t) \
+    v(t) & = V_m sin((2 pi)/T t) \
+     V_m & : "peak voltage" \
+       f & : "frequency" \
+       t & : "time"
+  $
+- $v(t)$ can be re-written as $v(t) = V_m sin (omega t)$
+
+== Phase Angle
+- A sinusoidal waveform may or may not always start at $t = 0$.
+- A "delay" or "advance" in the waveform is known as the *phase angle ($phi.alt$)* (in degrees or radians)
+- A general expression for a sinusoidal waveform is given by
+  $
+    v(t) = V_m sin(omega t plus.minus phi.alt)
+  $
+- If the phase of two waveforms A and B are not the same, they are said to be *out of phase*, if they are the same, then they are *in phase*.
+
+== Phase Difference
+#align(
+  cetz.canvas({
+    import cetz.draw: *
+    let end = 6.5
+    let n = 200
+    let pts1 = range(n).map(i => {
+      let x = end * i / n
+      (x, 1.5 * calc.sin(2 * calc.pi / 5 * x))
+    })
+    let pts2 = range(n).map(i => {
+      let x = end * i / n
+      (x, 1.5 * calc.sin(2 * calc.pi / 5 * x))
+    })
+
+    line(name: "x-axis", (0, 0), (8, 0))
+    line(name: "y-axis", (1.5, -2), (1.5, 2))
+
+    content((1.8, 1.5), $V_m$)
+    line((1.5, 1.5), (1.6, 1.5))
+    content((1.8, -1.5), $-V_m$)
+    line((1.5, -1.5), (1.6, -1.5))
+
+    content((-0.3, 0.3), $B$)
+    content((1.2, 0.3), $A$)
+
+    line(name: "pd", (0.1, -0.2), (1.4, -0.2), mark: (start: ")>", end: ")>"))
+    content("pd", anchor: "north", padding: 1mm, $phi.alt$)
+
+    line(..pts1)
+    group({
+      translate(x: 1.5)
+      line(..pts2)
+    })
+  }),
+  center,
+)
+- two sinusoids witha  phase difference.
+- Waveform $A$ is chosen as the reference and is shown to begin at $0 degree$.
+- Waveform $B$ leads waveform $A$ by $phi.alt$ degrees. Therefore it is written as
+  $
+    v(t) = V_m sin(omega t + phi.alt)
+  $
+
+== Measurements of AC Quantities
+- We can measure
+  + Peak value
+    - known as the maximum voltage or current of the waveform
+    - occurs at two different positions, a positive and a negative peak
+    - they have equal magnitudes
+    - positive peak occurs at $90 degree$ and the negative at $270 degree$
+  + Peak to peak value
+    - is the total height between opposite peaks.
+  + Average value
+    - is the average of all its instantaneous values over a full cycle.
+    - since the positive and negative alternations are identical, the average is $0$
+  + Root Mean Square
+
+== Root Mean Square Value
+- the rms value is a measure of the heating effect of a sine wave.
+- it can be defined as the equivalent value of DC that will produce the same amount of heat (power) in a load $R_l$ as a given sine wave.
+- the rms value for a sinusoidal waveform is
+  $
+    v_"rms" = V_m/sqrt(2) \ i_"rms" = I_m/sqrt(2)
+  $
+- the RMS voltage or current, which is also known as the effective value, of a sinusoid depends on the Amplitude of the waveform and is idependent of the waveform frequency its phase angle.
+- the $I_"rms"$ of a periodic current waveform $i(t)$ is defined as the current which produces heat(power) in a given resistor $R$ at the same average rate as a direct current $I_"dc"$.
+  $
+    P_"average" = R I_"rms"^2 = R I_"dc"^2
+  $
+- Consider a periodic current waveform
+  $
+                P_"ave" & = 1/T integral_0^T p(t) dif t = 1/T integral_0^T i^2(t) R dif t \
+                        & = R/T integral_0^T i^2(t) dif t = R I_"rms"^2 \
+    therefore I_"rms"^2 & = 1/T integral_0^T i^2(t) dif t
+  $
+
+== Phasor Representation
+- a phasor is a line, drawn from an origin that has both magnitude and angle
+- phasors are used in AC circuits to indicate time varying quantities of current and voltage
+- a phasor is a complex number that represents the amplitude and phase angle of a sinusoid
+  $
+    v(t) = V_m sin(omega t + phi.alt) <-> V = V_m angle phi.alt
+  $
+
+== Capacitors and Inductors
+=== Capacitor
+- $v_c(t)$ - instantaneous voltage across capacitor
+- $q(t)$  - instantaneuous charge on the capacitor
+$
+                q(t) & = C v_c(t) \
+  (dif q(t))/(dif t) & = C (dif v_c(t))/(dif t) \
+                i(t) & = C (dif v_c(t))/(dif t) \
+    therefore v_c(t) & = 1/C integral_0^t i(t) dif t
+$
+
+=== Inductor
+- $v_l(t)$ instantaneous voltage across inductor
+- $i(t)$ instantaneous current
+- if $i(t)$ is the current through the coil, the coltage across the inductor is given by
+  $
+    "induced voltage" -> v_L(t) = L (dif i(t))/(dif t)
+  $
+- The greater the rate of change of current through the coil, the greater will be the induced voltage.
+
+== V-I relationship for a resistor, inductor and capacitor
+=== Resistor
+$
+            i(t) & = I_m sin(omega t); quad I = I_m angle 0 degree ("reference vector") \
+  therefore v(t) & = i(t) R = R I_m sin(omega t) \
+                 & "the phasor representation of the voltage is" \
+         bold(V) & = R I_m angle 0 degree
+$
+
+=== Inductor
+$
+  i(t) = I_m sin(omega t) \
+$
+We have $v_L(t) = L (dif i(t))/(dif t) = omega L I_m cos(omega t)$
+
+$
+  bold(V)_L = omega L I_m angle 90 degree
+$
+
+Voltage leads current by $90degree$ OR current lags voltage by $90degree$.
+
+=== Capacitor
+Assume the voltage across the capacitor is given by
+$
+  v_c(t) = V_m sin(omega t); quad V_c = V_m angle 0 degree
+$
+We have $i(t) = C (dif v_c(t))/(dif t) - omega C V_m cos(omega t)$
+So
+$
+  bold(I) = omega C V_m angle 90 degree
+$
+
+Voltage lags current by $90degree$ OR current leads voltage by $90degree$.
+
+== Impedance of Circuit Elements
+#table(
+  columns: (1fr,) * 3,
+  table.header()[Resistor][Capacitor][Inductor],
+  $
+    I & = I_m angle 0 degree \
+    V & = R I_m angle 0 degree \
+    V & = R I_m \
+    V & = R I
+  $,
+  $
+    V_c & = V_m angle 0 degree \
+      I & = omega C V_m angle 90 degree \
+      I & = j omega C V_m \
+    V_c & = 1/(j omega C) I
+  $,
+  $
+      I & = I_m angle 0 degree \
+    V_L & = omega L I_m angle 90 degree \
+    V_L & = j omega L I_m \
+    V_L & = j omega L I
+  $,
+)
+
+== Reactance
+- The imaginary part of impedance is called reactance
+- capacitor
+  - Impedance of a capacitor $Z_c = 1/(j omega C)$
+  - The capacitance reactive $X_C = 1/(omega C) = 1/(2 pi f C) Omega$
+- inductor
+  - Impedance is $Z_L = j omega L$
+  - $X_L = omega L = 2 pi f L Omega$
+
+= Topic 6b: AC Circuit Analysis
+== Impedance, Admittance and Susceptance
+- The reciprocal of resistance is known as conductance ($G$) and is expressed in siemens ($S$) or $Omega^(-1)$
+  - if reactance is $0$, then $G = 1/R$
+- At times it is convenient to work with the reciprocal of impedance $Z$ known as admittance $Y$.
+  - $Y = 1/Z$
+- Admittance is used in parallel circuit analysis
+  $
+    Y = 1/Z = G + j B
+  $
+- The imaginary part of admittance is called susceptance and is denoted by B.
+- The two compoennts of the susceptance are capacitive susceptance $B_C$ and hte inductive susceptance $B_L$
+
+== Relationships between $R, X, G "and" B$
+$
+  G = R/(R^2 + X^2) "and" B = -X/(R^2 + X^2)
+$
+If $G$ and $B$ are known
+$
+  R = G/(G^2 + B^2) "and" X = -B/(G^2 + B^2)
+$
+
+== Delta - Wye Transformation in AC networks
+- a Delta network can be converted easily to a Wye network or vice-versa
+#zap.circuit({
+  import zap: *
+
+  // Corner and centre nodes
+  node("a", (0, 4), label: (content: $a$, anchor: "east"))
+  node("b", (8, 4), label: (content: $b$, anchor: "west"))
+  node("c", (4, -1), label: (content: $c$, anchor: "north"))
+  node("n", (4, 1.6), label: (content: $n$, anchor: "south-west"))
+
+  // Delta (outer triangle)
+  resistor("Zc", "a", "b", label: $Z_c$)
+  resistor("Za", "b", "c", label: $Z_a$)
+  resistor("Zb", "c", "a", label: $Z_b$)
+
+  // Wye (inner star)
+  resistor("Z1", "a", "n", label: $Z_1$)
+  resistor("Z2", "b", "n", label: $Z_2$)
+  resistor("Z3", "c", "n", label: $Z_3$)
+})
+
+- Delta to Wye
+  $
+    Z_1 & = (Z_b Z_c)/(Z_a + Z_b + Z_c) \
+    Z_2 & = (Z_a Z_c)/(Z_a + Z_b + Z_c) \
+    Z_3 & = (Z_a Z_b)/(Z_a + Z_b + Z_c) \
+  $
+- Wye to Delta
+  $
+    Z_a & = (Z_1 Z_2 + Z_2 Z_3 + Z_3 Z_1)/Z_1 \
+    Z_b & = (Z_1 Z_2 + Z_2 Z_3 + Z_3 Z_1)/Z_2 \
+    Z_c & = (Z_1 Z_2 + Z_2 Z_3 + Z_3 Z_1)/Z_3 \
+  $
+
+- For a balanced load $Z_Y = Z_1 = Z_2 = Z_3$
+  - $Z_Y = 1/3 Z_Delta$
+  - $Z_Delta = 3 Z_Y$
+
+= Topic 6c: AC Circuit Analysis
+== AC Power - Current, Voltage and Power Transfer for a Resistive Load
+- Applying an AC signal to a circuit containing resistive as well as reactive elements results in power transfer from the source to the circuit.
+- Consider the case that the load is a pure resistance.
+  $
+    v(t) & = V_m cos(omega t) \
+    i(t) & = I_m cos(omega t)
+  $
+- The instantaneous power
+  $
+    p(t) & = v(t) dot i(t) \
+         & = V_m I_m cos^2(omega t)
+  $
+- Since $p(t)$ is positive at all times, the energy flows continually in the direction from the source to the load (where it is converted to heat).
+
+== AC Power - Current, Voltage and Power Transfer for an Inductive Load
+- Consider the case where the load is a pure inductor for which $Z = j omega L = omega L angle 90 degree$
+  $
+             v(t) & = V_m cos(omega t) \
+    i(t) = v(t)/Z & = I_m cos(omega t - 90 degree) = I_m sin (omega t)
+  $
+  $
+    p(t) & = v(t) dot i(t) = V_m I_m cos(omega t) sin(omega t) \
+         & = (V_m I_m)/2 sin(2 omega t)
+  $
+- half the time the power is positive, showing that the energy is delivered to the inductor, where it is stored in the magnetic field.
+- for the other half the time, power is negative, showing that the inductor is returning energy to the source
+- notice that the average power is zero.
+
+== AC Power - Current, Voltage and Power Transfer for a Capacitive Load
+- Consider the case where the load is pure capacitance for which $Z = 1/(j omega C) = 1/(omega C) angle -90 degree$
+  $
+    v(t) & = V_m cos(omega t) \
+    i(t) & =v(t)/Z = I_m cos(omega t + 90 degree) = - I_m sin(omega t)
+  $
+  $
+    p(t) & = v(t) dot i(t) = V_m I_m cos(omega t) sin(omega t) \
+         & = (V_m I_m)/2 sin(2 omega t)
+  $
+- the power for the capacitance carries the opposite sign as that for the inductance. We say that the reactive power flows from the load to the source.
+- thus, we say reactive power is positive for an inductor and negative for a capacitor.
+
+== AC Power - Load contains both inductance and capacitance
+- If the load contains both inductance and capacitance with reactive powers of equal magnitude, the reactive powers cancel
+- The power flows back and forth to inductances and capacitances is called reactive power.
+- Even though no average power is consumed by a pure energy-storage element (inductance or capacitance), reactive power is still important.
+- It is possible to have loads comprised of energy-storage elements that draw large currents requiring heavy-duty wiring, even though little average power is consumed.
+- Therefore, electric delivery companies charge their customers for reactive power (but at a lower rate) as well as for total energy delivered.
+
+== Power Calculation for a general load
+- Now let us consider the voltage current and power for a general RLC load, for which the phase $theta$ can be any value from $-90 degree$ to $+90 degree$.
+$
+  v(t) & = V_m cos(omega t) \
+  i(t) & = I_m cos(omega t - theta)
+$
+
+- The instantaneous power $p(t)$
+$
+  p(t) & = v(t) dot i(t) = V_m I_m cos(omega t) cos(omega t - theta) \
+       & = V_m I_m cos(omega t) (cos(omega t) cos(theta) + sin(omega t) sin(theta)) \
+       & = V_m I_m cos(theta) cos^2(omega t) + V_m I_m sin(theta) sin(omega t) cos(omega t) \
+       & = V_m I_m cos(theta) [(1 + cos(2 omega t)/2)] + (V_m I_m)/2 sin(theta) sin(2 omega t) \
+       & = (V_m I_m)/2 cos(theta)[1 + cos(2 omega t)] + (V_m I_m)/2 sin(theta) sin(2 omega t)
+$
+
+- Notice that the term involving $cos(2 omega t)$ and $sin(2 omega t)$ have average values of zero. Thus the average power is
+$
+  P & = (V_m I_m)/2 cos(theta) = V_m/sqrt(2) I_m/sqrt(2) cos(theta) \
+    & = V_"rms" I_"rms" cos(theta)
+$
+- The term $cos(theta)$ is called the power factor ($"pf"$)
+- sometimes $theta$ is called the power angle.
+- it is common to state that the current leads (in capacitive loads), or lags (in inductive loads) the voltage
+- a typical power factor would be stated to be $90%$ lagging which means that $cos(theta) = 0.9$ and the current lags the voltage.
+
+== Reactive power
+- The power flowing back and forth between the source and the energy-storage elemtsn is the last term
+$
+  Q & = (V_m I_m)/2 sin(theta) \
+  Q & = V_"rms" I_"rms" sin(theta)
+$
+
+- for a purely resistive load $theta = 0; therefore Q = 0$
+- $Q$ does not represent the flow of net energy and its units are usually given as VARs (VOlt Ampere Reactive)
+
+== Apparent Power
+- The apparent power which is defined as the product of the effective voltage $V_"rms"$ and effective current $I_"rms"$.
+$
+  "Apparent power" = V_"rms" I_"rms"
+$
+- its unit is Volt-Ampere (VA)
+- We have $P("average power")$ and $Q("reactive power")$
+  $
+            P & = V_"rms" I_"rms" cos(theta) \
+            Q & = V_"rms" I_"rms" sin(theta) \
+    P^2 + Q^2 & = (V_"rms" I_"rms")^2 (cos^2 theta + sin^2 theta) \
+              & = (V_"rms" I_"rms")^2
+  $
+- if we say that we have a $5 k W$ load, this means that $P = 5 k W$.
+- if we have a $5 k "VA"$ load, $V_"rms" I_"rms" = 5 k "VA"$
+- if we say that a load absorbs $5 k "VAR"$ then $Q = 5 k "VAR"$
