@@ -127,8 +127,8 @@ $
 
 == Maxwell's Equations in a different form
 $
-    gradient dot vv(E) & = rho/epsilon_0 \
-    gradient dot vv(B) & = 0 \
+  gradient dot vv(E) & = rho/epsilon_0 \
+  gradient dot vv(B) & = 0 \
   gradient times vv(E) & = -(partial vv(B))/(partial t) \
   gradient times vv(B) & = mu_0 epsilon_0 (partial vv(E))/(partial t) + mu_0 vv(J)
 $
