@@ -193,11 +193,114 @@ $
 $
 
 =
-NaCl has a rock salt lattice structure. You can visualise this as a cube of side length $a$, with 0 atoms on each face as shown in the figure.
+NaCl has a rock salt lattice structure. You can visualise this as a cube of side length $a$, with 9 atoms on each face as shown in the figure.
 #image("assets/q6.png")
 
 The density of NaCl is $2.16 g\/"cm"^3$. The molar mass of Na is $22.99 g\/"mol"$ and of Cl is $35.45 g\/"mol"$.
 
 == What is the lattice constant $a$?
 
-Total mass is $22.99$
+Since edge atoms are shared between adjacent cubes, effective number of Na atoms per $a^3$ is $4$ and also $4$ for Cl.
+
+Thus the total mass of each cube is
+$
+  4 times 22.99/N_A + 4 times 35.45/N_A \
+  = 3.881766854865493ee(-22) g
+$
+
+Since the density is known,
+$
+    2.16 & = g/"cm"^3 \
+  "cm"^3 & = g/2.16 \
+         & =(3.881766854865493ee(-22))/2.16 \
+         & = 1.7971142846599502e-22 \
+       a & = 5.643197268206302ee(-8) "cm " \
+         & = 5.643197268206302ee(-10) "m"
+$
+
+== X-rays with a wavelength of $lambda = 1.24 angstrom$ ($1 angstrom = 10^(-10) "m"$) are incident on the lattice. What angle will give the first order maximum in the diffraction pattern? Note that $theta$ is the angle between the X-rays and the plane parallel with the top of the lattice. Find the smallest $theta$ for which you get constructive interference.
+
+$
+  2 d sin theta & = m lambda \
+      sin theta & = (m lambda)/a \
+          theta & = arcsin((m lambda)/a) \
+                & = 12.693385994706514 degree
+$
+
+== The diffracted X-rays are projected onto a screen $1.00 m$ away. What is the separation between the first and second order maxima?
+
+$
+  theta_1 & = 12.693385994706514 degree \
+  theta_2 & = arcsin((m lambda)/a) \
+          & = 26.06989018721338 degree
+$
+
+$
+  x & = tan(theta_2) - tan(theta_2) \
+    & = 0.26400503784416235
+$
+
+=
+A calcite crystal is bi-refringent: it has a refractive index for "ordinary" rays (light polarized parallel to the optic axis) $n_0 = 1.658$ and for "extraordinary" rays (light polarized perpendicular to the optic axis) $n_e = 1.486$. These figures are for light with a wavelength $lambda = 643 "nm"$ in a vacuum. The crystal has two opposite faces parallel to each other, both in the $y$-$z$ plane and separated by a distance $L$ in the $x$-direction. The optic axis is in the $y$-direction. Light of a wavelength $643 "nm"$ travelling in the $+x$ direction and linearly polarized at $45 degree$ to the optic axis, is normally incident on one $y$-$z$ face, and leaves the crystal at the other $y$-$z$ face.
+
+#image("assets/q7.png")
+
+== What is the optical path length for the ordinary rays in terms of $L$?
+
+$
+  "OPL"_o = n_0 L = 1.658 L
+$
+
+== What minimum value of the thickness L is required so that the phase difference between the two rays is $pi/2$?
+
+$
+  "phase difference" & = (2 pi)/lambda (n_0 L - n_1 L) \
+                pi/2 & = (2 pi L)/lambda (n_0 - n_1) \
+                   L & = lambda/(4 (n_0 - n_1)) \
+                     & = (643ee(-9))/(4 (1.658 - 1.486)) \
+                     & = 9.345930232558143ee(-7) m
+$
+
+== A second, similar crystal is placed in the beam after the first, with similar alignment. What is the minimum thickness the second crystal can have to restore the linear polarization?
+
+Linear polarization means it must have total phase different of $k pi$.
+
+Thus to restore linear polarisation, we must have an additional phase difference of $pi/2$. Thus the answer is same as the previous question.
+
+=
+In this question, we will consider the effects of both single slit diffraction and double slit interference on the pattern of a double slit setup.
+
+A double slit experiment is illuminated with $lambda=462$ nm light. Taking the most intense central interference fringe as $m=0$, we find that the $m=4$ fringe coincides with the first minimum of the diffraction envelope. This occurs at $theta=7.51degree$.
+
+== What is the slit width?
+
+$
+  a sin theta & = m lambda \
+            a & = lambda/(sin theta) \
+              & = (462ee(-9))/(sin 7.51 degree) \
+              & = 3.5348333726945737ee(-6) m \
+              & = 3.5348333726945737 mu m
+$
+
+== What is the slit separation?
+
+$
+  d sin theta & = m lambda \
+            d & = (4 lambda)/sin(theta) \
+              & = 1.4139333490778295ee(-5) m \
+              & = 14.139333490778295 mu m
+$
+
+== If the same double slit experiment is now illuminated with light with wavelength $lambda=649$ nm, at what angle $theta$ does the first minimum in the diffraction envelope now occur and what is the coinciding order number for the interference pattern?
+
+$
+  a sin theta & = m lambda \
+        theta & = arcsin(lambda/a) \
+              & = 10.57959601764377 degree
+$
+
+$
+  d sin theta & = m lambda \
+            m & = (d sin theta)/lambda \
+              & = 4
+$
