@@ -237,4 +237,3 @@ $
 - similarly, for a given slit width, the diffraction is more pronounced for longer wavelengths#image("assets/single_slit.png")
 
 = Lecture 12: Phase changes at interfaces, thin films, Michelson Interferometer, single-split diffraction
-

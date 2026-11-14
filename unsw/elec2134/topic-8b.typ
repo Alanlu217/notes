@@ -394,3 +394,13 @@ $
   + $i_t(t) = e^(-alpha t) (B_1 cos omega_d t + B_2 sin omega_d t)$ (under damped)
 - steady state response is the final value of $i(t)$, $i_(s s)(t) = i(infinity) = I_s$\
 - values of $A_1, A_2, B_1, B_2$ are obtained from the initial conditions $i(0)$ and $(dif i(0))/(dif t)$
+
+#colbreak()
+== Summary - Natural Responses
+Over-damped case: $i(t)$ or $v(t) = A_1 e^(s_1 t) + A_2 e^(s_2 t)$, where $s_(1,2) = -alpha plus.minus sqrt(alpha^2 - omega_0^2)$
+
+Critically damped case: $i(t)$ or $v(t) = (A_2 + A_1 t) e^(-alpha t)$, where $s_(1,2) = -alpha$
+
+Under damped case: $i(t)$ or $v(t) = e^(-alpha t) (B_1 cos omega_d t + B_2 sin omega_d t)$, where $omega_d = sqrt(omega_0^2 - alpha^2)$
+
+$ B_1 = A_1 + A_2 quad "and" quad B_2 = j(A_1 - A_2) $
