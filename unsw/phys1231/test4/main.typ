@@ -154,3 +154,50 @@ $
                   & = 6.279724517906336e-7 \
                   & = 627.9724517906335 "nm"
 $
+
+=
+A double-slit experiment is set up with two slits both with a slit width of $a=2.76 mu m$, the distance between their centres is $d=24.94 mu m$. It is illuminated with light with a wavelength $lambda=413 "nm"$.
+#image("assets/q5.png")
+
+== At what angle $theta$, is the first minimum in the diffraction pattern observed?
+
+$
+  a sin theta & = m lambda \
+        theta & = arcsin((lambda)/a) \
+              & = 8.605930242484408 degree
+$
+
+== How many total interference maxima are there between the two first order diffraction minima? Give an integer answer.
+
+First diffraction minima at $8.605930242484408 degree$.
+
+Interference maxima occurs at
+$
+  d sin theta & = m lambda \
+            m & = (d sin theta) / lambda \
+              & = (d lambda/a)/ lambda \
+              & = d / a \
+              & = 9.03623188405797 \
+        "num" & = 9 * 2 + 1 ("9 per side and the central maxima") \
+              & = 19
+$
+
+== The bright central fringe is the $m = 0$ fringe. The fringes on either side are the $m = 1$ fringes, they have intensity $I_1$. What is the intensity of the intensity of the second $m = 2$ fringe to the third $m = 3$ fringe?
+
+$
+  I & = I_"max" (sin(beta \/ 2)/(beta \/ 2))^2 "where" beta = (2 pi a sin theta)/lambda \
+  sin theta_2 &= (2 lambda)/d \
+  sin theta_3 &= (3 lambda)/d \
+  I_2/I_3 & = (sin(a_2)/(a_2)/(sin(a_3)/(a_3)))^2 "where" a_2 = (2 pi a) / d "and" a_3 = (3 pi a)/d \
+  & = 1.2372750230655725
+$
+
+=
+NaCl has a rock salt lattice structure. You can visualise this as a cube of side length $a$, with 0 atoms on each face as shown in the figure.
+#image("assets/q6.png")
+
+The density of NaCl is $2.16 g\/"cm"^3$. The molar mass of Na is $22.99 g\/"mol"$ and of Cl is $35.45 g\/"mol"$.
+
+== What is the lattice constant $a$?
+
+Total mass is $22.99$
