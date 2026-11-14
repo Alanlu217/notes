@@ -304,3 +304,146 @@ $
             m & = (d sin theta)/lambda \
               & = 4
 $
+
+=
+#image("assets/q9.png")
+
+A double-slit experiment is illuminated with light with a wavelength $lambda=488$ nm. The intensity versus angle plot observed is shown in the figure. A minimum of the diffraction envelope and one of the maxima of the double slit interference fringes coincide at $theta=9.26$.
+
+== What is the slit width?
+
+$
+  a sin theta & = m lambda \
+            a & = lambda/(sin theta) \
+              & = 3.032660262329921ee(-6) m \
+              & = 3.032660262329921 mu m
+$
+
+== What is the slit separation?
+
+$
+  d sin theta & = m lambda \
+            d & = (8 lambda)/(sin theta) \
+              & = 24.261282098639367 mu m
+$
+
+== The bright central fringe is the $m=0$ fringe. The fringe on either side are the $m=1$ fringes. They have an intensity $I_1$. What is the ratio of the intensity of the second fringe $m=2$, to the first fringe $m=1$?
+
+$
+  I &= I_"max" (sin(beta/2)/(beta/a))^2 "where" beta = (2 pi a sin theta)/lambda \
+  & = I_"max" (sin((pi a sin theta)/lambda)/((pi a sin theta)/lambda))^2 \
+  d sin theta & = m lambda \
+  sin theta & = m lambda/d \
+  I_2/I_1 & = (sin((2 pi a)/d)/((2 pi a)/d))^2/(sin((pi a)/d)/((pi a)/d))^2 \
+  I_2/I_1 & = 1/4 (sin^2((2 pi a)/d))/(sin^2((pi a)/d)) \
+  & = 0.8535533905932736
+$
+
+=
+#image("assets/q10.png")
+
+Light is incident on a crystal such that it makes an angle $theta$ with the crystal surface as shown in the diagram. The spacing between the crystal layers is $d$. Consider two rays, Ray 1 reflected off the top layer and Ray 2 reflected off the crystal plane a distance $d$ below. At the two red crosses the rays are perfectly in phase and the path difference between them is $0$.
+
+== Write an expression in terms of d and θ for the path difference between the light reflected off the top layer of the crystal and the light reflected a distance d below.
+
+$
+  2 d sin theta
+$
+
+== Using this write a condition for constructive interference in terms of $m$ (the order, a positive integer), $lambda, d "and" theta$.
+
+$
+  2 d sin theta = m lambda
+$
+
+== For the case when $d=0.306$ nm and $lambda=0.0681$ nm (x-rays), what angle $theta$ is needed to observed the first order constructive interference?
+
+$
+  2 d sin theta & = m lambda \
+      sin theta & = (m lambda)/(2 d) \
+          theta & = arcsin((m lambda)/(2 d)) \
+                & = arcsin(lambda/(2 d)) \
+                & = 6.388790681675329 degree
+$
+
+=
+Unpolarized light with an intensity $I_0$ is incident on a polarizing sheet as shown in Figure 1.
+
+#image("assets/q11.png")
+
+== What is the intensity of the light passing through the first polarizing sheet?
+
+$
+  I & = I_"max" cos^2 theta
+$
+
+$theta$ is random as light is unpolarized.
+
+Average of $cos^2(theta) = 1/2$
+
+$
+  I_1 = 1/2 I_0
+$
+
+== The second polarizing sheet is perpendicular to the first polarizing sheet. What is the intensity passing through the second sheet?
+$
+  I_2 & = I_"max" cos^2 90 \
+      & = 0
+$
+
+== An additional polarizing sheet is now placed between sheet 1 and sheet 2, the polarizing planes make an angle $θ=61.3degree$ with the planes in sheet 1. What intensity passes through the second sheet now?
+
+$
+  I & = 1/2 cos^2 (61.3) cos^2 (90 - 61.3) I_0 \
+    & = 0.08871575515288604 I_0
+$
+
+=
+In this question, you will use phasors to combine the electric field components of light rays.
+
+Two light waves travelling in the x direction have an electric field component polarised parallel to the y axis given by
+
+$
+  E_1 & =9.14sin(3.37ee(15) t) mu V\/m \
+  E_2 & =9.14sin(3.37ee(15) t + 1.49) mu V\/m \
+$
+
+at a point $P$, where $t$ is in seconds and phase is in radians.
+
+== What is the phase difference between $E_1$ and $E_1 + E_2$?
+
+$
+  E_1 + E_2 & = 9.14 (sin(3.37ee(15) t) + sin(3.37ee(15) t + 1.49)) \
+            & = 9.14 (2 sin ((A + B)/2) cos ((A - B)/2)) \
+            & = 9.14 (2 sin(3.37ee(15)t + 1.49/2) cos(1.49/2)) \
+            & = 13.437406855530918 sin(3.37 ee(15) t + 1.49/2) \
+$
+
+Phase difference is $1.49/2$
+
+== What is the amplitude of the resulting electric field at P?
+$
+       E_1 + E_2 & = 13.437406855530918 sin(3.37 ee(15) t + 1.49/2) \
+  abs(E_1 + E_2) & = 13.437406855530918
+$
+
+== A third light wave travelling in the x direction, also with an electric field component polarised parallel to the y axis, is given by
+$
+  E_3=9.14sin(3.37ee(15)t−1.49) mu V\/m
+$
+
+at a point P, where t is in seconds and phase is in radians.
+
+What is the amplitude of the resulting electric field at P now?
+
+#divider()
+
+Add as phasors:
+
+The $y$ component of $E_2, E_3$ cancel each other out, so only $x$ component remains.
+
+$
+  E_"total" & = abs(E_1) times 1 + abs(E_2) times cos(1.49) + abs(E_3) times cos(-1.49) \
+  & = 10.615350437753756
+$
+
