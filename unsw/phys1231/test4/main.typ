@@ -56,20 +56,20 @@ $
 And the intensity from single slit is:
 $
   I & = I_"max" (sin(beta \/ 2)/(beta\/2))^2 "where" beta = (2 pi a sin theta)/lambda \
-  & = I_"max" ((sin((pi a sin theta)/lambda))/((pi a sin theta)/lambda))^2
+    & = I_"max" ((sin((pi a sin theta)/lambda))/((pi a sin theta)/lambda))^2
 $
 
 Since $theta_1$ and $theta_2$ are at a fringe, intensity from the double slit is $cos(theta) = 1$.
 
 Thus, the combined effects results in
 $
-  I & = I_"max" ((sin((pi a sin theta)/lambda))/((pi a sin theta)/lambda))^2 \
+            I & = I_"max" ((sin((pi a sin theta)/lambda))/((pi a sin theta)/lambda))^2 \
   sin theta_1 & = (2 lambda)/d \
-  sin theta_2 &= lambda/d \
-  I_1 & = I_"max" ((sin((pi a)/d))/((pi a)/d))^2 \
-  I_2 & = I_"max" ((sin((2 pi a)/d))/((2 pi a)/d))^2 \
-  I_2/I_1 & = ((sin((2 pi a)/d))/((2 pi a)/d))^2 /((sin((pi a)/d))/((pi a)/d))^2 \
-  & = 0.5
+  sin theta_2 & = lambda/d \
+          I_1 & = I_"max" ((sin((pi a)/d))/((pi a)/d))^2 \
+          I_2 & = I_"max" ((sin((2 pi a)/d))/((2 pi a)/d))^2 \
+      I_2/I_1 & = ((sin((2 pi a)/d))/((2 pi a)/d))^2 /((sin((pi a)/d))/((pi a)/d))^2 \
+              & = 0.5
 $
 
 =
@@ -185,11 +185,11 @@ $
 == The bright central fringe is the $m = 0$ fringe. The fringes on either side are the $m = 1$ fringes, they have intensity $I_1$. What is the intensity of the intensity of the second $m = 2$ fringe to the third $m = 3$ fringe?
 
 $
-  I & = I_"max" (sin(beta \/ 2)/(beta \/ 2))^2 "where" beta = (2 pi a sin theta)/lambda \
-  sin theta_2 &= (2 lambda)/d \
-  sin theta_3 &= (3 lambda)/d \
-  I_2/I_3 & = (sin(a_2)/(a_2)/(sin(a_3)/(a_3)))^2 "where" a_2 = (2 pi a) / d "and" a_3 = (3 pi a)/d \
-  & = 1.2372750230655725
+            I & = I_"max" (sin(beta \/ 2)/(beta \/ 2))^2 "where" beta = (2 pi a sin theta)/lambda \
+  sin theta_2 & = (2 lambda)/d \
+  sin theta_3 & = (3 lambda)/d \
+      I_2/I_3 & = (sin(a_2)/(a_2)/(sin(a_3)/(a_3)))^2 "where" a_2 = (2 pi a) / d "and" a_3 = (3 pi a)/d \
+              & = 1.2372750230655725
 $
 
 =
@@ -330,13 +330,13 @@ $
 == The bright central fringe is the $m=0$ fringe. The fringe on either side are the $m=1$ fringes. They have an intensity $I_1$. What is the ratio of the intensity of the second fringe $m=2$, to the first fringe $m=1$?
 
 $
-  I &= I_"max" (sin(beta/2)/(beta/a))^2 "where" beta = (2 pi a sin theta)/lambda \
-  & = I_"max" (sin((pi a sin theta)/lambda)/((pi a sin theta)/lambda))^2 \
+            I & = I_"max" (sin(beta/2)/(beta/a))^2 "where" beta = (2 pi a sin theta)/lambda \
+              & = I_"max" (sin((pi a sin theta)/lambda)/((pi a sin theta)/lambda))^2 \
   d sin theta & = m lambda \
-  sin theta & = m lambda/d \
-  I_2/I_1 & = (sin((2 pi a)/d)/((2 pi a)/d))^2/(sin((pi a)/d)/((pi a)/d))^2 \
-  I_2/I_1 & = 1/4 (sin^2((2 pi a)/d))/(sin^2((pi a)/d)) \
-  & = 0.8535533905932736
+    sin theta & = m lambda/d \
+      I_2/I_1 & = (sin((2 pi a)/d)/((2 pi a)/d))^2/(sin((pi a)/d)/((pi a)/d))^2 \
+      I_2/I_1 & = 1/4 (sin^2((2 pi a)/d))/(sin^2((pi a)/d)) \
+              & = 0.8535533905932736
 $
 
 =
@@ -444,6 +444,145 @@ The $y$ component of $E_2, E_3$ cancel each other out, so only $x$ component rem
 
 $
   E_"total" & = abs(E_1) times 1 + abs(E_2) times cos(1.49) + abs(E_3) times cos(-1.49) \
-  & = 10.615350437753756
+            & = 10.615350437753756
 $
 
+=
+#image("assets/q13.png")
+
+Light with a wavelength $lambda=415$ nm passes through small circular holes separated by a distance $h=1.72$ mm. An observer holds a camera a distance $D$ away with an aperture with a diameter $d=2.45$ mm looking at the holes. (The holes are much larger than the camera aperture.)
+
+== One of the holes is covered, allowing light to just pass through one hole. If a screen is located a distance $D=2.84$ m away. What is the diameter in the first minimum of the diffraction pattern?
+
+By the Rayleigh Criterion
+$
+  theta_"min" & = 1.22 lambda/d \
+              & = 1.22 (415ee(-9))/(2.45ee(-3)) \
+              & = 0.0002066530612244898 \
+$
+
+$
+   tan theta & = ("diameter"/2)/D \
+  "diameter" & = 2 D tan theta \
+             & = 2 times 2.84 times tan 0.0002066530612244898 \
+             & = 0.0011737894044641852 "m"
+$
+
+== What is the greatest distance D that the camera can be located with the holes still resolvable according to Rayleigh's criterion?
+
+$
+  sin theta & = 1.22 lambda/d \
+        h/D & = 1.22 lambda/d \
+          D & = (h d)/(1.22 lambda) \
+            & = (1.72ee(-3) times 2.45ee(-3))/(1.22 times 415ee(-9)) \
+            & = 8.323128579893343 "m"
+$
+
+== If the wavelength of the light was changed to $lambda=549$ nm what would be the greatest distance these could be resolved from according to Rayleigh's criterion?
+
+$
+  D & = (h d)/(1.22 lambda) \
+    & = 6.2916181432709255 "m"
+$
+
+=
+The maximum intensities created by a diffraction pattern fall at angles $theta$ which satisfy $d sin theta = m lambda$, where $d$ is the spacing between adjacent lines on the grating, $λ$ is the wavelength being considered.
+
+== Differentiate this expression to find the dispersion.
+
+$
+                           d sin theta & = m lambda \
+  d cos theta (dif theta)/(dif lambda) & = m \
+              (dif theta)/(dif lambda) & = m/(d cos theta)
+$
+
+== According to Rayleigh's criterion, the smallest Δθ that can be resolved is when the maximum of one line lies on the minimum of the next, that is $Delta theta$ must be greater than half the line width: $Delta theta_"hw"= lambda N d cos theta$ where $N$ is the number of lines/rulings on the grating. Use this along with the expression you derived in part 1 to give a simplified expression for the resolving power of a grating, $R$.
+
+$
+        (dif theta)/(dif lambda) & = m/(d cos theta) \
+                     Delta theta & = (m Delta lambda)/(d cos theta) \
+  (m Delta lambda)/(d cos theta) & = lambda/(N d cos theta) \
+           lambda/(Delta lambda) & = (m N d cos theta)/(d cos theta) \
+           lambda/(Delta lambda) & = m N \
+       R = lambda/(Delta lambda) & = m N
+$
+
+== If $lambda=406.26$ nm and $N=1.38ee(4)$ what is the smallest wavelength difference $Delta lambda$ that can be resolved in the second order?
+
+$
+  R = lambda/(Delta lambda) & = m N \
+               Delta lambda & = lambda/(m N) \
+                            & = (406.26ee(-9))/(2 times 1.38ee(4)) \
+                            & = 1.4719565217391304ee(-11) \
+                            & = 0.014719565217391303 "nm"
+$
+
+=
+A series of $n$ polarizing sheets each at an angle $theta degree$ to the previous sheets is set up.
+#image("assets/q15.png")
+
+== Write an expression for the intensity of the light passing through the first polarizing sheet.
+
+$
+  I = I_"max" cos^2(theta) \
+$
+
+$theta$ at the first polarizing sheet is completely random, thus we can use the average of $cos^2(theta) = 1/2$.
+
+$
+  I = 1/2 I_0
+$
+
+== Write an expression for the intensity of light passing through the second polarizing sheet.
+
+$
+    I & = I_"max" cos^2(theta) \
+  I_2 & = I_1 cos^2(theta) \
+      & = 1/2 cos^2(theta) I_0
+$
+
+== Write an expression for the intensity of light passing through the nth polarising sheet.
+
+$
+  I & = I_"max" cos^2(theta) \
+    & = 1/2 (cos(theta))^(2 (n - 1)) I_0
+$
+
+=
+#image("assets/q16.png")
+
+A ray of light originates from within a block surrounded by air. It is incident on a side of the block, making an angle $theta_1=38.8degree$. As it exits the block, it undergoes refraction, leaving at an angle $theta_2=51.5degree$.
+
+== What is the refractive index of the block?
+
+$
+  n_1 sin(theta_1) & = n_2 sin(theta_2) \
+               n_1 & = n_2 sin(theta_2)/sin(theta_1) \
+                   & = times sin(51.5degree)/sin(38.8degree) \
+                   & = 1.2489680762525945
+$
+
+== The wavelength of the light in air (outside the block) is found to be $lambda=654$ nm. What is the speed, frequency, and wavelength of the light inside the block?
+
+$
+       v_m & = v_0/n \
+           & = 3ee(8)/1.2489680762525945 \
+           & = 2.4019829305815437ee(8) \
+  lambda_m & = lambda_0/n \
+           & = 654ee(-9)/ 1.2489680762525945 \
+           & = 5.236322788667766ee(-7) \
+           & = 523.6322788667766 "nm" \
+         v & = f lambda \
+         f & = v/lambda \
+           & = (2.4019829305815437ee(8))/(5.236322788667766ee(-7)) \
+           & = 4.587155963302752ee(14) "Hz"
+$
+
+== What is the greatest angle that the ray can be incident on the side of the block and still exit the block?
+
+$
+  n_1 sin(theta_1) & = n_2 sin(theta_2) \
+           theta_1 & = arcsin(n_2/n_1 sin(theta_2)) \
+                   & = arcsin(1/1.2489680762525945 sin(90)) \
+                   & = 53.193267431463326 degree
+$
