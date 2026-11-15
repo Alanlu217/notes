@@ -18,6 +18,7 @@
 #set image(width: 50%)
 #show image: it => align(center, it)
 #let ee(n) = $times 10^(#n)$
+#let vv(n) = $harpoon(#n)$
 
 =
 #image("assets/q1.png")
@@ -585,4 +586,142 @@ $
            theta_1 & = arcsin(n_2/n_1 sin(theta_2)) \
                    & = arcsin(1/1.2489680762525945 sin(90)) \
                    & = 53.193267431463326 degree
+$
+
+=
+#image("assets/q17.png")
+
+A double-slit experiment is illuminated with light with a wavelength $lambda=438$ nm. The angle versus intensity plot observed is shown in the figure. The minima of diffraction envelope and one of the maxima of the double slit interference fringes coincide at $theta=3.08degree$.
+
+== What is the slit width?
+
+$
+  a sin theta & = m lambda \
+            a & = (m lambda)/(sin theta) \
+              & = (438ee(-9))/(sin 3.08 degree) \
+              & = 8.151831829055202ee(-6) "m" \
+              & = 8.151831829055202 mu m
+$
+
+== What is the slit separation?
+
+$
+  d sin theta & = m lambda \
+            d & = (m lambda)/(sin theta) \
+              & = (6 times 438ee(-9))/(sin 3.08 degree) \
+              & = 4.891099097433121ee(-5) "m" \
+              & = 48.91099097433121 mu m
+$
+
+== The bright central fringe is the $m=0$ fringe. The fringes on either side are the $m=1$ fringes. They have an intensity $I_1$. What is the ratio of the intensity of the second fringe $m=2$, to the first fringe $m=1$?
+
+$
+          I & = I_"max" ((sin((pi a sin theta)/lambda))/((pi a sin theta)/lambda))^2 \
+  sin theta & = (m lambda)/d \
+        I_2 & = I_"max" ((sin((2 pi a)/d))/((2 pi a)/d))^2 \
+        I_1 & = I_"max" ((sin((pi a)/d))/((pi a)/d))^2 \
+    I_2/I_1 & = ((sin((2 pi a)/d))/((2 pi a)/d))^2/((sin((pi a)/d))/((pi a)/d))^2 \
+            & = 1/4 (sin((2 pi a)/d)/(sin((pi a)/d)))^2 \
+            & = 0.75
+$
+
+=
+Light with a wavelength $lambda=378.42$ nm is incident on a diffraction grating. The second order maximum is observed at $theta=37.5degree$ (the central maximum is at $theta=0degree$).) The diffraction grating is $w=32.55$ mm wide.
+
+== What is the spacing between adjacent lines on the grating?
+
+$
+  d sin theta & = m lambda \
+            d & = (m lambda)/(sin theta) \
+              & = (2 times 378.42ee(-9))/(sin 37.5 degree) \
+              & = 1.2418658015686637ee(-6) m \
+$
+
+== At what angle is the third order maximum observed?
+
+$
+  d sin theta & = m lambda \
+        theta & = arcsin((m lambda)/d) \
+              & = arcsin((3 times 378.42ee(-9))/(1.2419ee(-6))) \
+              & = 65.94324945591562 degree
+$
+
+== What is the greatest wavelength difference, $Delta lambda$, that can be resolved with this grating and wavelength in the first order?
+
+$
+  R = lambda_"avg"/(Delta lambda) & = N m \
+                     Delta lambda & = lambda_"avg"/(N m) \
+                                  & = (378.42ee(-9))/((32.55ee(-3))/(1.2419ee(-6)) times 1) \
+                                  & = 1.4438089032258064ee(-11) m
+$
+
+= Unpolarized light with an intensity $I_0$ is incident on three polarizing sheets each at an angle $theta=26.5degree$ to the previous sheet as shown in the figure.
+
+#image("assets/q19.png")
+
+== What is the intensity of the light passing through the first polarizing sheet?
+
+$
+  I & = I_"max" cos^2(theta) \
+$
+
+Light is unpolarized meaning $theta$ is random. Thus, averaging the cosine gives $cos^2(theta) = 1/2$.
+
+Thus
+$
+  I_1 = 1/2 I_0
+$
+
+== What is the intensity of light passing through the second polarizing sheet?
+
+$
+  I_2 & = I_1 cos^2(26.5) \
+      & = 0.8009075115760242 I_1 \
+      & = 1/2 times 0.8009075115760242 I_0 \
+      & = 0.4004537557880121 I_0
+$
+
+== What is the intensity of light passing through the third polarizer?
+
+$
+  I_3 & = I_2 cos^(26.5) \
+      & = 0.3207264210494497 I_0
+$
+
+=
+The electric component of an electromagnetic wave is described by:
+
+$ vv(E) = 2.49sin(1.25ee(7) x − 3.74ee(15) t) hat(j) m V\/m $
+
+where x is in metres and t is in seconds.
+
+== What is the wavelength of this electromagnetic wave?
+
+$
+       k & = (2 pi)/lambda \
+  lambda & = (2 pi) / k \
+         & = (2 pi)/(1.25ee(7)) \
+         & = 5.026548245743669ee(-7) m
+$
+
+== Write down an expression for the magnetic component of this electromagnetic wave.
+
+$
+  B_m & = E_m / c \
+      & = 2.49ee(-3) / (3ee(8)) \
+      & = 8.3ee(-12) "T"
+$
+
+$
+          vv(E) times vv(B) & = "direction of propagation" \
+                  j times k & = i \
+  therefore angle vv(B) = k
+$
+
+== What is the intensity (average magnitude of the Poynting vector) for this wave at the point described?
+
+$
+  I & = E_"max"^2/(2 mu_0 c) \
+    & = (2.49ee(-3))^2/(2 times 4 pi ee(-7) times 3ee(8)) \
+    & = 8.223138022200502ee(-9)
 $
