@@ -355,3 +355,171 @@ $
       (dif psi)/(dif x) & = i k A e^(i k x) - i k B e^(-i k x) \
   (dif^2 psi)/(dif x^2) & = -k^2 A e^(i k x) - k^2 B e^(-i k x)
 $
+
+=
+A photon has wavelength $λ=600$ nm.
+
+== What is the energy, in eV, of this photon?
+
+$
+  E & = (h c)/lambda \
+    & = (6.626ee(-34) times 3ee(8))/(600ee(-9)) \
+    & = 3.313ee(-19) J \
+    & = (3.313ee(-19))/1.602ee(-19) e V \
+    & = 2.0680399500624222 e V
+$
+
+== What is the momentum of this photon?
+$
+  lambda & = h/p \
+       p & =h/lambda \
+         & = (6.626ee(-34))/(600ee(-9)) \
+         & = 1.1043333333333334ee(-27)
+$
+
+== The photon strikes a piece of metal with a work function $Phi=1.33$ eV. What is the maximum speed an electron ejected from this metal by this photon could have? Ignore any relativistic effects.
+
+$
+    K_"max" & = h f - Phi \
+  1/2 m v^2 & = (h c)/lambda - Phi \
+          v & = sqrt(2/m ((h c)/lambda - Phi)) \
+            & = sqrt(2/(9.11ee(-31)) ((6.626ee(-34) times 3ee(8))/(600ee(-9)) -1.33 times 1.602ee(-19))) \
+            & = 509479.8363256322
+$
+
+=
+Max Planck laid the foundation of quantum theory with a couple of assumptions about oscillators producing black body curves, he claimed that the oscillators could only have certain discrete values for energy and that transitions occurred between these allowed levels. This gave an expression for the spectral intensity of black body radiation as a function of temperature and wavelength:
+$
+  S(lambda,T) = (2 pi c^2 h)/lambda^5 1/(e^(h c \/ lambda k T)−1)
+$
+In this problem we will be considering this equation.
+
+== Write a Taylor series expansion for $e^(h c \/ lambda k T)$ about $1/lambda = 0$. Keep only the zeroth and first order terms.
+
+$
+  F(x) & = e^x = F(a) + F'(a)(x - a) + F''(a)(x - a)^2 ... "where" a = 0 \
+       & = e^0 + e^0(x - 1) + ... \
+$
+
+== Using this expression, give an expression for $S(lambda,T)$ as a function of $lambda$ for large $lambda$. Include only terms up to the first order.
+
+$
+  S(lambda, T) & = (2 pi c^2 h)/lambda^5 1/(1 + (h c)/(lambda k T) - 1) \
+               & = (2 pi c^2 h)/lambda^5 (lambda k T)/(h c) \
+               & = (2 pi c k T)/(lambda^4)
+$
+
+==
+For large $lambda$ Planck's expression agrees with the Rayleigh-Jeans law (which you should have just shown). Which of the following statements are true? (Click all that are true.)
+
++ The Rayleigh-Jeans law predicts that the intensity will become infinite at short wavelengths.
++ The Rayleigh-Jeans law correctly predicts the wavelength dependence of the intensity for all wavelengths.
++ Planck's law correctly predicts the wavelength dependence of the intensity for all wavelengths.
++ The Planck relationship predicts that theere will be a wavelength, at which the intensity will be maximum for each temperature.
+
+#divider()
+All but the second.
+
+=
+
+== Which expression represents the general form of a wavefunction describing two waves traveling in opposite directions?
+
++ $psi(x) =A e^(i k x) + B e^(−i k x)$
++ $psi(x) =A e^(−i k x) + B e^(i k x)$
++ $psi(x, t) = A e^(i(k x − omega t)) + B e^(−i(k x − omega t))$
++ $psi(x, t) = A e^(i(k x − omega t)) + B e^(−i(k x + omega t))$
+
+#divider()
+
+Answer is $4$.
+
+== At $t=0$ what is $psi^∗$?
+
+When $t = 0$,
+
+$
+  psi(x, t) & = A e^(i(k x − omega times 0)) + B e^(−i(k x + omega times 0)) \
+            & = A e^(i k x) + B e^(−i k x) \
+$
+
+The complex conjugate then becomes
+$
+  psi^*(x, t) & = A e^(-i k x) + B e^(i k x) \
+$
+
+== The probability of finding a particle is given by $psi^∗ psi$. What is the probability in this case at $t=0$? Fully simplify your expression using $e^(i theta) = cos(theta) + i sin(theta)$.
+
+$
+  psi^* psi & = (A e^(-i k x) + B e^(i k x)) times (A e^(i k x) + B e^(-i k x)) \
+            & = A^2 + A B e^(2 i k x) + A B e^(-2 i k x) + B^2 \
+            & = A^2 + B^2 + A B (cos(2 k x) + i sin(2 k x) + cos(-2 k x) + i sin(-2 k x)) \
+            & = A^2 + B^2 + 2 A B cos(2 k x)
+$
+
+=
+A non-relativistic electron is confined to an infinitely deep potential well with length $L=968$ pm.
+
+== What is the energy of an electron confined to the ground (lowest) state?
+
+Lowest state means $L$ is half a wavelength where it is $0$ at either ends of the well.
+
+$
+  therefore lambda & = 2 times 968ee(-12) \
+                   & = 1.936ee(-9) m
+$
+
+Thus its momentum is given body
+$
+  lambda & = h/p \
+       p & = h/lambda \
+         & = 3.422520661157025ee(-25) "kg" "ms"^(-1)
+$
+
+Meaning it has energy
+$
+  E & = p^2/(2 m) \
+    & = 6.429005310673282ee(-20) J \
+    & = 0.4013111929259227 "eV"
+$
+
+== What energy is required for the electron to jump to the fourth excited state from the ground state?
+
+$
+  p & = h/lambda \
+  E & = p^2/(2 m) \
+    & = h^2/(2 m lambda^2) \
+$
+
+For the fourth excited state,
+$
+  lambda times 5/2 & = L \
+            lambda & = L times 2/5
+$
+
+Thus
+$
+  E & = h^2/(2 m (L times 2/5)^2) \
+    & = 1.6072513276683204ee(-18) J & = 10.032779823148068 "eV"
+$
+
+Energy required is
+$
+  10.032779823148068 - 0.4013111929259227 \
+  = 9.631468630222146 "eV"
+$
+
+== If the electron drops back from the fourth excited state to the first excited state what is the frequency of the photon it releases?
+
+$
+        E & = h^2/(2 m (L times 2/2)^2) \
+          & = 1.6052447717036906 "eV" \
+  Delta E & = 10.032779823148068 - 1.6052447717036906 \
+          & = 8.427535051444378 "eV"
+$
+
+Frequency is given by
+$
+  E & = h f \
+  f & = E/h \
+    & = 2.0375658243908685ee(15) "Hz"
+$
