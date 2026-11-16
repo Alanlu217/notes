@@ -2,7 +2,7 @@
 
 #{
   v(2cm)
-  align(center, text(20pt, weight: "bold")[MATH2069 Midterm Notes])
+  align(center, text(20pt, weight: "bold")[MATH2069 Test 4 Part 2])
   v(2cm)
   outline(depth: 1)
 }
@@ -146,3 +146,58 @@ $ b = sqrt(m k) / (2 planck) $
 == What is the energy $E$, in this case?
 
 $ E = (planck^2 b) / m = 1/2 planck sqrt(k / m) $
+
+=
+#image("assets/q4.png")
+
+A non-relativistic electron is trapped in an infinite potential well with length $L$. The potential well is given by:
+
+$
+  U(x) & = infinity, &    x <= 0 \
+  U(x) & = 0,        & 0 < x < L \
+  U(x) & = infinity, &    x >= L
+$
+
+== Consider the electron to be a wave with wavelength $lambda$. Give a wave function for an electron confined to this potential well. Give your answer in terms of $n$ and $L$.
+
+Standing wave means the angular frequency $omega = 0$.
+
+$
+  psi_n(x) & = A sin(k x) \
+         k & = (2 pi)/lambda \
+$
+
+The standing wave should be $0$ at the two ends of the well. Thus at $x = 0$ and $x = L$, the wave function should give $0$.
+
+Thus some integer multiple of the wavelength should equal to $2 L$
+
+$
+  n lambda & = 2 L \
+    lambda & = (2 L)/n
+$
+
+Thus
+$
+         k & = (2 pi n)/(2 L) \
+           & = (n pi)/L \
+  psi_n(x) & = A sin((n pi)/L x)
+$
+
+== Now we will consider the energy $E$ of the electron. Give $lambda$ in terms of $E$.
+
+$
+       p & = h/lambda \
+       E & = 1/2 p^2/m \
+         & = 1/2 h^2/(lambda^2 m) \
+  lambda & = h/sqrt(2 m E)
+$
+
+== Using your results so far derive an expression for the allowed energies of an electron trapped in an infinite potential well.
+
+$
+       lambda & = (2 L)/ n \
+       lambda & = h/sqrt(2 m E) \
+      (2 L)/n & = h/sqrt(2 m E) \
+  (4 L^2)/n^2 & = h^2/(2 m E) \
+            E & = (h^2 n^2)/(8 m L^2)
+$
