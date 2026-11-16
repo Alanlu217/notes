@@ -109,7 +109,8 @@ $
   U = -1/2 k x^2
 $
 
-== A possible solution to the Schrödinger equation for this case is a wave function of the form
+==
+A possible solution to the Schrödinger equation for this case is a wave function of the form
 
 $ Psi = a e^(-b x^2). $
 
@@ -200,4 +201,157 @@ $
       (2 L)/n & = h/sqrt(2 m E) \
   (4 L^2)/n^2 & = h^2/(2 m E) \
             E & = (h^2 n^2)/(8 m L^2)
+$
+
+=
+A piece of metal has a work function of $Phi = 1.68 e V$.
+
+== What is the minimum frequency of a photon that could eject an electron from this metal.
+
+$
+  E & = h f \
+  f & = E/h \
+    & = (1.68 times 1.602ee(-19))/(6.626ee(-34)) \
+    & = 4.061817084213703ee(14)
+$
+
+== If a photon with a frequency of $f=7.79ee(14)$ Hz hits the metal, what is the maximum kinetic energy of an ejected electron?
+
+$
+  E & = h f - Psi \
+    & = 6.626ee(-34) times 7.79ee(14) - 1.68 times 1.602ee(-19) \
+    & = 2.470294ee(-19) J
+$
+
+== What is the momentum of the photon in part 2?
+
+$
+  lambda & = h/p \
+       p & = h/lambda \
+         & = (h f)/c \
+         & = (6.626ee(-34) times 7.79ee(-14))/(3ee(8)) \
+         & = 1.7205513333333332ee(-27)
+$
+
+=
+In the future solar sails could be used to accelerate spacecraft through space. In this question consider a large solar sail with a mass $m=902$ kg that reflects all the photons that fall on it. The solar sail is $8.41$ light minutes from our sun. Our sun has a power of $P_"sun"=3.90ee(26)$ W.
+
+== What is the intensity of light from the sun at this point?
+
+$
+  I & = P/(4 pi r^2) \
+    & = (3.90ee(26))/(4 pi times (8.41 times 3ee(8) times 60)^2) \
+    & = 1354.308927162377
+$
+
+== What area would the sails need to have so that the force from the solar photons perfectly balanced the gravitational force from the sun?
+
+$
+          P & = (2 I)/c \
+        F/A & = (2 I)/c \
+          F & = (2 I A)/c \
+          F & = G (m_1 m_2)/r^2 \
+  (2 I A)/c & = G (m_1 m_2)/r^2 \
+          A & = G (m_1 m_2 c)/(2 I r^2) \
+            & = 6.674ee(-11) (1.988ee(30) times 902 times 3ee(8))/(2 times 1354.31 times (8.41 times 3ee(8) times 60)^2) \
+            & = 578423.1097022096 m^2
+$
+
+== If the sail in fact has triple this area, what is the acceleration of the sail?
+
+$
+      F_G & = G (m_1 m_2)/r^2 \
+          & = 6.674ee(-11) (1.988ee(30) times 902)/(8.41 times 3ee(8) times 60)^2 \
+          & = 5.2224238743115015 \
+      F_S & = (2 I A)/c \
+          & = (2 times 1354.31 times 578423.11 times 3)/(3ee(8)) \
+          & = 15.667284034015989 \
+  F_"net" & = 15.667284034015989 - 5.2224238743115015 \
+      m a & = 10.444860159704486 \
+        a & = 10.444860159704486 / m \
+          & = 10.444860159704486 / 902 \
+          & = 0.011579667582820937
+$
+
+=
+An atomic nucleus has a diameter of $d=6.8ee(−14)$ m. Heisenberg's uncertainty principle tells us that $Delta p_x Delta x >= planck/2$.
+
+== What is the minimum uncertainty in the momentum of a neutron confined to the nucleus.
+
+Since the neutron is confined to the neucleus, $Delta x = 6.8ee(-14)$
+
+$
+  Delta p_x Delta x & >= planck/2 \
+          Delta p_x & >= h/(4 pi Delta x) \
+                    & >= 6.626ee(-34)/(4 times pi times 6.8ee(-14)) \
+                    & >= 7.7541224479919ee(-22)
+$
+
+== The uncertainty gives an order of magnitude estimate of the momentum of a hypothetical electron confined to the nucleus. For this part assume that the momentum of the electron pe=Δpe. As the mass of the electron is small, relativistic effects are not negligible. The relativistic momentum is given by:
+$
+  p = (m v)/sqrt(1 - v^2/c^2)
+$
+
+What is the velocity of the electron as a fraction of the speed of light?
+#divider()
+
+$
+                 p^2 & = (m^2 v^2)/(1 - v^2/c^2) \
+   p^2 - v^2 p^2/c^2 & = m^2 v^2 \
+  v^2(m^2 + p^2/c^2) & = p^2 \
+                 v^2 & = p^2/(m^2 + p^2/c^2) \
+                     & = (p^2 c^2)/(c^2 m^2 + p^2) \
+                   v & = p/sqrt(c^2 m^2 + p^2) c \
+                     & = 0.943
+$
+
+== What is the velocity of a neutron confined in the nucleus as a fraction of the speed of light?
+$
+  v & = p/sqrt(c^2 m^2 + p^2) c \
+    & = 1.54ee(-3)
+$
+
+=
+For the one dimensional case with a uniform potential the Schrödinger equation can be written as:
+
+$
+  (dif^2 psi(x))/(dif x^2) + k^2 psi(x) = 0
+$
+
+==
+The Schrödinger equation for the uniform potential can be simplified from:
+$
+  (dif^2 psi)/(dif x^2) = (8 pi^2 m)/h^2 [E - U] psi = 0
+$
+where $E$ is the total mechanical energy, and $U$ is the potential energy. For the non-relativistic case, give $E - U$ in terms of the momentum $p$.
+#divider()
+
+$
+  E - U & = K \
+        & = p^2/(2 m)
+$
+
+== Express the wave number $k=2 pi lambda$ in terms of $E−U$ and other fundamental constants.
+
+$
+  lambda & = h/p \
+     E-U & = p^2/(2 m)
+           = h^2/(2 m lambda^2) \
+  lambda & = sqrt(h^2/(2 m (E - U))) \
+       k & = (2 pi)/lambda
+           = (2 pi)/sqrt(h^2/(2 m (E - U)))
+           = (2 pi sqrt(2 m (E - U)))/h
+$
+
+==
+A general solution to this is
+$
+  psi(x) & = A e^(i k x) + B e^(-i k x)
+$
+What is $(dif^2 psi)/(dif x^2)$?
+#divider()
+
+$
+      (dif psi)/(dif x) & = i k A e^(i k x) - i k B e^(-i k x) \
+  (dif^2 psi)/(dif x^2) & = -k^2 A e^(i k x) - k^2 B e^(-i k x)
 $
