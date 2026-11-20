@@ -134,3 +134,69 @@ $
 - flux produced from primary winding is fully coupled to the secondary winding via the core
 - permeability of the core is infinitely large
 - core losses are neglected
+
+- consider an ideal transformer with $N_p$ windings in the primary winding, and $N_s$ windings in the secondary coil
+  - $v_p = N_P dd(phi.alt, t) quad v_s = N_s dd(phi.alt, t)$
+  - $v_p/v_s = N_p/N_s$ or $v_s/v_p = N_2/N_p = n$
+  - where $n = N_2/N_p$ is the turns ratio
+- for a lossless transformer, primary power equals secondary power (power is conserved)
+  $
+    v_p i_p = v_s i_s => i_s/i_p = v_p / v_s = N_p/N_s = 1/n
+  $
+
+=== Step up transformer
+- is used to increase the ac voltage
+- is when secondary voltage is greater than primary voltage
+  $
+    v_s/v_p = N_s/N_p => v_s = (N_s/N_p) v_p => v_s = n v_p
+  $
+- secondary voltage is equal to the turns ratio (n) times the primary voltage (assuming $k = 1$)
+- since number of turns in secondary winding is always greater than the number of turns in the primary winding, the turns ratio $n$ for a step up transformer is always > 1
+
+=== Step down transformer
+- used to decrease ac voltage
+- secondary voltage is less then primary voltage
+- $n < 1$
+- transformers also used for electrical isolation ($n = 1$)
+
+=== Direction of windings
+- direction of windings determines the polarity of the secondary voltage with respect to the primary voltage
+- primary and secondary voltages are in phase when the windings are in the same effective direction
+- primary and secondary voltages are $180 degree$ out of phase when windings are in opposite directions
+
+=== Reflected Load
+- load in the secondary circuit is reflected into the primary circuit by transformer action
+- primary circuit sees a resistance $R_P$ determined by the turns ratio and the actual value of the load resistance $R_L$, $R_P$ is the reflected resistance
+
+- resistance in primary circuit is $R_P = v_P/i_P$
+- resistance in secondary circuit is $R_S = v_S/i_S$
+  $
+    therefore R_P/R_S = (v_P/i_P)/(v_S/i_S) = v_P/v_s i_S/i_P = N_P/N_S N_P/N_S = (N_P/N_S)^2
+  $
+- if the load is an impedance, then the reflected impedance is given by
+  $
+    Z_P = Z_L/n^2
+  $
+
+=== Transformer Rating and Efficiency
+- typically rated in volt-amperes (VA), primary/secondary voltage and operating frequency
+- a transformer rating may be specified as 2 kVA, 1000/100, 50Hz
+- $ i_L = P_S/v_S = (20 k "VA")/(100V) = 20 A $ this is the maximum current that the secondary can handle
+- in an ideal transformer, the secondary power is equal to the primary power
+- because of the non-ideal characteristics of the transformer, always there will be power loss
+- the secondary (output) power is always less than the primary input power
+- the efficiency $eta$ of a transformer is a measure of the percentage of the input power that is delivered to the output
+  $
+    eta = (P_"out"/P_"in") 100%
+  $
+
+=== Auto Transformer
+- is a transformer in which both the primary and the secondary are in a single winding
+
+=== Tapped Transformer
+- transformers with a centre tapped secondary winding is shown below
+
+=== Transformer Applications
+- transformer as an isolation device to isolate ac supply from a rectifier
+- transformer as an isolation device to isolate dc between two amplifier stages
+- coupling for maximum power transfer
