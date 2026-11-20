@@ -9,3 +9,4 @@
   #text(weight: "bold")[Definition #name] \ #content
 ]
 
+#let dd(t, b) = $(dif #t)/(dif #b)$
