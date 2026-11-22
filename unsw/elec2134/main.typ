@@ -46,4 +46,3 @@
 #include "topic-8b.typ"
 
 #include "topic-9.typ"
-
