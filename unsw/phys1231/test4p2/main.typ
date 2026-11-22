@@ -523,3 +523,129 @@ $
   f & = E/h \
     & = 2.0375658243908685ee(15) "Hz"
 $
+
+=
+X-rays with a wavelength of $lambda=12.4$ pm are scattered from target atoms containing loosely bound electrons. The scattered rays are detected at an angle of $theta = 74.6degree$ to the incident beam.
+
+== What is the energy of the incident photon?
+
+$
+  E = h f & = (h c)/lambda \
+          & = 1.6030645161290324ee(-14) J
+$
+
+== What is the wavelength of the scattered photon?
+$
+  Delta lambda & = h/(m c)(1 - cos theta) \
+               & = 1.7806165991702904ee(-12) \
+      lambda_f & = 12.4ee(-12) + Delta lambda \
+               & = 1.4180616599170291ee(-11) "m" \
+               & = 14.180616599170291 "pm" \
+$
+
+== How much energy is transferred to the electron during this scattering?
+
+$
+      E_f & = (h c)/lambda \
+          & = 1.4017726141163047ee(-14) J \
+  Delta E & = 1.6030645161290324ee(-14) - 1.4017726141163047ee(-14) \
+          & = 2.012919020127277ee(-15) J
+$
+
+=
+Wien's displacement law describes the relationship between the wavelength at which the spectral intensity vs wavelength graph peaks ($lambda_"max"$) and temperature. It can be written as
+
+$
+  lambda_"max" T = 2.898ee(−3) "m.K"
+$
+
+== List the stars in the image below in order of their temperature, hotter to cooler.
+#image("assets/q14.png")
+
+Hottest is $A$, $B$, $C$.
+
+== At what wavelength will the peak intensity be found in a spectral intensity vs wavelength graph for a black body with a temperature $T=1124$ K
+
+$
+  lambda_"max" T & = 2.898ee(-3) \
+    lambda_"max" & = 2.898ee(-3)/(1124) \
+                 & = 2.578291814946619ee(-6)
+$
+
+=
+Faraday's law and Maxwell's law can be written in the form
+
+$
+  (dif E)/(dif x) & = - (dif B)/(dif t) \
+  (dif B)/(dif x) & = - epsilon.alt_0 mu_0 (dif E)/(dif t)
+$
+
+== Assuming that the magnetic field, B, is smooth, complete the expression below.
+
+$
+  (dif^2 E(x, t))/(dif x^2) & = ... (dif^2 E(x, y))/(dif t^2) \
+                            & =
+$
+
+#divider()
+$
+  (dif^2 E(x, t))/(dif x^2) & = (dif)/(dif x)(-(dif B)/(dif t)) \
+                            & = -(dif)/(dif t)((dif B)/(dif x)) quad "since B is smooth" \
+                            & = -(dif)/(dif t)(-epsilon_0 mu_0 (dif E)/(dif t)) \
+                            & = epsilon_0 mu_0 (dif^2 E)/(dif t^2)
+$
+
+== A valid solution to this equation (known as the wave equation) is $E(x,t)=E_0 sin(k x − omega t)$. In this case, find $(dif^2 E)/(dif x^2)$.
+
+$
+                    E(x, t) & = E_0 sin(k x - omega t) \
+      (dif E(x, y))/(dif x) & = E_0 k cos(k x - omega t) \
+  (dif^2 E(x, y))/(dif x^2) & = -E_0 k^2 sin(k x - omega t) \
+$
+
+== Use this to come up with an expression for $epsilon_0 mu_0$ in terms of $omega$ and $k$.
+
+$
+                    E(x, t) & = E_0 sin(k x - omega t) \
+      (dif E(x, y))/(dif t) & = -E_0 omega cos(k x - omega t) \
+  (dif^2 E(x, y))/(dif t^2) & = -E_0 omega^2 sin(k x - omega t) \
+$
+
+$
+    (dif^2 E(x, t))/(dif x^2) & = epsilon_0 mu_0 (dif^2 E)/(dif t^2) \
+  -E_0 k^2 sin(k x - omega t) & = epsilon_0 mu_0 -E_0 omega^2 sin(k x - omega t) \
+                          k^2 & = epsilon_0 mu_0 omega^2 \
+               epsilon_0 mu_0 & = k^2/ omega^2 \
+$
+
+=
+A Hydrogen atom consisting of a single proton and electron undergoes a transition from the $n=4$ state to the ground state, releasing a photon in the process.
+
+== What is the energy of the released photon?
+
+$
+      E_n & = -13.6 "eV" Z^2/n^2 \
+      E_4 & = -13.6 "eV" 1/4^2 = -0.85 "eV" \
+      E_1 & = -13.6 "eV" \
+  Delta E & = -0.85 - (-13.6) \
+          & = 12.75 "eV"
+$
+
+== What is the wavelength of the photon?
+
+$
+       E & = (h c)/lambda \
+  lambda & = (h c)/E \
+         & = 9.731952706176104ee(-8) "m"
+$
+
+== Releasing this photon causes this hydrogen atom to recoil. If the hydrogen atom was initially at rest what is its speed after releasing the photon?
+
+$
+  lambda & = h/p \
+       p & = h/lambda \
+     m v & = h/lambda \
+       v & = h/(m lambda) \
+         & = (6.626ee(-34))/((9.11ee(-31) + 1.673ee(-27)) times 9.732ee(-8)) \
+         & = 4.067420549838073 "ms"^(-1)
+$
