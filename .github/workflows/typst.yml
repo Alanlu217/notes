@@ -23,14 +23,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Just
-        uses: extractions/setup-just@v3
-
       - name: Install Typst
         uses: typst-community/setup-typst@v4
 
       - name: Build site
-        run: just site
+        run: make site
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
